@@ -37,6 +37,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/randomcolor": "^0.5.4",
     "autoprefixer": "^9.7.6",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
@@ -61,6 +63,7 @@
     "babel-plugin-styled-components": "^1.10.7",
     "babel-preset-gatsby": "^0.2.29",
     "cheerio": "^1.0.0-rc.3",
+    "classnames": "^2.2.6",
     "cssnano": "^4.1.10",
     "disqus-react": "^1.0.8",
     "gatsby-awesome-pagination": "^0.3.5",
@@ -87,6 +90,7 @@
     "lodash": "^4.17.15",
     "node-sass": "^4.13.1",
     "prismjs": "^1.19.0",
+    "randomcolor": "^0.5.4",
     "react-helmet": "^5.2.1",
     "styled-components": "^5.0.1"
   }

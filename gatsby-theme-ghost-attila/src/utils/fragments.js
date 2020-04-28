@@ -50,7 +50,7 @@ export const ghostSettingsFields = graphql`
 `;
 
 export const allGhostPostsDescription = graphql`
-  fragment allGhostPostsDescription on GhostPostEdge {
+  fragment AllGhostPostsDescription on GhostPostEdge {
     node {
       title
       excerpt
@@ -64,6 +64,7 @@ export const allGhostPostsDescription = graphql`
         slug
       }
       reading_time
+      feature_image
     }
   }
 `;

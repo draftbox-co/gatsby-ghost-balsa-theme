@@ -1,116 +1,116 @@
 // const _ = require(`lodash`);
-// const { paginate } = require(`gatsby-awesome-pagination`);
-// const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
+const { paginate } = require(`gatsby-awesome-pagination`);
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
 // /**
 //  * Here is the place where Gatsby creates the URLs for all the
 //  * posts, tags, pages and authors that we fetched from the Ghost site.
 //  */
 
-// exports.onCreateNode = async ({
-//   node,
-//   actions,
-//   store,
-//   createNodeId,
-//   cache
-// }) => {
-//   // Check that we are modifying right node types.
-//   const nodeTypes = [`GhostPost`, `GhostPage`];
-//   if (!nodeTypes.includes(node.internal.type)) {
-//     return;
-//   }
+exports.onCreateNode = async ({
+  node,
+  actions,
+  store,
+  createNodeId,
+  cache
+}) => {
+  // Check that we are modifying right node types.
+  const nodeTypes = [`GhostPost`, `GhostPage`];
+  if (!nodeTypes.includes(node.internal.type)) {
+    return;
+  }
 
-//   const { createNode } = actions;
+  const { createNode } = actions;
 
-//   // Download image and create a File node with gatsby-transformer-sharp.
-//   if (node.feature_image) {
-//     const fileNode = await createRemoteFileNode({
-//       url: node.feature_image,
-//       store,
-//       cache,
-//       createNode,
-//       parentNodeId: node.id,
-//       createNodeId
-//     });
+  // Download image and create a File node with gatsby-transformer-sharp.
+  if (node.feature_image) {
+    const fileNode = await createRemoteFileNode({
+      url: node.feature_image,
+      store,
+      cache,
+      createNode,
+      parentNodeId: node.id,
+      createNodeId
+    });
 
-//     if (fileNode) {
-//       // Link File node to GhostPost node at field image.
-//       node.localFeatureImage___NODE = fileNode.id;
-//     }
-//   }
-// };
+    if (fileNode) {
+      // Link File node to GhostPost node at field image.
+      node.localFeatureImage___NODE = fileNode.id;
+    }
+  }
+};
 
-// exports.createPages = async ({ graphql, actions }) => {
-//   const { createPage } = actions;
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
 
-//   const result = await graphql(`
-//     {
-//       allGhostPost(
-//         sort: { order: ASC, fields: published_at }
-//         filter: { slug: { ne: "data-schema" } }
-//       ) {
-//         edges {
-//           node {
-//             slug
-//             primary_tag {
-//               slug
-//             }
-//           }
-//         }
-//       }
-//       allGhostTag(sort: { order: ASC, fields: name }) {
-//         edges {
-//           node {
-//             slug
-//             url
-//             postCount
-//           }
-//         }
-//       }
-//       allGhostAuthor(sort: { order: ASC, fields: name }) {
-//         edges {
-//           node {
-//             slug
-//             url
-//             postCount
-//           }
-//         }
-//       }
-//       allGhostPage(sort: { order: ASC, fields: published_at }) {
-//         edges {
-//           node {
-//             slug
-//             url
-//           }
-//         }
-//       }
-//       site {
-//         siteMetadata {
-//           postsPerPage
-//         }
-//       }
+  const result = await graphql(`
+    {
+      allGhostPost(
+        sort: { order: ASC, fields: published_at }
+        filter: { slug: { ne: "data-schema" } }
+      ) {
+        edges {
+          node {
+            slug
+            primary_tag {
+              slug
+            }
+          }
+        }
+      }
+      allGhostTag(sort: { order: ASC, fields: name }) {
+        edges {
+          node {
+            slug
+            url
+            postCount
+          }
+        }
+      }
+      allGhostAuthor(sort: { order: ASC, fields: name }) {
+        edges {
+          node {
+            slug
+            url
+            postCount
+          }
+        }
+      }
+      allGhostPage(sort: { order: ASC, fields: published_at }) {
+        edges {
+          node {
+            slug
+            url
+          }
+        }
+      }
+      site {
+        siteMetadata {
+          postsPerPage
+        }
+      }
 
-//       ghostSettings {
-//         title
-//       }
-//     }
-//   `);
+      ghostSettings {
+        title
+      }
+    }
+  `);
 
-//   // Check for any errors
-//   if (result.errors) {
-//     throw new Error(result.errors);
-//   }
+  // Check for any errors
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
 
-//   // Extract query results
-//   const tags = result.data.allGhostTag.edges;
-//   const authors = result.data.allGhostAuthor.edges;
-//   const pages = result.data.allGhostPage.edges;
-//   const posts = result.data.allGhostPost.edges;
-//   const postsPerPage = result.data.site.siteMetadata.postsPerPage;
-//   const websiteTitle = result.data.ghostSettings.title;
+  // Extract query results
+  const tags = result.data.allGhostTag.edges;
+  const authors = result.data.allGhostAuthor.edges;
+  const pages = result.data.allGhostPage.edges;
+  const posts = result.data.allGhostPost.edges;
+  const postsPerPage = result.data.site.siteMetadata.postsPerPage;
+  const websiteTitle = result.data.ghostSettings.title;
 
-//   // Load templates
-//   const indexTemplate = require.resolve(`./src/templates/indexTemplate.jsx`);
+  // Load templates
+  const indexTemplate = require.resolve(`./src/templates/indexTemplate.tsx`);
 //   const postTemplate = require.resolve("./src/templates/postTemplate.jsx");
 //   const tagsTemplate = require.resolve(`./src/templates/tagsTemplate.jsx`);
 //   const authorTemplate = require.resolve(`./src/templates/authorTemplate.jsx`);
@@ -119,7 +119,7 @@
 //     `./src/templates/postTemplate.amp.jsx`
 //   );
 
-//   // Create author pages
+  // Create author pages
 //   authors.forEach(({ node }) => {
 //     const totalPosts = node.postCount !== null ? node.postCount : 0;
 //     const numberOfPages = Math.ceil(totalPosts / postsPerPage);
@@ -243,18 +243,18 @@
 //       });
 //     });
 
-//   // Create pagination
-//   paginate({
-//     createPage,
-//     items: posts,
-//     itemsPerPage: postsPerPage,
-//     component: indexTemplate,
-//     pathPrefix: ({ pageNumber }) => {
-//       if (pageNumber === 0) {
-//         return `/`;
-//       } else {
-//         return `/page`;
-//       }
-//     }
-//   });
-// };
+  // Create pagination
+  paginate({
+    createPage,
+    items: posts,
+    itemsPerPage: 4,
+    component: indexTemplate,
+    pathPrefix: ({ pageNumber }) => {
+      if (pageNumber === 0) {
+        return `/`;
+      } else {
+        return `/page`;
+      }
+    }
+  });
+};
