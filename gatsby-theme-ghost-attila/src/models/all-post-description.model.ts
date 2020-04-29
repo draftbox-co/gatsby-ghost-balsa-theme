@@ -16,6 +16,7 @@ export interface Node {
   tags: Tag[];
   reading_time?: number;
   feature_image: any;
+  slug: string;
 }
 
 export interface Edge {

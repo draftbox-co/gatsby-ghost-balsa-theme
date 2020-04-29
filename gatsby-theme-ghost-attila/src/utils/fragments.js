@@ -54,7 +54,8 @@ export const allGhostPostsDescription = graphql`
     node {
       title
       excerpt
-      updated_at(formatString: "DD MMMM YYYY")
+      slug
+      updated_at(formatString: "DD MMMM")
       primary_author {
         name
         slug
@@ -65,6 +66,34 @@ export const allGhostPostsDescription = graphql`
       }
       reading_time
       feature_image
+    }
+  }
+`;
+
+export const ghostPostDescription = graphql`
+  fragment GhostPostDetails on GhostPost {
+    og_title
+    og_description
+    feature_image
+    excerpt
+    twitter_title
+    twitter_description
+    meta_title
+    meta_description
+    tags {
+      name
+      slug
+      visibility
+    }
+    primary_author {
+      name
+      slug
+    }
+    published_at(formatString: "DD MMMM YYYY")
+    updated_at(formatString: "DD MMMM YYYY")
+    slug
+    childHtmlRehype {
+      html
     }
   }
 `;

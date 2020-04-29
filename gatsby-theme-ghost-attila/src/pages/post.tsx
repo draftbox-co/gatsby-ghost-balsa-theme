@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import "../styles/richtext.css";
 import CtaMini from "../components/CtaMini";
+import Footer from "../components/Footer";
 
 const Post = () => {
   return (
@@ -39,6 +40,7 @@ const Post = () => {
       </div>
       <div className="spacer my-8"></div>
       <CtaMini />
+      <Footer />
     </Layout>
   );
 };

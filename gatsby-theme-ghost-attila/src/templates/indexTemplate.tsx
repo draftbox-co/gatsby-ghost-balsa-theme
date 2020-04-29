@@ -7,21 +7,31 @@ import randomColor from "randomcolor";
 import { PaginationContext } from "../models/pagination.model";
 import { Link } from "gatsby";
 import classNames from "classnames";
+import { MetaData } from "../components/meta";
 
 type IndexPageProps = {
   data: {
     allGhostPost: AllGhostPostDescription;
+    ghostSettings: {
+      title: string;
+      description: string;
+    };
   };
+  location: any;
   pageContext?: PaginationContext;
 };
 
 const IndexPage: React.FC<IndexPageProps> = ({
-  data: { allGhostPost },
+  data,
+  location,
   pageContext,
 }) => {
+  const { allGhostPost, ghostSettings } = data;
+
   return (
     <div>
       <Layout>
+        <MetaData data={data} location={location} />
         <section
           className="text-center bg-cover"
           style={{
@@ -33,12 +43,10 @@ const IndexPage: React.FC<IndexPageProps> = ({
             <div className="absolute bg-black opacity-50 inset-0" />
             <div className="z-10 max-w-2xl mx-auto px-4">
               <h1 className="mb-4 text-4xl leading-tight font-semibold font-heading text-white">
-                The Dunder Mifflin Blog
+                {ghostSettings.title}
               </h1>
               <p className="text-2xl leading-tight font-light text-white">
-                The official voice of Dunder Mifflin branch in Scranton. It's a
-                place for us to talk about news, product, community, businesses
-                and more at Dunder Mifflin.
+                {ghostSettings.description}
               </p>
             </div>
           </div>
@@ -52,7 +60,8 @@ const IndexPage: React.FC<IndexPageProps> = ({
                   ? node.excerpt.split(" ").slice(0, 30).join(" ") + "..."
                   : node.excerpt;
               return (
-                <div
+                <Link
+                  to={`/${node.slug}`}
                   key={i}
                   className="w-full lg:w-1/3 px-4 mb-8 cursor-pointer"
                 >
@@ -120,7 +129,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
                       )}
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -174,6 +183,11 @@ export const indexPageQuery = graphql`
       edges {
         ...AllGhostPostsDescription
       }
+    }
+
+    ghostSettings {
+      title
+      description
     }
   }
 `;

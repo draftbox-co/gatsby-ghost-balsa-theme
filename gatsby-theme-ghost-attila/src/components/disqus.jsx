@@ -1,6 +1,6 @@
 import React from "react";
 
-const Disqus = () => {
+const Disqus = ({ slug, title }) => {
   return <></>;
 };
 
