@@ -66,6 +66,13 @@ export const allGhostPostsDescription = graphql`
       }
       reading_time
       feature_image
+      localFeatureImage {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   }
 `;

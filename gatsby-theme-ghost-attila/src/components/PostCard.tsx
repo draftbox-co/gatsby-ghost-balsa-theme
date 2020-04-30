@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import randomColor from "randomcolor";
 import { GhostPostDescription } from "../models/all-post-description.model";
+import Img from "gatsby-image";
 
 type PostCardTypes = {
   post: GhostPostDescription;
@@ -19,11 +20,13 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
     >
       <div className="h-full rounded shadow-md flex flex-col justify-between">
         <div>
-          {post.feature_image && (
-            <img
-              className="mb-4 h-48 w-full object-cover rounded-t"
-              src={post.feature_image}
-            />
+          {post.localFeatureImage && (
+            // <img
+            //   className="mb-4 h-48 w-full object-cover rounded-t"
+            //   src={post.feature_image}
+            // />
+
+            <Img className="mb-4 h-48 w-full object-cover rounded-t" fluid={post.localFeatureImage.childImageSharp.fluid}/>
           )}
           {!post.feature_image && (
             <div

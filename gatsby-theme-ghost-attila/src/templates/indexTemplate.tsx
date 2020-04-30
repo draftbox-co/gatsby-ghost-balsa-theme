@@ -14,6 +14,7 @@ type IndexPageProps = {
     ghostSettings: {
       title: string;
       description: string;
+      cover_image: string;
     };
   };
   location: any;
@@ -33,8 +34,11 @@ const IndexPage: React.FC<IndexPageProps> = ({
       <section
         className="text-center bg-cover"
         style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80)",
+          backgroundImage: `url(${
+            ghostSettings.cover_image
+              ? ghostSettings.cover_image
+              : "https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80"
+          })`,
         }}
       >
         <div className="relative flex items-center py-32">
@@ -83,6 +87,7 @@ export const indexPageQuery = graphql`
     ghostSettings {
       title
       description
+      cover_image
     }
   }
 `;

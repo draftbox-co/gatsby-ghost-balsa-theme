@@ -16,6 +16,11 @@ export interface GhostPostDescription {
   tags: Tag[];
   reading_time: number;
   feature_image: any;
+  localFeatureImage: {
+    childImageSharp: {
+      fluid: any;
+    };
+  };
   slug: string;
 }
 
