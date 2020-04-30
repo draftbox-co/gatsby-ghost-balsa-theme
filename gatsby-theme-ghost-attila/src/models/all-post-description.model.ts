@@ -8,20 +8,20 @@ export interface Tag {
   slug: string;
 }
 
-export interface Node {
+export interface GhostPostDescription {
   title: string;
   excerpt: string;
   updated_at: string;
   primary_author: PrimaryAuthor;
   tags: Tag[];
-  reading_time?: number;
+  reading_time: number;
   feature_image: any;
   slug: string;
 }
 
 export interface Edge {
   __typename: string;
-  node: Node;
+  node: GhostPostDescription;
 }
 
 export interface AllGhostPostDescription {

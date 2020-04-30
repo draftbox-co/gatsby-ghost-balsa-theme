@@ -1,19 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
+import classNames from "classnames";
+import { Link, graphql, useStaticQuery } from "gatsby";
+import { SettingsAndSlugs } from "../models/settings-and-page-slugs.model";
 
-const Navbar = () => {
+type NavbarSettings = {
+  ghostSettings: {
+    title: string;
+  };
+};
+
+type AllGhostPages = {
+  allGhostPage: {
+    edges: { node: { slug: string } }[];
+  };
+};
+
+type NavbarProps = {
+  navbarData: SettingsAndSlugs;
+};
+
+const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
+  const {
+    ghostSettings: { title },
+    allGhostPage,
+  } = navbarData;
+
+  const [isMenuToggled, setIsMenuToggled] = useState(false);
+
   return (
     <nav className="flex flex-wrap items-center justify-between p-4 container mx-auto">
       <div className="flex flex-shrink-0 mr-6">
-        <a
+        <Link
           className="text-2xl text-indigo-500 font-semibold font-serif"
-          href="/index.html"
+          to="/"
         >
-          Dunder Mifflin
-        </a>
+          {title}
+        </Link>
       </div>
       <div className="block lg:hidden">
         {" "}
-        <button className="navbar-burger flex items-center py-2 px-3 text-indigo-500 rounded border border-indigo-500">
+        <button
+          onClick={(e) => setIsMenuToggled(!isMenuToggled)}
+          className="navbar-burger flex items-center py-2 px-3 text-indigo-500 rounded border border-indigo-500"
+        >
           <svg
             className="fill-current h-3 w-3"
             viewBox="0 0 20 20"
@@ -24,46 +53,49 @@ const Navbar = () => {
           </svg>
         </button>{" "}
       </div>
-      <div className="navbar-menu hidden lg:flex lg:flex-grow lg:items-center w-full lg:w-auto">
-        <div className="lg:mx-auto">
-          {" "}
-          <a
+      <div
+        className={classNames(
+          "navbar-menu lg:flex lg:flex-grow lg:items-center lg:justify-end w-full lg:w-auto",
+          { hidden: !isMenuToggled }
+        )}
+      >
+        <div>
+          <Link
             className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
-            href="#"
+            to="/"
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
-            href="#"
+            to="/tags"
           >
-            Tag
-          </a>
-          <a
+            Tags
+          </Link>
+
+          <Link
             className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
-            href="#"
+            to="/authors"
           >
-            Author
-          </a>
-          <a
+            Authors
+          </Link>
+          <Link
             className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
-            href="#"
+            to="/contact"
           >
-            Community
-          </a>
-          <a
-            className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
-            href="#"
-          >
-            News
-          </a>
-        </div>
-        <div>
-          <input
-            className="block lg:inline-block mt-4 lg:mt-0 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-700"
-            type="text"
-            placeholder="Search"
-          />
+            Contact Us
+          </Link>
+          {allGhostPage.edges.map(({ node }, i) => {
+            return (
+              <Link
+                key={i}
+                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
+                to={`/${node.slug}`}
+              >
+                {node.slug}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </nav>

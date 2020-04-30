@@ -112,55 +112,55 @@ exports.createPages = async ({ graphql, actions }) => {
   // Load templates
   const indexTemplate = require.resolve(`./src/templates/indexTemplate.tsx`);
   const postTemplate = require.resolve("./src/templates/postTemplate.tsx");
-  //   const tagsTemplate = require.resolve(`./src/templates/tagsTemplate.jsx`);
-  //   const authorTemplate = require.resolve(`./src/templates/authorTemplate.jsx`);
-  //   const pageTemplate = require.resolve(`./src/templates/pageTemplate.jsx`);
+  const tagsTemplate = require.resolve(`./src/templates/tagTemplate.tsx`);
+  const authorTemplate = require.resolve(`./src/templates/authorTemplate.tsx`);
+  const pageTemplate = require.resolve(`./src/templates/pageTemplate.tsx`);
   const postAmpTemplate = require.resolve(
     `./src/templates/postTemplate.amp.tsx`
   );
 
   // Create author pages
-  //   authors.forEach(({ node }) => {
-  //     const totalPosts = node.postCount !== null ? node.postCount : 0;
-  //     const numberOfPages = Math.ceil(totalPosts / postsPerPage);
+  authors.forEach(({ node }) => {
+    const totalPosts = node.postCount !== null ? node.postCount : 0;
+    const numberOfPages = Math.ceil(totalPosts / postsPerPage);
 
-  //     // This part here defines, that our author pages will use
-  //     // a `/author/:slug/` permalink.
-  //     node.url = `/author/${node.slug}/`;
+    // This part here defines, that our author pages will use
+    // a `/author/:slug/` permalink.
+    node.url = `/author/${node.slug}/`;
 
-  //     Array.from({ length: numberOfPages }).forEach((_, i) => {
-  //       const currentPage = i + 1;
-  //       const prevPageNumber = currentPage <= 1 ? null : currentPage - 1;
-  //       const nextPageNumber =
-  //         currentPage + 1 > numberOfPages ? null : currentPage + 1;
-  //       const previousPagePath = prevPageNumber
-  //         ? prevPageNumber === 1
-  //           ? node.url
-  //           : `${node.url}page/${prevPageNumber}/`
-  //         : null;
-  //       const nextPagePath = nextPageNumber
-  //         ? `${node.url}page/${nextPageNumber}/`
-  //         : null;
+    Array.from({ length: numberOfPages }).forEach((_, i) => {
+      const currentPage = i + 1;
+      const prevPageNumber = currentPage <= 1 ? null : currentPage - 1;
+      const nextPageNumber =
+        currentPage + 1 > numberOfPages ? null : currentPage + 1;
+      const previousPagePath = prevPageNumber
+        ? prevPageNumber === 1
+          ? node.url
+          : `${node.url}page/${prevPageNumber}/`
+        : null;
+      const nextPagePath = nextPageNumber
+        ? `${node.url}page/${nextPageNumber}/`
+        : null;
 
-  //       createPage({
-  //         path: i === 0 ? node.url : `${node.url}page/${i + 1}/`,
-  //         component: authorTemplate,
-  //         context: {
-  //           // Data passed to context is available
-  //           // in page queries as GraphQL variables.
-  //           slug: node.slug,
-  //           limit: postsPerPage,
-  //           skip: i * postsPerPage,
-  //           numberOfPages: numberOfPages,
-  //           humanPageNumber: currentPage,
-  //           prevPageNumber: prevPageNumber,
-  //           nextPageNumber: nextPageNumber,
-  //           previousPagePath: previousPagePath,
-  //           nextPagePath: nextPagePath
-  //         }
-  //       });
-  //     });
-  //   });
+      createPage({
+        path: i === 0 ? node.url : `${node.url}page/${i + 1}/`,
+        component: authorTemplate,
+        context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
+          slug: node.slug,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numberOfPages: numberOfPages,
+          humanPageNumber: currentPage,
+          prevPageNumber: prevPageNumber,
+          nextPageNumber: nextPageNumber,
+          previousPagePath: previousPagePath,
+          nextPagePath: nextPagePath,
+        },
+      });
+    });
+  });
 
   //   // Create pages
 
@@ -186,62 +186,62 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  //   tags.forEach(({ node }, i) => {
-  //     const totalPosts = node.postCount !== null ? node.postCount : 0;
-  //     const numberOfPages = Math.ceil(totalPosts / postsPerPage);
-  //     node.url = `/tag/${node.slug}/`;
+    tags.forEach(({ node }, i) => {
+      const totalPosts = node.postCount !== null ? node.postCount : 0;
+      const numberOfPages = Math.ceil(totalPosts / postsPerPage);
+      node.url = `/tag/${node.slug}/`;
 
-  //     Array.from({ length: numberOfPages }).forEach((_, i) => {
-  //       const currentPage = i + 1;
-  //       const prevPageNumber = currentPage <= 1 ? null : currentPage - 1;
-  //       const nextPageNumber =
-  //         currentPage + 1 > numberOfPages ? null : currentPage + 1;
-  //       const previousPagePath = prevPageNumber
-  //         ? prevPageNumber === 1
-  //           ? node.url
-  //           : `${node.url}page/${prevPageNumber}/`
-  //         : null;
-  //       const nextPagePath = nextPageNumber
-  //         ? `${node.url}page/${nextPageNumber}/`
-  //         : null;
+      Array.from({ length: numberOfPages }).forEach((_, i) => {
+        const currentPage = i + 1;
+        const prevPageNumber = currentPage <= 1 ? null : currentPage - 1;
+        const nextPageNumber =
+          currentPage + 1 > numberOfPages ? null : currentPage + 1;
+        const previousPagePath = prevPageNumber
+          ? prevPageNumber === 1
+            ? node.url
+            : `${node.url}page/${prevPageNumber}/`
+          : null;
+        const nextPagePath = nextPageNumber
+          ? `${node.url}page/${nextPageNumber}/`
+          : null;
 
-  //       createPage({
-  //         path: i === 0 ? node.url : `${node.url}page/${i + 1}/`,
-  //         component: tagsTemplate,
-  //         context: {
-  //           // Data passed to context is available
-  //           // in page queries as GraphQL variables.
-  //           slug: node.slug,
-  //           limit: postsPerPage,
-  //           skip: i * postsPerPage,
-  //           numberOfPages: numberOfPages,
-  //           humanPageNumber: currentPage,
-  //           prevPageNumber: prevPageNumber,
-  //           nextPageNumber: nextPageNumber,
-  //           previousPagePath: previousPagePath,
-  //           nextPagePath: nextPagePath
-  //         }
-  //       });
-  //     });
-  //   });
+        createPage({
+          path: i === 0 ? node.url : `${node.url}page/${i + 1}/`,
+          component: tagsTemplate,
+          context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            slug: node.slug,
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numberOfPages: numberOfPages,
+            humanPageNumber: currentPage,
+            prevPageNumber: prevPageNumber,
+            nextPageNumber: nextPageNumber,
+            previousPagePath: previousPagePath,
+            nextPagePath: nextPagePath
+          }
+        });
+      });
+    });
 
-  //   pages
-  //     .filter(({ node }) => !node.slug.startsWith("contact"))
-  //     .forEach(({ node }) => {
-  //       // This part here defines, that our pages will use
-  //       // a `/:slug/` permalink.
-  //       node.url = `/${node.slug}/`;
+  pages
+    .filter(({ node }) => !node.slug.startsWith("contact"))
+    .forEach(({ node }) => {
+      // This part here defines, that our pages will use
+      // a `/:slug/` permalink.
+      node.url = `/${node.slug}/`;
 
-  //       createPage({
-  //         path: node.url,
-  //         component: pageTemplate,
-  //         context: {
-  //           // Data passed to context is available
-  //           // in page queries as GraphQL variables.
-  //           slug: node.slug
-  //         }
-  //       });
-  //     });
+      createPage({
+        path: node.url,
+        component: pageTemplate,
+        context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
+          slug: node.slug,
+        },
+      });
+    });
 
   // Create pagination
   paginate({

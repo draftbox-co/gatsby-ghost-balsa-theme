@@ -72,6 +72,7 @@ export const allGhostPostsDescription = graphql`
 
 export const ghostPostDescription = graphql`
   fragment GhostPostDetails on GhostPost {
+    title
     og_title
     og_description
     feature_image
@@ -95,5 +96,62 @@ export const ghostPostDescription = graphql`
     childHtmlRehype {
       html
     }
+    localFeatureImage {
+      childImageSharp {
+        fluid(maxHeight: 360) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
+export const ghostPageDetails = graphql`
+  fragment GhostPageDetails on GhostPage {
+    title
+    og_title
+    og_description
+    feature_image
+    excerpt
+    twitter_title
+    twitter_description
+    meta_title
+    meta_description
+    tags {
+      name
+      slug
+      visibility
+    }
+    primary_author {
+      name
+      slug
+    }
+    published_at(formatString: "DD MMMM YYYY")
+    updated_at(formatString: "DD MMMM YYYY")
+    slug
+    childHtmlRehype {
+      html
+    }
+    localFeatureImage {
+      childImageSharp {
+        fluid(maxHeight: 360) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
+export const ghostAuthorDetails = graphql`
+  fragment GhostAuthorDetails on GhostAuthor {
+    facebook
+    cover_image
+    bio
+    slug
+    url
+    profile_image
+    twitter
+    website
+    name
   }
 `;
