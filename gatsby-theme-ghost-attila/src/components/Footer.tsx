@@ -1,6 +1,7 @@
 import React from "react";
 import { SettingsAndSlugs } from "../models/settings-and-page-slugs.model";
 import { Link } from "gatsby";
+import rssLogo from "../images/rss.svg";
 
 type FooterProps = {
   footerData: SettingsAndSlugs;
@@ -8,8 +9,10 @@ type FooterProps = {
 
 const Footer: React.FC<FooterProps> = ({ footerData }) => {
   const {
-    ghostSettings: { title },
-    allGhostPage,
+    ghostSettings: { title, navigation },
+    site: {
+      siteMetadata: { siteUrl },
+    },
   } = footerData;
   return (
     <footer className="bg-gray-100">
@@ -19,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
             {title}
           </a>
         </div>
-        <div className="w-full lg:w-3/5 mt-4 lg:mt-0 text-center">
+        <div className="w-full lg:w-4/5 mt-4 lg:mt-0 text-center lg:text-right">
           <Link
             className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
             to="/"
@@ -44,35 +47,39 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
           >
             Contact Us
           </Link>
-          {allGhostPage.edges.map(({ node }, i) => {
-            return (
+          {navigation.map(({ label, url }, i) => {
+            return url.startsWith("/") || url.startsWith(siteUrl) ? (
               <Link
+                key={i}
                 className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
-                to={`/${node.slug}`}
+                to={`${
+                  url.startsWith("/")
+                    ? "/" + url
+                    : "/" + url.slice(siteUrl.length, url.length)
+                }`}
               >
-                {node.slug}
+                {label}
               </Link>
+            ) : (
+              <a
+                href={url}
+                target="_blank"
+                className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
+              >
+                {label}
+              </a>
             );
           })}
         </div>
-        <div className="flex justify-center lg:justify-end w-full lg:w-1/5 my-2 lg:my-0">
-          <img
-            className="w-6 h-6"
-            src="placeholders/icons/message.svg"
-            alt=""
-          />
-          <img
-            className="w-6 h-6 mx-8"
-            src="placeholders/icons/share.svg"
-            alt=""
-          />
-          <img className="w-6 h-6" src="placeholders/icons/star.svg" alt="" />
-        </div>
       </div>
-      <div className="py-4 text-center">
-        <span className="block md:inline-block mb-4 md:mb-0 mx-3">
+      <div className="py-4 flex justify-center">
+        <span className="block md:inline-block md:mb-0">
           © {new Date().getFullYear()} {title}
         </span>
+        <span className="mx-2">&bull;</span>
+        <a href="/rss" className="flex items-center">
+          RSS <img className="ml-2 h-3" src={rssLogo} alt="" />{" "}
+        </a>
       </div>
     </footer>
   );

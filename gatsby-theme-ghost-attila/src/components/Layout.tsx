@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/style.css";
+import "../styles/prism.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { ArmadaFormsProvider } from "../context/form-context";
@@ -13,20 +14,21 @@ const Layout: React.FC = ({ children }) => {
     query {
       ghostSettings {
         title
+        navigation {
+          label
+          url
+        }
       }
-
-      allGhostPage(filter: { slug: { ne: "data-schema-page" } }) {
-        edges {
-          node {
-            slug
-          }
+      site {
+        siteMetadata {
+          siteUrl
         }
       }
     }
   `);
 
   return (
-    <ArmadaFormsProvider client="https://drafbox-backend-dev.herokuapp.com/api/project/5ea1575f8c9344001f9a89ff/forms">
+    <ArmadaFormsProvider client={process.env.GATSBY_FORM_URL}>
       <div>
         <Navbar navbarData={data} />
         <hr />

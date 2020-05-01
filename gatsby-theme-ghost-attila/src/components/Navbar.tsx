@@ -3,26 +3,16 @@ import classNames from "classnames";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { SettingsAndSlugs } from "../models/settings-and-page-slugs.model";
 
-type NavbarSettings = {
-  ghostSettings: {
-    title: string;
-  };
-};
-
-type AllGhostPages = {
-  allGhostPage: {
-    edges: { node: { slug: string } }[];
-  };
-};
-
 type NavbarProps = {
   navbarData: SettingsAndSlugs;
 };
 
 const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
   const {
-    ghostSettings: { title },
-    allGhostPage,
+    ghostSettings: { title, navigation },
+    site: {
+      siteMetadata: { siteUrl },
+    },
   } = navbarData;
 
   const [isMenuToggled, setIsMenuToggled] = useState(false);
@@ -85,15 +75,27 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
           >
             Contact Us
           </Link>
-          {allGhostPage.edges.map(({ node }, i) => {
-            return (
+          {navigation.map(({ label, url }, i) => {
+            return url.startsWith("/") || url.startsWith(siteUrl) ? (
               <Link
                 key={i}
                 className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
-                to={`/${node.slug}`}
+                to={`${
+                  url.startsWith("/")
+                    ? "/" + url
+                    : "/" + url.slice(siteUrl.length, url.length)
+                }`}
               >
-                {node.slug}
+                {label}
               </Link>
+            ) : (
+              <a
+                href={url}
+                target="_blank"
+                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
+              >
+                {label}
+              </a>
             );
           })}
         </div>

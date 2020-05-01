@@ -6,6 +6,7 @@ import CtaMini from "../components/CtaMini";
 import Img from "gatsby-image";
 import { MetaData } from "../components/meta";
 import Disqus from "../components/disqus";
+import '../styles/richtext.css';
 
 type PostTemplateProps = {
   data: GhostPostDescription;
@@ -24,7 +25,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           {ghostPost.title}
         </h1>
         <p className="text-center">
-          <span>{ghostPost.updated_at}</span>
+          <span>{ghostPost.updated_at}, by </span>
           <Link
             className="ml-1 text-blue-700 hover:underline"
             to={`/author/${ghostPost.primary_author.slug}`}
@@ -48,7 +49,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         dangerouslySetInnerHTML={{ __html: ghostPost.childHtmlRehype.html }}
         className="richtext max-w-3xl mx-4 lg:mx-auto font-serif text-gray-800"
       ></div>
-      <hr className="spacer my-8 container" />
+      <hr className="spacer my-8 container mx-auto" />
       <section className="max-w-3xl container mx-auto">
         <Disqus slug={ghostPost.slug} title={ghostPost.title} />
       </section>

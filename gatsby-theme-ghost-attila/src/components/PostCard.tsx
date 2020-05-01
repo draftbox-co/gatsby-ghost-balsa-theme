@@ -21,12 +21,10 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
       <div className="h-full rounded shadow-md flex flex-col justify-between">
         <div>
           {post.localFeatureImage && (
-            // <img
-            //   className="mb-4 h-48 w-full object-cover rounded-t"
-            //   src={post.feature_image}
-            // />
-
-            <Img className="mb-4 h-48 w-full object-cover rounded-t" fluid={post.localFeatureImage.childImageSharp.fluid}/>
+            <Img
+              className="mb-4 h-48 w-full object-cover rounded-t"
+              fluid={post.localFeatureImage.childImageSharp.fluid}
+            />
           )}
           {!post.feature_image && (
             <div
@@ -46,17 +44,17 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
             <div className="mb-4">
               <p className="text-sm text-gray-500">
                 {post.updated_at}
-                <span className="mx-2">•</span>
+                {post.tags.length > 0 && <span className="mx-2">•</span>}
                 <span className="text-gray-600">
                   {post.tags.map((tag, i) => {
                     return (
-                      <a
+                      <Link
+                        to={`tag/${tag.slug}`}
                         key={i}
                         className="no-underline hover:underline mr-2"
-                        href="/tag.html"
                       >
-                        {tag.name}
-                      </a>
+                        #{tag.name}
+                      </Link>
                     );
                   })}
                 </span>
@@ -69,12 +67,12 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
           </div>
         </div>
         <div className="my-4 flex justify-between px-6">
-          <a
+          <Link
+            to={`/author/${post.primary_author.slug}`}
             className="text-gray-600 no-underline hover:underline"
-            href="/author.html"
           >
             <small>{post.primary_author.name}</small>
-          </a>
+          </Link>
           {post.reading_time ? (
             <small className="text-gray-500">
               {post.reading_time} min read

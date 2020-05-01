@@ -1,8 +1,16 @@
+interface Navigation {
+  label: string;
+  url: string;
+}
+
 export interface SettingsAndSlugs {
   ghostSettings: {
     title: string;
+    navigation: Navigation[];
   };
-  allGhostPage: {
-    edges: { node: { slug: string } }[];
+  site: {
+    siteMetadata: {
+      siteUrl: string;
+    };
   };
 }

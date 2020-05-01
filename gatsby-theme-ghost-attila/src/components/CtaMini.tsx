@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import { useForm } from "../hook/useForm";
 import checkMark from "../images/check.svg";
+import { useStaticQuery, graphql } from "gatsby";
 
 const CtaMini = () => {
+  const {
+    ghostSettings: { title },
+  } = useStaticQuery(graphql`
+    query {
+      ghostSettings {
+        title
+      }
+    }
+  `);
   const [{ handleSubmit, submitForm, submitting, succeeded }] = useForm(
     "subscribe"
   );
@@ -22,7 +32,7 @@ const CtaMini = () => {
             <div className="px-12 py-6 mb-8 lg:mb-0 text-center bg-green-200 text-green-900 mx-auto rounded">
               <h2 className="text-2xl font-heading text-center flex items-center">
                 <img className="mr-2 h-6 mt-1" src={checkMark} alt="" />
-                You've successfully subscribed to Dunder Mifflin.{" "}
+                You've successfully subscribed to {title}.{" "}
               </h2>
             </div>
           </div>
@@ -32,7 +42,7 @@ const CtaMini = () => {
         <section className="px-4 py-12 bg-gray-200">
           <div className="w-full max-w-2xl mx-auto text-center">
             <h2 className="text-5xl mt-4 mb-8 leading-tight font-heading">
-              Subscribe to Dunder Mifflin
+              Subscribe to {title}
             </h2>
             <form
               onSubmit={(e) => onSubmit(e)}
@@ -40,12 +50,14 @@ const CtaMini = () => {
             >
               <div className="flex flex-wrap mb-4">
                 <div className="w-full md:w-2/3 mb-4">
+                  <label className="hidden" htmlFor="email"></label>
                   <input
+                    id="email"
                     onChange={(e: any) => setEmail(e.target.value)}
                     className="appearance-none block w-full py-3 px-4 leading-snug text-gray-700 bg-white focus:bg-white border border-white focus:border-gray-500 rounded md:rounded-r-none focus:outline-none"
                     type="email"
                     required
-                    placeholder="michael@dundermifflin.com"
+                    placeholder="hello@example.com"
                   />
                 </div>
                 <div className="w-full md:w-1/3">
