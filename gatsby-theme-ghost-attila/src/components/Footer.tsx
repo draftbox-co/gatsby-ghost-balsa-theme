@@ -23,7 +23,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
           </a>
         </div>
         <div className="w-full lg:w-4/5 mt-4 lg:mt-0 text-center lg:text-right">
-          <Link
+          {/* <Link
             className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
             to="/"
           >
@@ -46,7 +46,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
             to="/contact"
           >
             Contact Us
-          </Link>
+          </Link> */}
           {navigation.map(({ label, url }, i) => {
             return url.startsWith("/") || url.startsWith(siteUrl) ? (
               <Link

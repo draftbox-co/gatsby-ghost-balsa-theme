@@ -50,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
         )}
       >
         <div>
-          <Link
+          {/* <Link
             className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
             to="/"
           >
@@ -74,7 +74,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
             to="/contact"
           >
             Contact Us
-          </Link>
+          </Link> */}
           {navigation.map(({ label, url }, i) => {
             return url.startsWith("/") || url.startsWith(siteUrl) ? (
               <Link
