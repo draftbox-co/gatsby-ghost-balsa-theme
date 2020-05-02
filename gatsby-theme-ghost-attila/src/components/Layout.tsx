@@ -18,6 +18,8 @@ const Layout: React.FC = ({ children }) => {
           label
           url
         }
+        twitter
+        facebook
       }
       site {
         siteMetadata {

@@ -7,6 +7,8 @@ export interface SettingsAndSlugs {
   ghostSettings: {
     title: string;
     navigation: Navigation[];
+    facebook: string;
+    twitter: string;
   };
   site: {
     siteMetadata: {
