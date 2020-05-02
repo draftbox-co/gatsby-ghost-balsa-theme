@@ -50,7 +50,7 @@ const CtaMini = () => {
             >
               <div className="flex flex-wrap mb-4">
                 <div className="w-full md:w-2/3 mb-4">
-                  <label className="hidden" htmlFor="email"></label>
+                  <label className="hidden" htmlFor="email">Email</label>
                   <input
                     id="email"
                     onChange={(e: any) => setEmail(e.target.value)}

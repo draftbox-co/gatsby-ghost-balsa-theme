@@ -54,8 +54,8 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
                 className="inline-block mx-4 mb-4 lg:mb-0 text-blue-900 hover:text-blue-700"
                 to={`${
                   url.startsWith("/")
-                    ? "/" + url
-                    : "/" + url.slice(siteUrl.length, url.length)
+                    ? url
+                    : url.slice(siteUrl.length, url.length)
                 }`}
               >
                 {label}

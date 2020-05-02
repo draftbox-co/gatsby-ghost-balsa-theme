@@ -82,8 +82,8 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
                 className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
                 to={`${
                   url.startsWith("/")
-                    ? "/" + url
-                    : "/" + url.slice(siteUrl.length, url.length)
+                    ? url
+                    : url.slice(siteUrl.length, url.length)
                 }`}
               >
                 {label}
