@@ -33,7 +33,7 @@ const AuthorTemplate: React.FC<AuthorTemplateProps> = ({
           <div className="absolute bg-black opacity-50 inset-0"></div>
           <div className="z-10 max-w-2xl mx-auto px-4">
             <img
-              className="w-1/5 mx-auto mb-4 rounded-full"
+              className="w-16 mx-auto mb-4 rounded-full"
               src={
                 ghostAuthor.profile_image
                   ? ghostAuthor.profile_image
@@ -49,8 +49,7 @@ const AuthorTemplate: React.FC<AuthorTemplateProps> = ({
             </span> */}
             {ghostAuthor.bio && (
               <p className="mt-4 text-gray-100 leading-relaxed">
-                Started as a Sales representative at Stamford branch, moved to
-                Scranton. All of us left as soon as possible except for Andy.
+                {ghostAuthor.bio}
               </p>
             )}
           </div>

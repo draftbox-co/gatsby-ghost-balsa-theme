@@ -1,8 +1,22 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import { MetaData } from "../components/meta";
+import { GhostPostDescription } from "../models/post-description.model";
 
-const PostTemplate = ({ data, location, pageContext }) => {
+type PostTemplateProps = {
+  data: GhostPostDescription;
+  location: any;
+  pageContext: {
+    title: string;
+    amp: boolean;
+  };
+};
+
+const PostTemplate: React.FC<PostTemplateProps> = ({
+  data,
+  location,
+  pageContext,
+}) => {
   return (
     <>
       <MetaData
@@ -42,7 +56,9 @@ const PostTemplate = ({ data, location, pageContext }) => {
           )}
           <section
             className="post-content"
-            dangerouslySetInnerHTML={{ __html: data.ghostPost.html }}
+            dangerouslySetInnerHTML={{
+              __html: data.ghostPost.childHtmlRehype.html,
+            }}
           ></section>
         </article>
       </main>
@@ -54,7 +70,9 @@ export const pageQuery = graphql`
   query($slug: String!) {
     ghostPost(slug: { eq: $slug }) {
       title
-      html
+      childHtmlRehype {
+        html
+      }
       primary_tag {
         name
         slug
