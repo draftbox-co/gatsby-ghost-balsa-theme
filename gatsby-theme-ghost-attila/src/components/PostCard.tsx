@@ -13,13 +13,13 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
       ? post.excerpt.split(" ").slice(0, 30).join(" ") + "..."
       : post.excerpt;
 
-  const navigateToPost = (e: any, slug) => {
+  const handleNavigation = (e: any, slug) => {
     e.stopPropagation();
     navigate(slug);
   };
   return (
     <div
-      onClick={(e) => navigateToPost(e, `/${post.slug}`)}
+      onClick={(e) => handleNavigation(e, `/${post.slug}`)}
       className="w-full lg:w-1/3 px-4 mb-8 cursor-pointer"
     >
       <div className="h-full rounded shadow-md flex flex-col justify-between">
@@ -50,7 +50,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
                   {post.tags.map((tag, i) => {
                     return (
                       <a
-                        onClick={(e) => navigateToPost(e, `tag/${tag.slug}`)}
+                        onClick={(e) => handleNavigation(e, `tag/${tag.slug}`)}
                         key={i}
                         className="no-underline hover:underline mr-2"
                       >
@@ -70,7 +70,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
         <div className="my-4 flex justify-between px-6">
           <a
             onClick={(e) =>
-              navigateToPost(e, `/author/${post.primary_author.slug}`)
+              handleNavigation(e,`/author/${post.primary_author.slug}`)
             }
             className="text-gray-600 no-underline hover:underline"
           >
