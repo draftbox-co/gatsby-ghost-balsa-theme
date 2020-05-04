@@ -6,8 +6,8 @@ import { AllGhostPostDescription } from "../models/all-post-description.model";
 import PostCard from "../components/PostCard";
 import Pagination from "../components/Pagination";
 import CtaBig from "../components/CtaBig";
-import randomColor from "randomcolor";
 import { MetaData } from "../components/meta";
+import classNames from "classnames";
 
 interface GhostTagDescription {
   description: string;
@@ -38,13 +38,18 @@ const TagTemplate: React.FC<TagTemplateProps> = ({
       <section
         className="text-center bg-cover"
         style={{
-          background: ghostTag.feature_image
+          backgroundImage: ghostTag.feature_image
             ? ghostTag.feature_image
-            : randomColor({ luminosity: "dark" }),
+            : "none",
         }}
       >
         <div className="relative flex items-center py-32">
-          <div className="absolute bg-black opacity-50 inset-0" />
+          <div
+            className={classNames("absolute inset-0", {
+              "bg-black opacity-50": ghostTag.feature_image,
+              "bg-blue-900": !ghostTag.feature_image,
+            })}
+          />
           <div className="z-10 max-w-2xl mx-auto px-4">
             <h3 className="text-3xl font-semibold font-heading text-white capitalize">
               {ghostTag.name}

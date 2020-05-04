@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import randomColor from "randomcolor";
 import { GhostPostDescription } from "../models/all-post-description.model";
 import Img from "gatsby-image";
 
@@ -28,11 +27,8 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
           )}
           {!post.feature_image && (
             <div
-              className="flex justify-center items-center text-white font-black mb-4 h-48 w-full object-cover rounded-t"
+              className="flex justify-center items-center bg-blue-500 text-white font-black mb-4 h-48 w-full object-cover rounded-t"
               style={{
-                backgroundColor: randomColor({
-                  luminosity: "light",
-                }),
                 fontSize: "6rem",
               }}
             >

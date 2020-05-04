@@ -54,7 +54,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
         {/* social Icons */}
         <div className="flex justify-center lg:justify-end w-full lg:w-1/5 my-2 lg:my-0">
           {facebook && (
-            <a href={`https://facebook.com/${facebook}`} target="_blank">
+            <a rel="noreferrer noopener" href={`https://facebook.com/${facebook}`} target="_blank">
               <img
                 className="w-4 h-4 mr-4"
                 src={facebookLogo}
@@ -64,7 +64,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
           )}
 
           {twitter && (
-            <a href={`https://twitter.com/${twitter}`} target="_blank">
+            <a rel="noreferrer noopener" href={`https://twitter.com/${twitter}`} target="_blank">
               <img
                 className="w-4 h-4 mr-4"
                 src={twitterLogo}
@@ -75,8 +75,14 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
         </div>
       </div>
       <div className="py-4 flex flex-col items-center justify-center">
-        
-        <p className="text-blue-500 uppercase">Published with DraftBox</p>
+        <a
+          className="text-blue-500 uppercase"
+          href="https://dropbox.co"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          Published with DraftBox
+        </a>
       </div>
     </footer>
   );

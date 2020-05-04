@@ -7,6 +7,7 @@ import { PaginationContext } from "../models/pagination.model";
 import { MetaData } from "../components/meta";
 import PostCard from "../components/PostCard";
 import Pagination from "../components/Pagination";
+import classNames from "classnames";
 
 type IndexPageProps = {
   data: {
@@ -35,14 +36,17 @@ const IndexPage: React.FC<IndexPageProps> = ({
         className="text-center bg-cover"
         style={{
           backgroundImage: `url(${
-            ghostSettings.cover_image
-              ? ghostSettings.cover_image
-              : "https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80"
+            ghostSettings.cover_image ? ghostSettings.cover_image : "none"
           })`,
         }}
       >
         <div className="relative flex items-center py-32">
-          <div className="absolute bg-black opacity-50 inset-0" />
+          <div
+            className={classNames("absolute inset-0", {
+              "bg-black opacity-50": ghostSettings.cover_image,
+              "bg-blue-900": !ghostSettings.cover_image,
+            })}
+          />
           <div className="z-10 max-w-2xl mx-auto px-4">
             <h1 className="mb-4 text-4xl leading-tight font-semibold font-heading text-white">
               {ghostSettings.title}
