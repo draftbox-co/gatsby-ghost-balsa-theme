@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import { GhostPostDescription } from "../models/all-post-description.model";
 import Img from "gatsby-image";
 
@@ -12,9 +12,14 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
     post.excerpt.split(" ").length > 30
       ? post.excerpt.split(" ").slice(0, 30).join(" ") + "..."
       : post.excerpt;
+
+  const navigateToPost = (e: any, slug) => {
+    e.stopPropagation();
+    navigate(slug);
+  };
   return (
-    <Link
-      to={`/${post.slug}`}
+    <div
+      onClick={(e) => navigateToPost(e, `/${post.slug}`)}
       className="w-full lg:w-1/3 px-4 mb-8 cursor-pointer"
     >
       <div className="h-full rounded shadow-md flex flex-col justify-between">
@@ -44,13 +49,13 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
                 <span className="text-gray-600">
                   {post.tags.map((tag, i) => {
                     return (
-                      <Link
-                        to={`tag/${tag.slug}`}
+                      <a
+                        onClick={(e) => navigateToPost(e, `tag/${tag.slug}`)}
                         key={i}
                         className="no-underline hover:underline mr-2"
                       >
                         #{tag.name}
-                      </Link>
+                      </a>
                     );
                   })}
                 </span>
@@ -63,12 +68,14 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
           </div>
         </div>
         <div className="my-4 flex justify-between px-6">
-          <Link
-            to={`/author/${post.primary_author.slug}`}
+          <a
+            onClick={(e) =>
+              navigateToPost(e, `/author/${post.primary_author.slug}`)
+            }
             className="text-gray-600 no-underline hover:underline"
           >
             <small>{post.primary_author.name}</small>
-          </Link>
+          </a>
           {post.reading_time ? (
             <small className="text-gray-500">
               {post.reading_time} min read
@@ -78,7 +85,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
           )}
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

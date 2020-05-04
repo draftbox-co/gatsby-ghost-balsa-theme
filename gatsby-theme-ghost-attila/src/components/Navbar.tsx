@@ -90,6 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
               </Link>
             ) : (
               <a
+                key={i}
                 href={url}
                 rel="noreferrer noopener"
                 target="_blank"
