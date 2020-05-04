@@ -12,6 +12,7 @@ export interface GhostPostDescription {
   title: string;
   excerpt: string;
   updated_at: string;
+  readingTime: string;
   primary_author: PrimaryAuthor;
   tags: Tag[];
   reading_time: number;

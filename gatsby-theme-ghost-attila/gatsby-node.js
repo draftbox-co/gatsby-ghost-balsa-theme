@@ -1,6 +1,34 @@
 // const _ = require(`lodash`);
 const { paginate } = require(`gatsby-awesome-pagination`);
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
+const readingTime = require("reading-time");
+
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createFieldExtension, createTypes } = actions;
+  createFieldExtension({
+    name: "readingTime",
+    extend(options, prevFieldConfig) {
+      return {
+        resolve(source) {
+          const readingTimeValue = readingTime(source.html);
+          return readingTimeValue.text;
+        },
+      };
+    },
+  });
+
+  createTypes(`
+    type GhostPost implements Node {
+      readingTime: String @readingTime
+    }
+  `);
+
+  createTypes(`
+    type GhostPage implements Node {
+      readingTime: String @readingTime
+    }
+  `);
+};
 
 // /**
 //  * Here is the place where Gatsby creates the URLs for all the
@@ -186,44 +214,44 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-    tags.forEach(({ node }, i) => {
-      const totalPosts = node.postCount !== null ? node.postCount : 0;
-      const numberOfPages = Math.ceil(totalPosts / postsPerPage);
-      node.url = `/tag/${node.slug}/`;
+  tags.forEach(({ node }, i) => {
+    const totalPosts = node.postCount !== null ? node.postCount : 0;
+    const numberOfPages = Math.ceil(totalPosts / postsPerPage);
+    node.url = `/tag/${node.slug}/`;
 
-      Array.from({ length: numberOfPages }).forEach((_, i) => {
-        const currentPage = i + 1;
-        const prevPageNumber = currentPage <= 1 ? null : currentPage - 1;
-        const nextPageNumber =
-          currentPage + 1 > numberOfPages ? null : currentPage + 1;
-        const previousPagePath = prevPageNumber
-          ? prevPageNumber === 1
-            ? node.url
-            : `${node.url}page/${prevPageNumber}/`
-          : null;
-        const nextPagePath = nextPageNumber
-          ? `${node.url}page/${nextPageNumber}/`
-          : null;
+    Array.from({ length: numberOfPages }).forEach((_, i) => {
+      const currentPage = i + 1;
+      const prevPageNumber = currentPage <= 1 ? null : currentPage - 1;
+      const nextPageNumber =
+        currentPage + 1 > numberOfPages ? null : currentPage + 1;
+      const previousPagePath = prevPageNumber
+        ? prevPageNumber === 1
+          ? node.url
+          : `${node.url}page/${prevPageNumber}/`
+        : null;
+      const nextPagePath = nextPageNumber
+        ? `${node.url}page/${nextPageNumber}/`
+        : null;
 
-        createPage({
-          path: i === 0 ? node.url : `${node.url}page/${i + 1}/`,
-          component: tagsTemplate,
-          context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            slug: node.slug,
-            limit: postsPerPage,
-            skip: i * postsPerPage,
-            numberOfPages: numberOfPages,
-            humanPageNumber: currentPage,
-            prevPageNumber: prevPageNumber,
-            nextPageNumber: nextPageNumber,
-            previousPagePath: previousPagePath,
-            nextPagePath: nextPagePath
-          }
-        });
+      createPage({
+        path: i === 0 ? node.url : `${node.url}page/${i + 1}/`,
+        component: tagsTemplate,
+        context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
+          slug: node.slug,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numberOfPages: numberOfPages,
+          humanPageNumber: currentPage,
+          prevPageNumber: prevPageNumber,
+          nextPageNumber: nextPageNumber,
+          previousPagePath: previousPagePath,
+          nextPagePath: nextPagePath,
+        },
       });
     });
+  });
 
   pages
     .filter(({ node }) => !node.slug.startsWith("contact"))

@@ -70,18 +70,14 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
         <div className="my-4 flex justify-between px-6">
           <a
             onClick={(e) =>
-              handleNavigation(e,`/author/${post.primary_author.slug}`)
+              handleNavigation(e, `/author/${post.primary_author.slug}`)
             }
             className="text-gray-600 no-underline hover:underline"
           >
             <small>{post.primary_author.name}</small>
           </a>
-          {post.reading_time ? (
-            <small className="text-gray-500">
-              {post.reading_time} min read
-            </small>
-          ) : (
-            <></>
+          {post.readingTime && (
+            <small className="text-gray-500">{post.readingTime}</small>
           )}
         </div>
       </div>

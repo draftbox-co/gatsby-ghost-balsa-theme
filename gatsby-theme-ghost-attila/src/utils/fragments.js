@@ -56,6 +56,7 @@ export const allGhostPostsDescription = graphql`
       excerpt
       slug
       updated_at(formatString: "DD MMMM")
+      readingTime
       primary_author {
         name
         slug
