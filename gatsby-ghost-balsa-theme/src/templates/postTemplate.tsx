@@ -65,23 +65,43 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         <span className="mr-2 text-lg text-gray-700">Share:</span>
         <div className="social-icons">
           <ul className="flex">
-            <li className="p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2">
-              <a href={facebookShareUrl} target="_blank" rel="norefferer noopener">
+            <li>
+              <a
+                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                href={facebookShareUrl}
+                target="_blank"
+                rel="norefferer noopener"
+              >
                 <img className="h-4" src={facebookShare} alt="Facebook Share" />
               </a>
             </li>
-            <li className="p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2">
-              <a href={twitterShareUrl} target="_blank" rel="norefferer noopener">
+            <li>
+              <a
+                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                href={twitterShareUrl}
+                target="_blank"
+                rel="norefferer noopener"
+              >
                 <img className="h-4" src={twitterShare} alt="" />
               </a>
             </li>
-            <li className="p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2">
-              <a href={linkedInShareUrl} target="_blank" rel="norefferer noopener">
+            <li>
+              <a
+                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                href={linkedInShareUrl}
+                target="_blank"
+                rel="norefferer noopener"
+              >
                 <img className="h-4" src={linkedInShare} alt="" />
               </a>
             </li>
-            <li className="p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2">
-              <a href={mailShareUrl} target="_blank" rel="norefferer noopener">
+            <li>
+              <a
+                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                href={mailShareUrl}
+                target="_blank"
+                rel="norefferer noopener"
+              >
                 <img className="h-4" src={mailShare} alt="" />
               </a>
             </li>
