@@ -1,18 +1,18 @@
-# gatsby-attila-theme-ghost
+# gatsby-ghost-balsa-theme
 
 A Gatsby theme plugin for creating blogs from headless Ghost CMS. 
 
-Turn your Ghost blog into a lightning fast static website. This Gatsby theme is a frontend replacement of the Ghost handlebars engine featuring the standard Casper 3 skin and functionality. All content is sourced from a headless Ghost CMS.
+Turn your Ghost blog into a lightning fast static website. This Gatsby theme is a frontend replacement of the Ghost handlebars engine featuring Balsa theme skin and functionality. All content is sourced from a headless Ghost CMS.
 
 
 ## Demo
 
-Play with the [Demo](https://gatsby-attila.netlify.com/) to get a first impression.
+Play with the [Demo](https://gatsby-ghost-balsa-starter.now.sh/) to get a first impression.
 
 
 ## Features
 
-- Ghost Attila skin and functionality
+- Balsa (by Draftbox) skin and functionality
 - SEO optimized
 - Fully responsive
 - Composable and extensible
@@ -20,7 +20,7 @@ Play with the [Demo](https://gatsby-attila.netlify.com/) to get a first impressi
 
 ## Installation
 
-> Head over to the [starter repo](https://github.com/armada-inc/gatsby-attila-theme-starter) to get up and running quickly! 
+> Head over to the [starter repo](https://github.com/draftbox-co/gatsby-ghost-balsa-starter) to get up and running quickly! 
 
 
 If you want to add this blog theme to an existing site, follow these instructions:
@@ -28,9 +28,9 @@ If you want to add this blog theme to an existing site, follow these instruction
 1. Install the blog theme
 
     ```bash
-    yarn add @armada-inc/gatsby-attila-theme-ghost
+    yarn add @draftbox-co/gatsby-ghost-balsa-ghost
     # or
-    npm install @armada-inc/gatsby-attila-theme-ghost --save
+    npm install @draftbox-co/gatsby-ghost-balsa-ghost --save
     ```
 
 2. Add the following configuration to your `gatsby-config.js` file
@@ -40,7 +40,7 @@ If you want to add this blog theme to an existing site, follow these instruction
     module.exports = {
     plugins: [
         {
-        resolve: `@armada-inc/gatsby-attila-theme-ghost`,
+        resolve: `@draftbox-co/gatsby-ghost-balsa-ghost`,
         options: {
             siteConfig: {
             siteUrl: `https://your-bog.com`,

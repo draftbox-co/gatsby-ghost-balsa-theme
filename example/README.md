@@ -1,6 +1,6 @@
 # Gatsby Theme Minimal Example
 
-> See the [base README](https://github.com/armada-inc/gatsby-attila-theme-ghost/blob/master/README.md) for instructions on how to use this example.
+> See the [base README](https://github.com/draftbox-co/gatsby-ghost-balsa-starter/blob/master/README.md) for instructions on how to use this example.
 
 # Copyright & License
 
