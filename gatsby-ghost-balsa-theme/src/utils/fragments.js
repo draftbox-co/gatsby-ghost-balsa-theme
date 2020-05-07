@@ -106,7 +106,7 @@ export const ghostPostDescription = graphql`
     }
     localFeatureImage {
       childImageSharp {
-        fluid(maxHeight: 360) {
+        fluid(maxWidth: 2000, sizes: "90") {
           ...GatsbyImageSharpFluid
         }
       }

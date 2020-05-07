@@ -175,12 +175,36 @@ module.exports = (themeOptions) => {
           tailwind: true, // Enable tailwindcss support
           ignore: ["/ignored.css", "prismjs/", "docsearch.js/"],
           purgeOnly: ["components/", "styles/"],
-          content: [
-            path.join(
-              __dirname,
-              "src/**/!(*.d).{ts,js,jsx,tsx}"
-            ),
-          ],
+          content: [path.join(__dirname, "src/**/!(*.d).{ts,js,jsx,tsx}")],
+        },
+      },
+      {
+        resolve: `gatsby-plugin-webfonts`,
+        options: {
+          fonts: {
+            google: [
+              {
+                family: "IBM Plex Sans",
+                variants: ["400", "500", "600", "700"],
+                //subsets: ['latin']
+                //text: 'Hello'
+                fontDisplay: "swap",
+                strategy: "selfHosted", // 'base64' || 'cdn'
+              },
+              {
+                family: "IBM Plex Serif",
+                variants: ["300", "400", "500", "600", "700"],
+                //subsets: ['latin']
+                //text: 'Hello'
+                fontDisplay: "swap",
+                strategy: "selfHosted", // 'base64' || 'cdn'
+              },
+            ],
+          },
+          formats: ["woff2", "woff"],
+          useMinify: true,
+          usePreload: true,
+          usePreconnect: true,
         },
       },
       {
