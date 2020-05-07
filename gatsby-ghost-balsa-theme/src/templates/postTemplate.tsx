@@ -82,7 +82,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img className="h-4" src={twitterShare} alt="" />
+                <img className="h-4" src={twitterShare} alt="Twitter Share" />
               </a>
             </li>
             <li>
@@ -92,7 +92,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img className="h-4" src={linkedInShare} alt="" />
+                <img className="h-4" src={linkedInShare} alt="LinkedIn Share" />
               </a>
             </li>
             <li>
@@ -102,7 +102,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img className="h-4" src={mailShare} alt="" />
+                <img className="h-4" src={mailShare} alt="Email Share" />
               </a>
             </li>
           </ul>
