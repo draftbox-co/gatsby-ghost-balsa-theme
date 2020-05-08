@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import { graphql, Link } from "gatsby";
 import { GhostPostDescription } from "../models/post-description.model";
@@ -20,13 +20,21 @@ type PostTemplateProps = {
 const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
   const { ghostPost } = data;
 
-  const twitterShareUrl = `https://twitter.com/share?text=${ghostPost.title}&url=${location.href}`;
+  const [href, sethref] = useState("");
 
-  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${location.href}`;
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      sethref(window.location.href);
+    }
+  }, []);
+  
+  const twitterShareUrl = `https://twitter.com/share?text=${ghostPost.title}&url=${href}`;
 
-  const linkedInShareUrl = `https://www.linkedin.com/shareArticle?mini=true&amp;url=${location.href}/&amp;title=${ghostPost.title}`;
+  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${href}`;
 
-  const mailShareUrl = `mailto:?subject=${ghostPost.title}&amp;body=${location.href}`;
+  const linkedInShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${href}&title=${ghostPost.title}`;
+
+  const mailShareUrl = `mailto:?subject=${ghostPost.title}&body=${href}`;
 
   return (
     <Layout>
