@@ -55,7 +55,7 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
                 description: siteDescription,
                 // generator: `Ghost ` + data.safeVersion,
                 generator: `Ghost 2.9`,
-                feed_url: `${siteConfig.siteUrl}/rss/`,
+                feed_url: `${siteConfig.siteUrl}/rss.xml`,
                 site_url: `${siteConfig.siteUrl}/`,
                 image_url: `${siteConfig.siteUrl}/${siteConfig.siteIcon}`,
                 ttl: `60`,
@@ -72,6 +72,7 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
         {
             allGhostPost(
                 sort: {order: DESC, fields: published_at}
+                filter: { slug: { ne: "data-schema" } }
             ) {
                 edges {
                     node {
