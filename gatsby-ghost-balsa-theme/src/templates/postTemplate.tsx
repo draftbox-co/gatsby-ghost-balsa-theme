@@ -11,6 +11,7 @@ import facebookShare from "../images/facebook-share.svg";
 import twitterShare from "../images/twitter-share.svg";
 import linkedInShare from "../images/linkedin.svg";
 import mailShare from "../images/mail.svg";
+import CopyLink from "../components/copy-link";
 
 type PostTemplateProps = {
   data: GhostPostDescription;
@@ -27,7 +28,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       sethref(window.location.href);
     }
   }, []);
-  
+
   const twitterShareUrl = `https://twitter.com/share?text=${ghostPost.title}&url=${href}`;
 
   const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${href}`;
@@ -112,6 +113,9 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
               >
                 <img className="h-4" src={mailShare} alt="Email Share" />
               </a>
+            </li>
+            <li>
+              <CopyLink textToCopy={href} />
             </li>
           </ul>
         </div>
