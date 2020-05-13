@@ -4,4 +4,4 @@
 
 # Copyright & License
 
-Copyright (c) 2020 Armada Intelligence Inc - Released under the [MIT license](LICENSE).
+Copyright (c) 2020 [Draftbox](https://draftbox.co) - Released under the [MIT license](LICENSE).
