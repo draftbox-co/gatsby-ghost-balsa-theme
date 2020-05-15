@@ -56,15 +56,16 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         </p>
       </section>
       <div className="spacer my-6"></div>
-      {ghostPost.localFeatureImage && (
-        <section className="px-4 container mx-auto">
-          <Img
-            style={{ maxHeight: "60vh" }}
-            fluid={ghostPost.localFeatureImage.childImageSharp.fluid}
-            alt=""
-          />
-        </section>
-      )}
+      {ghostPost.localFeatureImage &&
+        ghostPost.localFeatureImage.childImageSharp && (
+          <section className="px-4 container mx-auto">
+            <Img
+              style={{ maxHeight: "60vh" }}
+              fluid={ghostPost.localFeatureImage.childImageSharp.fluid}
+              alt=""
+            />
+          </section>
+        )}
       <div className="spacer my-6"></div>
       <div
         dangerouslySetInnerHTML={{ __html: ghostPost.childHtmlRehype.html }}

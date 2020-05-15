@@ -24,13 +24,14 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
     >
       <div className="h-full rounded shadow-md flex flex-col justify-between">
         <div>
-          {post.localFeatureImage && (
+          {post.localFeatureImage && post.localFeatureImage.childImageSharp && (
             <Img
               className="mb-4 h-48 w-full object-cover rounded-t"
               fluid={post.localFeatureImage.childImageSharp.fluid}
             />
           )}
-          {!post.feature_image && (
+          {(!post.localFeatureImage ||
+            !post.localFeatureImage.childImageSharp) && (
             <div
               className="flex justify-center items-center bg-blue-500 text-white font-black mb-4 h-48 w-full object-cover rounded-t"
               style={{

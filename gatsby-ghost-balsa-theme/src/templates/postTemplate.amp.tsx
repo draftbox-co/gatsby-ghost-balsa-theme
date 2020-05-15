@@ -46,14 +46,17 @@ const PostTemplate: React.FC<PostTemplateProps> = ({
               </time>{" "}
             </div>
           </header>
-          {data.ghostPost.localFeatureImage && (
-            <figure className="post-image">
-              <img
-                src={data.ghostPost.localFeatureImage.childImageSharp.fluid.src}
-                alt={data.ghostPost.title}
-              />
-            </figure>
-          )}
+          {data.ghostPost.localFeatureImage &&
+            data.ghostPost.localFeatureImage.childImageSharp && (
+              <figure className="post-image">
+                <img
+                  src={
+                    data.ghostPost.localFeatureImage.childImageSharp.fluid.src
+                  }
+                  alt={data.ghostPost.title}
+                />
+              </figure>
+            )}
           <section
             className="post-content"
             dangerouslySetInnerHTML={{

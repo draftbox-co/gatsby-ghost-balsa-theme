@@ -5,7 +5,7 @@ import { graphql } from "gatsby";
 import { GhostPage } from "../models/page-description.model";
 import Img from "gatsby-image";
 import CtaMini from "../components/CtaMini";
-import '../styles/richtext.css';
+import "../styles/richtext.css";
 
 type IndexPageProps = {
   data: {
@@ -20,15 +20,16 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
     <Layout>
       <MetaData data={data} location={location} />
       <div className="spacer my-6"></div>
-      {ghostPage.localFeatureImage && (
-        <section className="px-4 container mx-auto">
-          <Img
-            style={{ maxHeight: "60vh" }}
-            fluid={ghostPage.localFeatureImage.childImageSharp.fluid}
-            alt=""
-          />
-        </section>
-      )}
+      {ghostPage.localFeatureImage &&
+        ghostPage.localFeatureImage.childImageSharp && (
+          <section className="px-4 container mx-auto">
+            <Img
+              style={{ maxHeight: "60vh" }}
+              fluid={ghostPage.localFeatureImage.childImageSharp.fluid}
+              alt=""
+            />
+          </section>
+        )}
       <div className="spacer my-6"></div>
       <div
         dangerouslySetInnerHTML={{ __html: ghostPage.childHtmlRehype.html }}
