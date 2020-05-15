@@ -20,12 +20,22 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
     <Layout>
       <MetaData data={data} location={location} />
       <div className="spacer my-6"></div>
-      {ghostPage.localFeatureImage && (
+      {ghostPage.localFeatureImage && ghostPage.localFeatureImage.childImageSharp && (
         <section className="px-4 container mx-auto">
           <Img
             style={{ maxHeight: "60vh" }}
             fluid={ghostPage.localFeatureImage.childImageSharp.fluid}
-            alt=""
+            alt={ghostPage.title}
+          />
+        </section>
+      )}
+      {ghostPage.localFeatureImage && ghostPage.localFeatureImage.extension === 'svg' && (
+        <section className="px-4 container mx-auto">
+          <img
+            style={{ maxHeight: "60vh" }}
+            className="mx-auto"
+            src={ghostPage.localFeatureImage.publicURL}
+            alt={ghostPage.title}
           />
         </section>
       )}

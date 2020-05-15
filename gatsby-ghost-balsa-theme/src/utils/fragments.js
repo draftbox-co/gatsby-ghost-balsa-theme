@@ -73,6 +73,8 @@ export const allGhostPostsDescription = graphql`
             ...GatsbyImageSharpFluid
           }
         }
+        extension
+        publicURL
       }
     }
   }
@@ -110,6 +112,8 @@ export const ghostPostDescription = graphql`
           ...GatsbyImageSharpFluid
         }
       }
+      extension
+      publicURL
     }
   }
 `;
@@ -146,6 +150,8 @@ export const ghostPageDetails = graphql`
           ...GatsbyImageSharpFluid
         }
       }
+      extension
+      publicURL
     }
   }
 `;

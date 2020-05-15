@@ -23,6 +23,8 @@ export interface GhostPost {
     childImageSharp: {
       fluid: any;
     };
+    publicURL: string;
+    extension: string;
   };
   og_title: string;
   twitter_title: string;

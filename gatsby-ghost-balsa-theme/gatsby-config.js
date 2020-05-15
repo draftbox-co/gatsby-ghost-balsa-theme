@@ -220,6 +220,7 @@ module.exports = (themeOptions) => {
           themePath: `src/amp-styles/post.amp.css`,
         },
       },
+      'gatsby-plugin-twitter'
     ],
   };
 };

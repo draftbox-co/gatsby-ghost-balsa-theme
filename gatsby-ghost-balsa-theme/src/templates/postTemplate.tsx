@@ -56,12 +56,22 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         </p>
       </section>
       <div className="spacer my-6"></div>
-      {ghostPost.localFeatureImage && (
+      {ghostPost.localFeatureImage && ghostPost.localFeatureImage.childImageSharp && (
         <section className="px-4 container mx-auto">
           <Img
             style={{ maxHeight: "60vh" }}
             fluid={ghostPost.localFeatureImage.childImageSharp.fluid}
-            alt=""
+            alt={ghostPost.title}
+          />
+        </section>
+      )}
+      {ghostPost.localFeatureImage && ghostPost.localFeatureImage.extension === 'svg' && (
+        <section className="px-4 container mx-auto">
+          <img
+            style={{ maxHeight: "60vh" }}
+            className="mx-auto"
+            src={ghostPost.localFeatureImage.publicURL}
+            alt={ghostPost.title}
           />
         </section>
       )}
