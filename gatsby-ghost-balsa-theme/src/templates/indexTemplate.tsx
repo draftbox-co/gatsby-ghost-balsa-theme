@@ -54,7 +54,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
             ></h1>
             <p
               dangerouslySetInnerHTML={{ __html: ghostSettings.description }}
-              className="text-2xl leading-tight font-light text-white break-all"
+              className="text-2xl leading-tight font-light text-white"
             ></p>
           </div>
         </div>
