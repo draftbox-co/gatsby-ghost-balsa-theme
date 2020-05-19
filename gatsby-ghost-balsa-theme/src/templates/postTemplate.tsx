@@ -42,9 +42,10 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       <MetaData data={data} location={location} />
       <div className="spacer my-6"></div>
       <section className="px-4 max-w-4xl mx-auto">
-        <h1 className=" text-4xl text-center font-heading font-semibold">
-          {ghostPost.title}
-        </h1>
+        <h1
+          dangerouslySetInnerHTML={{ __html: ghostPost.title }}
+          className=" text-4xl text-center font-heading font-semibold break-all"
+        ></h1>
         <p className="text-center">
           <span>{ghostPost.updated_at}, by </span>
           <Link
@@ -60,7 +61,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         ghostPost.localFeatureImage.childImageSharp && (
           <section className="px-4 container mx-auto">
             <Img
-              style={{ maxHeight: "60vh" }}
+              style={{ maxHeight: "60vh", maxWidth: "100%" }}
               fluid={ghostPost.localFeatureImage.childImageSharp.fluid}
               alt=""
             />

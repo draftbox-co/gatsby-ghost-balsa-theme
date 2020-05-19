@@ -33,7 +33,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
     <Layout>
       <MetaData data={data} location={location} />
       <section
-        className="text-center bg-cover"
+        className="text-center bg-cover max-w-full"
         style={{
           backgroundImage: `url(${
             ghostSettings.cover_image ? ghostSettings.cover_image : "none"
@@ -48,12 +48,14 @@ const IndexPage: React.FC<IndexPageProps> = ({
             })}
           />
           <div className="z-10 max-w-2xl mx-auto px-4">
-            <h1 className="mb-4 text-4xl leading-tight font-semibold font-heading text-white">
-              {ghostSettings.title}
-            </h1>
-            <p className="text-2xl leading-tight font-light text-white">
-              {ghostSettings.description}
-            </p>
+            <h1
+              dangerouslySetInnerHTML={{ __html: ghostSettings.title }}
+              className="mb-4 text-4xl leading-tight font-semibold font-heading text-white break-all"
+            ></h1>
+            <p
+              dangerouslySetInnerHTML={{ __html: ghostSettings.description }}
+              className="text-2xl leading-tight font-light text-white break-all"
+            ></p>
           </div>
         </div>
       </section>

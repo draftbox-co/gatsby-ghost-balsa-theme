@@ -27,13 +27,19 @@ const PostTemplate: React.FC<PostTemplateProps> = ({
       />
       <header className="main-header">
         <nav className="blog-title">
-          <Link to="/">{pageContext.title}</Link>
+          <Link
+            to="/"
+            dangerouslySetInnerHTML={{ __html: data.ghostPost.title }}
+          ></Link>
         </nav>
       </header>
       <main className="content" role="main">
         <article className="post tag-getting-started">
           <header className="post-header">
-            <h1 className="post-title">{data.ghostPost.title}</h1>
+            <h1
+              className="post-title"
+              dangerouslySetInnerHTML={{ __html: data.ghostPost.title }}
+            ></h1>
             <div className="post-meta">
               <div className="post-meta-avatars">
                 <p className="author">{data.ghostPost.primary_author.name}</p>

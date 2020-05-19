@@ -118,7 +118,15 @@
 
 .richtext figure,
 .richtext img {
-  @apply max-w-3xl;
+  max-width: 100%;
+}
+
+.richtext figure {
+  @apply flex flex-col items-center justify-center;
+}
+
+.richtext iframe {
+  max-width: 100%;
 }
 
 .richtext figcaption {

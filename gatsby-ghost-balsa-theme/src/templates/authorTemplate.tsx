@@ -48,9 +48,10 @@ const AuthorTemplate: React.FC<AuthorTemplateProps> = ({
               Regional Manager
             </span> */}
             {ghostAuthor.bio && (
-              <p className="mt-4 text-gray-100 leading-relaxed">
-                {ghostAuthor.bio}
-              </p>
+              <p
+                className="mt-4 text-gray-100 leading-relaxed break-all"
+                dangerouslySetInnerHTML={{ __html: ghostAuthor.bio }}
+              ></p>
             )}
           </div>
         </div>

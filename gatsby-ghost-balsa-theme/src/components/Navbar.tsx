@@ -22,10 +22,9 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
       <div className="flex flex-shrink-0 mr-6">
         <Link
           className="text-2xl text-blue-700 font-semibold font-serif"
+          dangerouslySetInnerHTML={{ __html: title }}
           to="/"
-        >
-          {title}
-        </Link>
+        ></Link>
       </div>
       <div className="block lg:hidden">
         {" "}

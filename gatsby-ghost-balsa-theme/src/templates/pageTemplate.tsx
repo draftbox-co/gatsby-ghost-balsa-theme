@@ -20,6 +20,13 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
     <Layout>
       <MetaData data={data} location={location} />
       <div className="spacer my-6"></div>
+      <section className="px-4 max-w-4xl mx-auto">
+        <h1
+          dangerouslySetInnerHTML={{ __html: ghostPage.title }}
+          className=" text-4xl text-center font-heading font-semibold break-all"
+        ></h1>
+      </section>
+      <div className="spacer my-6"></div>
       {ghostPage.localFeatureImage &&
         ghostPage.localFeatureImage.childImageSharp && (
           <section className="px-4 container mx-auto">
