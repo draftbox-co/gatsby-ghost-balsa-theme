@@ -77,7 +77,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
       <div className="py-4 flex flex-col items-center justify-center">
         <a
           className="text-blue-500 uppercase"
-          href="https://dropbox.co"
+          href="https://dropbox.co?ref=preview"
           rel="noreferrer noopener"
           target="_blank"
         >

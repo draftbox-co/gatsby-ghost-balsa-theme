@@ -67,6 +67,18 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
             />
           </section>
         )}
+
+      {ghostPost.localFeatureImage &&
+        ghostPost.localFeatureImage.extension === "svg" && (
+          <section className="px-4 container mx-auto">
+            <img
+              style={{ maxHeight: "60vh" }}
+              className="mx-auto"
+              src={ghostPost.localFeatureImage.publicURL}
+              alt={ghostPost.title}
+            />
+          </section>
+        )}
       <div className="spacer my-6"></div>
       <div
         dangerouslySetInnerHTML={{ __html: ghostPost.childHtmlRehype.html }}

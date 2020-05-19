@@ -31,9 +31,20 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
         ghostPage.localFeatureImage.childImageSharp && (
           <section className="px-4 container mx-auto">
             <Img
-              style={{ maxHeight: "60vh" }}
+              style={{ maxHeight: "60vh", maxWidth: '100%' }}
               fluid={ghostPage.localFeatureImage.childImageSharp.fluid}
-              alt=""
+              alt={ghostPage.title}
+            />
+          </section>
+        )}
+      {ghostPage.localFeatureImage &&
+        ghostPage.localFeatureImage.extension === "svg" && (
+          <section className="px-4 container mx-auto">
+            <img
+              style={{ maxHeight: "60vh" }}
+              className="mx-auto"
+              src={ghostPage.localFeatureImage.publicURL}
+              alt={ghostPage.title}
             />
           </section>
         )}

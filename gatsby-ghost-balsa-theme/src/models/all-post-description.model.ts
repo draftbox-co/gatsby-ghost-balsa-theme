@@ -21,6 +21,8 @@ export interface GhostPostDescription {
     childImageSharp: {
       fluid: any;
     };
+    extension: string;
+    publicURL: string;
   };
   slug: string;
 }
