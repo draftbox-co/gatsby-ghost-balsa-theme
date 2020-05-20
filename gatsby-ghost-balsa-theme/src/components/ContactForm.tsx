@@ -63,7 +63,7 @@ const ContactForm = () => {
       {!succeeded && (
         <section className="py-12 px-4">
           <h2 className="text-3xl mb-8 text-center font-heading">
-            Contact {title}
+            Contact <span dangerouslySetInnerHTML={{ __html: title }}></span>
           </h2>
           <div className="w-full max-w-2xl mx-auto mb-8">
             <form onSubmit={(e) => handleSubmit(e)}>
