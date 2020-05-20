@@ -49,7 +49,7 @@ const AuthorTemplate: React.FC<AuthorTemplateProps> = ({
             </span> */}
             {ghostAuthor.bio && (
               <p
-                className="mt-4 text-gray-100 leading-relaxed break-all"
+                className="mt-4 text-gray-100 leading-relaxed break-words"
                 dangerouslySetInnerHTML={{ __html: ghostAuthor.bio }}
               ></p>
             )}
