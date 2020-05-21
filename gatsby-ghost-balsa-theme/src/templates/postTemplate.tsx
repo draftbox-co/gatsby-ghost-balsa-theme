@@ -7,6 +7,7 @@ import Img from "gatsby-image";
 import { MetaData } from "../components/meta";
 import Disqus from "../components/disqus";
 import "../styles/richtext.css";
+import "../styles/prism.css";
 import facebookShare from "../images/facebook-share.svg";
 import twitterShare from "../images/twitter-share.svg";
 import linkedInShare from "../images/linkedin.svg";

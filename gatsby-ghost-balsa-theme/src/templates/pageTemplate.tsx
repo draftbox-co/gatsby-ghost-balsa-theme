@@ -6,6 +6,7 @@ import { GhostPage } from "../models/page-description.model";
 import Img from "gatsby-image";
 import CtaMini from "../components/CtaMini";
 import "../styles/richtext.css";
+import "../styles/prism.css";
 
 type IndexPageProps = {
   data: {

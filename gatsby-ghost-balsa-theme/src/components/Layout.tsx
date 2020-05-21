@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/style.css";
-import "../styles/prism.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { ArmadaFormsProvider } from "../context/form-context";

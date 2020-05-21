@@ -8,10 +8,14 @@ type PostCardTypes = {
 };
 
 const PostCard: React.FC<PostCardTypes> = ({ post }) => {
-  const excerpt =
-    post.excerpt.split(" ").length > 30
-      ? post.excerpt.split(" ").slice(0, 30).join(" ") + "..."
-      : post.excerpt;
+  let excerpt = "";
+
+  if (post.excerpt) {
+    excerpt =
+      post.excerpt.split(" ").length > 30
+        ? post.excerpt.split(" ").slice(0, 30).join(" ") + "..."
+        : post.excerpt;
+  }
 
   const handleNavigation = (e: any, slug) => {
     e.stopPropagation();
@@ -24,18 +28,22 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
     >
       <div className="h-full rounded shadow-md flex flex-col justify-between">
         <div>
-          {post.localFeatureImage && post.localFeatureImage.childImageSharp && post.localFeatureImage.extension !== 'svg'  && (
-            <Img
-              className="mb-4 h-48 w-full object-cover rounded-t"
-              fluid={post.localFeatureImage.childImageSharp.fluid}
-            />
-          )}
-          {post.localFeatureImage && post.localFeatureImage.extension === 'svg'  && (
-            <img
-              className="mb-4 h-48 w-full object-cover rounded-t"
-              src={post.localFeatureImage.publicURL} alt={post.title}
-            />
-          )}
+          {post.localFeatureImage &&
+            post.localFeatureImage.childImageSharp &&
+            post.localFeatureImage.extension !== "svg" && (
+              <Img
+                className="mb-4 h-48 w-full object-cover rounded-t"
+                fluid={post.localFeatureImage.childImageSharp.fluid}
+              />
+            )}
+          {post.localFeatureImage &&
+            post.localFeatureImage.extension === "svg" && (
+              <img
+                className="mb-4 h-48 w-full object-cover rounded-t"
+                src={post.localFeatureImage.publicURL}
+                alt={post.title}
+              />
+            )}
           {!post.feature_image && (
             <div
               className="flex justify-center items-center bg-blue-500 text-white font-black mb-4 h-48 w-full object-cover rounded-t"
@@ -48,7 +56,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
 
           <div className="px-6">
             <div className="mb-4">
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500 break-words">
                 {post.updated_at}
                 {post.tags.length > 0 && <span className="mx-2">•</span>}
                 <span className="text-gray-600">

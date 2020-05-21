@@ -5,6 +5,10 @@
   padding-bottom: 0.125rem;
 }
 
+.kg-gallery-image {
+  margin-bottom: 1rem;
+}
+
 .richtext {
   @apply leading-normal break-words text-body font-serif text-lg;
 }
