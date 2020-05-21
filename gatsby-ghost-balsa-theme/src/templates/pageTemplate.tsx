@@ -49,10 +49,11 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
           </section>
         )}
       <div className="spacer my-6"></div>
-      <div
+      {ghostPage.childHtmlRehype && ghostPage.childHtmlRehype.html && <div
         dangerouslySetInnerHTML={{ __html: ghostPage.childHtmlRehype.html }}
         className="richtext max-w-3xl mx-4 lg:mx-auto font-serif text-gray-800"
-      ></div>
+      ></div>}
+      
       <div className="spacer my-6"></div>
       <CtaMini />
     </Layout>

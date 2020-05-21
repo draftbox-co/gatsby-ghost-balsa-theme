@@ -10,8 +10,12 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     extend(options, prevFieldConfig) {
       return {
         resolve(source) {
-          const readingTimeValue = readingTime(source.html);
-          return readingTimeValue.text;
+          if (source.html) {
+            const readingTimeValue = readingTime(source.html);
+            return readingTimeValue.text;
+          } else {
+            return "1 min read";
+          }
         },
       };
     },

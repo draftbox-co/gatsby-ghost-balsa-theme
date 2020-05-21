@@ -68,12 +68,13 @@ const PostTemplate: React.FC<PostTemplateProps> = ({
               />
             </figure>
           )}
-          <section
+          {data.ghostPost.childHtmlRehype && data.ghostPost.childHtmlRehype.html && <section
             className="post-content"
             dangerouslySetInnerHTML={{
               __html: data.ghostPost.childHtmlRehype.html,
             }}
-          ></section>
+          ></section>}
+          
         </article>
       </main>
     </>

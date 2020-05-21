@@ -80,10 +80,11 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           </section>
         )}
       <div className="spacer my-6"></div>
-      <div
+      {ghostPost.childHtmlRehype && ghostPost.childHtmlRehype.html && <div
         dangerouslySetInnerHTML={{ __html: ghostPost.childHtmlRehype.html }}
         className="richtext max-w-3xl mx-4 lg:mx-auto font-serif text-gray-800"
-      ></div>
+      ></div>}
+      
       <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto">
         <span className="mr-2 text-lg text-gray-700">Share:</span>
         <div className="social-icons">
