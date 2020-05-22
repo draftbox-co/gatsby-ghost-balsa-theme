@@ -9,7 +9,7 @@ type NavbarProps = {
 
 const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
   const {
-    ghostSettings: { title, navigation },
+    ghostSettings: { title, navigation, logo },
     site: {
       siteMetadata: { siteUrl },
     },
@@ -22,9 +22,14 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
       <div className="flex flex-shrink-0 mr-6 w-4/5 lg:w-auto">
         <Link
           className="text-2xl text-blue-700 font-semibold font-serif"
-          dangerouslySetInnerHTML={{ __html: title }}
           to="/"
-        ></Link>
+        >
+          {logo ? (
+            <img className="h-10" src={logo} alt="" />
+          ) : (
+            <span dangerouslySetInnerHTML={{ __html: title }}></span>
+          )}
+        </Link>
       </div>
       <div className="block lg:hidden">
         {" "}

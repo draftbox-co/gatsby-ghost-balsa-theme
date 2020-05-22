@@ -9,6 +9,7 @@ export interface SettingsAndSlugs {
     navigation: Navigation[];
     facebook: string;
     twitter: string;
+    logo: string;
   };
   site: {
     siteMetadata: {

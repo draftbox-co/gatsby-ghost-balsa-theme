@@ -14,6 +14,7 @@ const Layout: React.FC = ({ children }) => {
     query {
       ghostSettings {
         title
+        logo
         navigation {
           label
           url
