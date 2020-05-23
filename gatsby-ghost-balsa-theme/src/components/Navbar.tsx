@@ -22,8 +22,6 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
   navigation = navigation.filter(nav => !nav.url.startsWith("/contact"));
 
-  console.log({navigation});
-
   return (
     <nav className="flex flex-wrap items-center justify-between p-4 container mx-auto">
       <div className="flex flex-shrink-0 mr-6 w-4/5 lg:w-auto">
