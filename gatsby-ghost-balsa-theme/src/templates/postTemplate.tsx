@@ -48,7 +48,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           className=" text-4xl text-center font-heading font-semibold break-words"
         ></h1>
         <p className="text-center">
-          <span>{ghostPost.updated_at}, by </span>
+          <span>{ghostPost.published_at}, by </span>
           <Link
             className="ml-1 text-blue-700 hover:underline"
             to={`/author/${ghostPost.primary_author.slug}`}

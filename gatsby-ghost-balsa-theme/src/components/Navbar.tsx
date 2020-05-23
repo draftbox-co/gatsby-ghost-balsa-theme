@@ -9,13 +9,20 @@ type NavbarProps = {
 
 const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
   const {
-    ghostSettings: { title, navigation, logo },
+    ghostSettings: { title, logo },
     site: {
       siteMetadata: { siteUrl },
     },
   } = navbarData;
 
+  let {
+    ghostSettings: { navigation },    
+  } = navbarData;
+
   const [isMenuToggled, setIsMenuToggled] = useState(false);
+  navigation = navigation.filter(nav => !nav.url.startsWith("/contact"));
+
+  console.log({navigation});
 
   return (
     <nav className="flex flex-wrap items-center justify-between p-4 container mx-auto">

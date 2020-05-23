@@ -57,7 +57,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
           <div className="px-6">
             <div className="mb-4">
               <p className="text-sm text-gray-500 break-words">
-                {post.updated_at}
+                {post.published_at}
                 {post.tags.length > 0 && <span className="mx-2">•</span>}
                 <span className="text-gray-600">
                   {post.tags.map((tag, i) => {

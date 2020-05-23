@@ -98,6 +98,7 @@ export const pageQuery = graphql`
         slug
       }
       updated_at(formatString: "MMMM DD YYYY")
+      published_at(formatString: "MMMM DD YYYY")
       feature_image
       localFeatureImage {
         childImageSharp {
