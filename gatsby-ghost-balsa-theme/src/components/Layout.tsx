@@ -25,6 +25,7 @@ const Layout: React.FC = ({ children }) => {
       site {
         siteMetadata {
           siteUrl
+          apiUrl
         }
       }
     }

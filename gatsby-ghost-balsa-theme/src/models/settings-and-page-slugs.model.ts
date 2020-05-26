@@ -14,6 +14,7 @@ export interface SettingsAndSlugs {
   site: {
     siteMetadata: {
       siteUrl: string;
+      apiUrl: string;
     };
   };
 }

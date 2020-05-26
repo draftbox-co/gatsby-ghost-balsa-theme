@@ -11,7 +11,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
   const {
     ghostSettings: { title, logo },
     site: {
-      siteMetadata: { siteUrl },
+      siteMetadata: { siteUrl, apiUrl },
     },
   } = navbarData;
 
@@ -85,14 +85,14 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
             Contact Us
           </Link> */}
           {navigation.map(({ label, url }, i) => {
-            return url.startsWith("/") || url.startsWith(siteUrl) ? (
+            return url.startsWith("/") || url.startsWith(siteUrl) || url.startsWith(apiUrl) ? (
               <Link
                 key={i}
                 className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
                 to={`${
                   url.startsWith("/")
                     ? url
-                    : url.slice(siteUrl.length, url.length)
+                    : (url.startsWith(siteUrl) ? url.slice(siteUrl.length, url.length): url.slice(apiUrl.length, url.length))
                 }`}
               >
                 {label}
