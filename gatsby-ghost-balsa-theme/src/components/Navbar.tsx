@@ -30,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
           to="/"
         >
           {logo ? (
-            <img className="h-10" src={logo} alt="" />
+            <img className="h-10" src={logo} alt={title} />
           ) : (
             <span dangerouslySetInnerHTML={{ __html: title }}></span>
           )}
