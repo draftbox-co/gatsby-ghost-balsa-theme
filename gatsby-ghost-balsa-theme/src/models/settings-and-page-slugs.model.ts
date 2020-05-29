@@ -10,6 +10,7 @@ export interface SettingsAndSlugs {
     facebook: string;
     twitter: string;
     logo: string;
+    lang: string;
   };
   site: {
     siteMetadata: {

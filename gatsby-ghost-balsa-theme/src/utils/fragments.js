@@ -77,6 +77,10 @@ export const allGhostPostsDescription = graphql`
         extension
         publicURL
       }
+      primary_tag {
+        name
+        slug
+      }
     }
   }
 `;

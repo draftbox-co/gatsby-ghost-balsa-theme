@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, navigate } from "gatsby";
 import { GhostPostDescription } from "../models/post-description.model";
 import CtaMini from "../components/CtaMini";
 import Img from "gatsby-image";
@@ -38,6 +38,11 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
 
   const mailShareUrl = `mailto:?subject=${ghostPost.title}&body=${href}`;
 
+  const handleNavigation = (e: any, slug) => {
+    e.stopPropagation();
+    navigate(slug);
+  };
+
   return (
     <Layout>
       <MetaData data={data} location={location} />
@@ -48,9 +53,9 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           className=" text-4xl text-center font-heading font-semibold break-words"
         ></h1>
         <p className="text-center">
-          <span>{ghostPost.published_at}, by </span>
+  <span>{ghostPost.published_at}, by{" "}</span>
           <Link
-            className="ml-1 text-blue-700 hover:underline"
+            className="text-blue-700 hover:underline"
             to={`/author/${ghostPost.primary_author.slug}`}
           >
             {ghostPost.primary_author.name}
@@ -81,11 +86,29 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           </section>
         )}
       <div className="spacer my-6"></div>
-      {ghostPost.childHtmlRehype && ghostPost.childHtmlRehype.html && <div
-        dangerouslySetInnerHTML={{ __html: ghostPost.childHtmlRehype.html }}
-        className="richtext max-w-3xl mx-4 lg:mx-auto font-serif text-gray-800"
-      ></div>}
-      
+      {ghostPost.childHtmlRehype && ghostPost.childHtmlRehype.html && (
+        <div
+          dangerouslySetInnerHTML={{ __html: ghostPost.childHtmlRehype.html }}
+          className="richtext max-w-3xl mx-4 lg:mx-auto font-serif text-gray-800"
+        ></div>
+      )}
+
+      {ghostPost.tags && ghostPost.tags.length > 0 && (
+        <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto flex-wrap">
+          {ghostPost.tags.map((tag, index) => {
+            return (
+              <div
+                onClick={(e) => handleNavigation(e, `tag/${tag.slug}`)}
+                className="px-3 py-1 rounded-full mr-3 text-gray-700 cursor-pointer hover:text-white hover:border-gray-700 hover:bg-gray-700 bg-gray-300 mb-4"
+                key={index}
+              >
+                #{tag.name}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
       <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto">
         <span className="mr-2 text-lg text-gray-700">Share:</span>
         <div className="social-icons">
@@ -136,10 +159,14 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           </ul>
         </div>
       </div>
-      <hr className="spacer my-8 container mx-auto" />
-      <section className="max-w-3xl container mx-auto">
-        <Disqus slug={ghostPost.slug} title={ghostPost.title} />
-      </section>
+      {process.env.GATSBY_DISQUS_SHORTNAME && (
+        <>
+          <hr className="spacer my-8 container mx-auto" />
+          <section className="max-w-3xl container mx-auto">
+            <Disqus slug={ghostPost.slug} title={ghostPost.title} />
+          </section>
+        </>
+      )}
       <div className="spacer my-8"></div>
       <CtaMini />
     </Layout>

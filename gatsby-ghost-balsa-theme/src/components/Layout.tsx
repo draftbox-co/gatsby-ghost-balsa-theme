@@ -21,6 +21,7 @@ const Layout: React.FC = ({ children }) => {
         }
         twitter
         facebook
+        lang
       }
       site {
         siteMetadata {
@@ -33,7 +34,7 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <ArmadaFormsProvider client={process.env.GATSBY_FORM_URL}>
-      <Helmet htmlAttributes={{ lang: "en" }} />
+      <Helmet htmlAttributes={{ lang: data.ghostSettings.lang ? data.ghostSettings.lang : 'auto' }} />
       <div>
         <Navbar navbarData={data} />
         <hr />

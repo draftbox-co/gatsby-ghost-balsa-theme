@@ -26,6 +26,7 @@ export interface GhostPostDescription {
   };
   slug: string;
   published_at: string;
+  primary_tag: Tag
 }
 
 export interface Edge {

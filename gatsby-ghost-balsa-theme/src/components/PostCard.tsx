@@ -26,7 +26,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
       onClick={(e) => handleNavigation(e, `/${post.slug}`)}
       className="w-full lg:w-1/3 px-4 mb-8 cursor-pointer"
     >
-      <div className="h-full rounded shadow-md flex flex-col justify-between">
+      <div className="h-full rounded shadow-md flex flex-col justify-between hover:shadow-2xl">
         <div>
           {post.localFeatureImage &&
             post.localFeatureImage.childImageSharp &&
@@ -56,22 +56,20 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
 
           <div className="px-6">
             <div className="mb-4">
-              <p className="text-sm text-gray-500 break-words">
+              <p className="text-sm text-gray-600 break-words">
                 {post.published_at}
-                {post.tags.length > 0 && <span className="mx-2">•</span>}
-                <span className="text-gray-600">
-                  {post.tags.map((tag, i) => {
-                    return (
-                      <a
-                        onClick={(e) => handleNavigation(e, `tag/${tag.slug}`)}
-                        key={i}
+                {post.primary_tag && <>
+                  <span className="mx-2">•</span>
+                  <span className="text-gray-600">
+                  <a
+                        onClick={(e) => handleNavigation(e, `tag/${post.primary_tag.slug}`)}
+                        
                         className="no-underline hover:underline mr-2"
                       >
-                        #{tag.name}
+                        #{post.primary_tag.name}
                       </a>
-                    );
-                  })}
-                </span>
+                  </span>
+                </>}
               </p>
               <h3
                 className="text-2xl my-2 font-heading font-semibold tracking-tight leading-tight break-words"
@@ -94,7 +92,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
             <small>{post.primary_author.name}</small>
           </a>
           {post.readingTime && (
-            <small className="text-gray-500">{post.readingTime}</small>
+            <small className="text-gray-600">{post.readingTime}</small>
           )}
         </div>
       </div>
