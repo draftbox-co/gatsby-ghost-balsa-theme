@@ -19,6 +19,8 @@ type PostTemplateProps = {
   location: any;
 };
 
+
+
 const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
   const { ghostPost } = data;
 
@@ -162,11 +164,11 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       {process.env.GATSBY_DISQUS_SHORTNAME && (
         <>
           <hr className="spacer my-8 container mx-auto" />
-          <section className="max-w-3xl container mx-auto">
+          <section className="max-w-3xl container mx-auto px-4">
             <Disqus slug={ghostPost.slug} title={ghostPost.title} />
           </section>
         </>
-      )}
+       )}
       <div className="spacer my-8"></div>
       <CtaMini />
     </Layout>
