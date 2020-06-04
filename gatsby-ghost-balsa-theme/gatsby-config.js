@@ -8,9 +8,10 @@ const generateRSSFeed = require(`./src/utils/rss/generate-feed`);
 module.exports = (themeOptions) => {
   const siteConfig = themeOptions.siteConfig || siteConfigDefaults;
   const ghostConfig = themeOptions.ghostConfig || ghostConfigDefaults;
-  const finalConfig = process.env.NODE_ENV === `development`
-  ? ghostConfig.development
-  : ghostConfig.production;
+  const finalConfig =
+    process.env.NODE_ENV === `development`
+      ? ghostConfig.development
+      : ghostConfig.production;
 
   siteConfig.apiUrl = finalConfig.apiUrl;
 
@@ -210,7 +211,7 @@ module.exports = (themeOptions) => {
           useMinify: true,
           usePreload: true,
           usePreconnect: true,
-          blacklist: ['/amp']
+          blacklist: ["/amp"],
         },
       },
       {
@@ -225,7 +226,13 @@ module.exports = (themeOptions) => {
           dirName: __dirname,
           themePath: `src/amp-styles/post.amp.css`,
         },
-      }
+      },
+      {
+        resolve: `gatsby-plugin-remove-generator`,
+        options: {
+          content: `Draftbox`,
+        },
+      },
     ],
   };
 };
