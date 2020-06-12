@@ -6,10 +6,22 @@ import { useStaticQuery, graphql } from "gatsby";
 const CtaMini = () => {
   const {
     ghostSettings: { title },
+    site: {
+      siteMetadata: { subscribeWidget },
+    },
   } = useStaticQuery(graphql`
     query {
       ghostSettings {
         title
+      }
+      site {
+        siteMetadata {
+          subscribeWidget {
+            title
+            helpText
+            successMessage
+          }
+        }
       }
     }
   `);
@@ -32,7 +44,8 @@ const CtaMini = () => {
             <div className="px-12 py-6 mb-8 lg:mb-0 text-center bg-green-200 text-green-900 mx-auto rounded">
               <h2 className="text-2xl font-heading text-center flex items-center">
                 <img className="mr-2 h-6 mt-1" src={checkMark} alt="" />
-                <span dangerouslySetInnerHTML={{ __html: `You've successfully subscribed to ${title}.` }}></span>
+                {subscribeWidget.successMessage && <span dangerouslySetInnerHTML={{ __html: subscribeWidget.successMessage }}></span>}
+                {!subscribeWidget.successMessage && <span dangerouslySetInnerHTML={{ __html: `You've successfully subscribed to ${title}.` }}></span>}
               </h2>
             </div>
           </div>
@@ -42,8 +55,8 @@ const CtaMini = () => {
         <section className="px-4 py-12 bg-gray-200" id="subscribe">
           <div className="w-full max-w-2xl mx-auto text-center">
             <h2 className="text-5xl mt-4 mb-8 leading-tight font-heading">
-              Subscribe to{" "}
-              <span dangerouslySetInnerHTML={{ __html: title }}></span>
+              
+            <span dangerouslySetInnerHTML={{ __html: `${subscribeWidget.title ? subscribeWidget.title : "Subscribe to " + title}` }}></span>
             </h2>
             <form
               onSubmit={(e) => onSubmit(e)}
@@ -71,7 +84,7 @@ const CtaMini = () => {
                 </div>
               </div>
               <p className="text-sm text-gray-500 leading-relaxed">
-                Get the latest posts delivered right to your inbox.
+                {subscribeWidget.helpText ? subscribeWidget.helpText: `Get the latest posts delivered right to your inbox.`}
               </p>
             </form>
           </div>

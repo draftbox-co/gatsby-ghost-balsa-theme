@@ -27,6 +27,31 @@ const Layout: React.FC = ({ children }) => {
         siteMetadata {
           siteUrl
           apiUrl
+          header {
+            navigation {
+              url
+              label
+            }
+          }
+          footer {
+            copyright
+            navigation {
+              label
+              url
+            }
+          }
+          subscribeWidget {
+            title
+            helpText
+            successMessage
+          }
+          socialLinks {
+            twitter
+            facebook
+            instagram
+            linkedin
+            github
+          }
         }
       }
     }

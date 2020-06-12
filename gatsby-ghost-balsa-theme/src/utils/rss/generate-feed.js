@@ -128,7 +128,7 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
             }
         }
   `,
-    output: `/rss`,
+    output: `/rss.xml`,
   };
 };
 

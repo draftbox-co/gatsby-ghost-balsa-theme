@@ -81,6 +81,7 @@ export const allGhostPostsDescription = graphql`
         name
         slug
       }
+      featured
     }
   }
 `;
@@ -120,6 +121,7 @@ export const ghostPostDescription = graphql`
       extension
       publicURL
     }
+    featured
   }
 `;
 
