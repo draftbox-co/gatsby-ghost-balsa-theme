@@ -6,6 +6,7 @@ import CtaMini from "../components/CtaMini";
 import Img from "gatsby-image";
 import { MetaData } from "../components/meta";
 import Disqus from "../components/disqus";
+import FbComments from "../components/fb-comments";
 import "../styles/richtext.css";
 import "../styles/prism.css";
 import facebookShare from "../images/facebook-share.svg";
@@ -166,6 +167,9 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           <hr className="spacer my-8 container mx-auto" />
           <section className="max-w-3xl container mx-auto px-4">
             <Disqus slug={ghostPost.slug} title={ghostPost.title} />
+          </section>
+          <section className="max-w-3xl container mx-auto px-4">
+            <FbComments href={href} />
           </section>
         </>
        )}
