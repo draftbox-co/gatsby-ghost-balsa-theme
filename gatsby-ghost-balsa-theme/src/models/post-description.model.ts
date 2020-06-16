@@ -38,6 +38,7 @@ export interface GhostPost {
   };
   published_at: string;
   og_description: string;
+  excerpt: string;
 }
 
 export interface GhostPostDescription {

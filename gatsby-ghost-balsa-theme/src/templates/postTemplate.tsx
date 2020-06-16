@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import { graphql, Link, navigate } from "gatsby";
-import { GhostPostDescription } from "../models/post-description.model";
+import { GhostPostDescription, GhostPost } from "../models/post-description.model";
 import CtaMini from "../components/CtaMini";
 import Img from "gatsby-image";
 import { MetaData } from "../components/meta";
@@ -13,16 +13,17 @@ import twitterShare from "../images/twitter-share.svg";
 import linkedInShare from "../images/linkedin.svg";
 import mailShare from "../images/mail.svg";
 import CopyLink from "../components/copy-link";
+import NextPrevPost from "../components/NextPrevPosts";
 
 type PostTemplateProps = {
-  data: GhostPostDescription;
+  data: {ghostPost: GhostPost, prevPost: GhostPost, nextPost: GhostPost};
   location: any;
 };
 
 
 
 const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
-  const { ghostPost } = data;
+  const { ghostPost, prevPost, nextPost } = data;
 
   const [href, sethref] = useState("");
 
@@ -161,6 +162,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           </ul>
         </div>
       </div>
+      <NextPrevPost prevPost={prevPost} nextPost={nextPost} />
       {process.env.GATSBY_DISQUS_SHORTNAME && (
         <>
           <hr className="spacer my-8 container mx-auto" />
@@ -176,9 +178,23 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
 };
 
 export const postDataQuery = graphql`
-  query($slug: String!) {
+  query($slug: String!, $prev: String, $next: String) {
     ghostPost(slug: { eq: $slug }) {
       ...GhostPostDetails
+    }
+    prevPost: ghostPost(slug: { eq: $prev }) {
+      title
+      excerpt
+      slug
+      updated_at(formatString: "MMMM DD YYYY")
+      published_at(formatString: "MMMM DD YYYY")
+    }
+    nextPost: ghostPost(slug: { eq: $next }) {
+      title
+      excerpt
+      slug
+      updated_at(formatString: "MMMM DD YYYY")
+      published_at(formatString: "MMMM DD YYYY")
     }
   }
 `;
