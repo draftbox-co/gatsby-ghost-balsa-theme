@@ -11,9 +11,9 @@ const NextPrevPost: React.FC<NextPrevPostProps> = ({ prevPost, nextPost }) => {
     <>
       <aside className="px-4 max-w-4xl mx-auto flex flex-wrap mt-10">
         <a
-          className={classNames("w-full md:w-1/2 px-4 relative py-4", {
-            "pointer-events-none": !nextPost,
-            "py-4 border-t border-b": nextPost,
+          className={classNames("w-full md:w-1/2 px-4 relative py-4 border-t border-b", {
+            "pointer-events-none hidden md:block": !nextPost,
+            "py-4": nextPost,
           })}
           href={nextPost?.slug ? nextPost.slug : "#"}
         >
@@ -34,9 +34,9 @@ const NextPrevPost: React.FC<NextPrevPostProps> = ({ prevPost, nextPost }) => {
         </a>
 
         <a
-          className={classNames("w-full md:w-1/2 px-4 relative", {
-            "pointer-events-none": !prevPost,
-            "py-4 md:border-t border-b md:border-l": prevPost,
+          className={classNames("w-full md:w-1/2 px-4 relative md:border-l md:border-t border-b", {
+            "pointer-events-none hidden md:block": !prevPost,
+            "py-4": prevPost,
             "border-t": !nextPost
           })}
           href={prevPost?.slug ? prevPost.slug : "#"}
