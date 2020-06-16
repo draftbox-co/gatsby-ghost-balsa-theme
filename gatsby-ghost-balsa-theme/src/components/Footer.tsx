@@ -20,26 +20,29 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
     },
   } = footerData;
 
-  socialLinks.linkedin = "https://linkedin.com"
-
   return (
     <footer className="bg-gray-100">
       <div className="flex flex-wrap items-center py-4 px-4 border-b container mx-auto">
         <div className="w-full lg:w-1/5 text-center lg:text-left">
           <span className="block md:inline-block md:mb-0">
-            {footer.copyright ? footer.copyright: title} © {new Date().getFullYear()}
+            {footer.copyright ? footer.copyright : title} ©{" "}
+            {new Date().getFullYear()}
           </span>
         </div>
         <div className="w-full lg:w-3/5 mt-4 lg:mt-0 text-center">
-        {footer.navigation.map(({ label, url }, i) => {
-            return url.startsWith("/") || url.startsWith(siteUrl) || url.startsWith(apiUrl) ? (
+          {footer.navigation.map(({ label, url }, i) => {
+            return url.startsWith("/") ||
+              url.startsWith(siteUrl) ||
+              url.startsWith(apiUrl) ? (
               <Link
                 key={i}
                 className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
                 to={`${
                   url.startsWith("/")
                     ? url
-                    : (url.startsWith(siteUrl) ? url.slice(siteUrl.length, url.length): url.slice(apiUrl.length, url.length))
+                    : url.startsWith(siteUrl)
+                    ? url.slice(siteUrl.length, url.length)
+                    : url.slice(apiUrl.length, url.length)
                 }`}
               >
                 {label}
@@ -61,7 +64,11 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
         {/* social Icons */}
         <div className="flex justify-center items-center lg:justify-end w-full lg:w-1/5 my-2 lg:my-0">
           {socialLinks && socialLinks.facebook && (
-            <a rel="noreferrer noopener" href={`${socialLinks.facebook}`} target="_blank">
+            <a
+              rel="noreferrer noopener"
+              href={`${socialLinks.facebook}`}
+              target="_blank"
+            >
               <img
                 className="w-4 h-4 mr-4"
                 src={facebookLogo}
@@ -71,7 +78,11 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
           )}
 
           {socialLinks && socialLinks.twitter && (
-            <a rel="noreferrer noopener" href={`${socialLinks.twitter}`} target="_blank">
+            <a
+              rel="noreferrer noopener"
+              href={`${socialLinks.twitter}`}
+              target="_blank"
+            >
               <img
                 className="w-4 h-4 mr-4"
                 src={twitterLogo}
@@ -81,7 +92,11 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
           )}
 
           {socialLinks && socialLinks.instagram && (
-            <a rel="noreferrer noopener" href={`${socialLinks.instagram}`} target="_blank">
+            <a
+              rel="noreferrer noopener"
+              href={`${socialLinks.instagram}`}
+              target="_blank"
+            >
               <img
                 className="w-4 h-4 mr-4"
                 src={instagramLogo}
@@ -91,7 +106,11 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
           )}
 
           {socialLinks && socialLinks.linkedin && (
-            <a rel="noreferrer noopener" href={`${socialLinks.linkedin}`} target="_blank">
+            <a
+              rel="noreferrer noopener"
+              href={`${socialLinks.linkedin}`}
+              target="_blank"
+            >
               <img
                 className="w-4 h-4 mr-4"
                 src={linkedinLogo}
@@ -101,7 +120,11 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
           )}
 
           {socialLinks && socialLinks.github && (
-            <a rel="noreferrer noopener" href={`${socialLinks.github}`} target="_blank">
+            <a
+              rel="noreferrer noopener"
+              href={`${socialLinks.github}`}
+              target="_blank"
+            >
               <img
                 className="w-4 h-4 mr-4"
                 src={githubLogo}
@@ -109,7 +132,6 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               />
             </a>
           )}
-          
         </div>
       </div>
       <div className="py-4 flex flex-col items-center justify-center">
