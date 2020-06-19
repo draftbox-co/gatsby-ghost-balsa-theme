@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import { graphql, Link, navigate } from "gatsby";
-import { GhostPostDescription, GhostPost } from "../models/post-description.model";
+import {
+  GhostPostDescription,
+  GhostPost,
+} from "../models/post-description.model";
 import CtaMini from "../components/CtaMini";
 import Img from "gatsby-image";
 import { MetaData } from "../components/meta";
 import Disqus from "../components/disqus";
+import FbComments from "../components/fb-comments";
 import "../styles/richtext.css";
 import "../styles/prism.css";
 import facebookShare from "../images/facebook-share.svg";
@@ -16,11 +20,9 @@ import CopyLink from "../components/copy-link";
 import NextPrevPost from "../components/NextPrevPosts";
 
 type PostTemplateProps = {
-  data: {ghostPost: GhostPost, prevPost: GhostPost, nextPost: GhostPost};
+  data: { ghostPost: GhostPost; prevPost: GhostPost; nextPost: GhostPost };
   location: any;
 };
-
-
 
 const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
   const { ghostPost, prevPost, nextPost } = data;
@@ -56,7 +58,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           className=" text-4xl text-center font-heading font-semibold break-words"
         ></h1>
         <p className="text-center">
-  <span>{ghostPost.published_at}, by{" "}</span>
+          <span>{ghostPost.published_at}, by </span>
           <Link
             className="text-blue-700 hover:underline"
             to={`/author/${ghostPost.primary_author.slug}`}
@@ -170,7 +172,16 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
             <Disqus slug={ghostPost.slug} title={ghostPost.title} />
           </section>
         </>
-       )}
+      )}
+      {process.env.GATSBY_FB_APP_ID && (
+        <>
+          <hr className="spacer my-8 container mx-auto" />
+          <section className="max-w-3xl container mx-auto px-4">
+            <FbComments href={href} />
+          </section>
+          )
+        </>
+      )}
       <div className="spacer my-8"></div>
       <CtaMini />
     </Layout>
