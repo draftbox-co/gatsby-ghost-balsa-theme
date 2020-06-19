@@ -1,0 +1,13 @@
+/* ! purgecss start ignore */
+
+@tailwind base;
+
+/* ! purgecss end ignore */
+
+@tailwind components;
+
+@tailwind utilities;
+
+/* ! purgecss start ignore */
+.fb-comments iframe { width: 100% !important; }
+/* ! purgecss end ignore */
