@@ -14,7 +14,7 @@ import "../styles/richtext.css";
 import "../styles/prism.css";
 import facebookShare from "../images/facebook-share.svg";
 import twitterShare from "../images/twitter-share.svg";
-import linkedInShare from "../images/linkedin.svg";
+import linkedInShare from "../images/linkedin-share.svg";
 import mailShare from "../images/mail.svg";
 import CopyLink from "../components/copy-link";
 import NextPrevPost from "../components/NextPrevPosts";
