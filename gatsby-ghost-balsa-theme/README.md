@@ -52,10 +52,10 @@ If you want to add this blog theme to an existing site, follow these instruction
     module.exports = {
     plugins: [
         {
-        resolve: `@draftbox-co/gatsby-ghost-balsa-ghost`,
+        resolve: `@draftbox-co/gatsby-ghost-balsa-theme`,
         options: {
             siteConfig: {
-            siteUrl: `https://your-bog.com`,
+            siteUrl: `https://your-blog.com`,
             postsPerPage: 12,
             siteTitleMeta: `Gatsby Frontend powered by headless Ghost CMS`,
             siteDescriptionMeta: `Turn your Ghost blog into a lightning fast static website with Gatsby`, 
