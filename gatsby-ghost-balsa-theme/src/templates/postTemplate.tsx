@@ -57,8 +57,8 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           dangerouslySetInnerHTML={{ __html: ghostPost.title }}
           className=" text-4xl text-center font-heading font-semibold break-words"
         ></h1>
-        <p className="text-center">
-          <span>{ghostPost.published_at}, by </span>
+        <p className="text-center mt-3">
+          <span>{ghostPost.published_at}</span><strong className="mx-2">&bull;</strong>
           <Link
             className="text-blue-700 hover:underline"
             to={`/author/${ghostPost.primary_author.slug}`}
@@ -94,7 +94,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       {ghostPost.childHtmlRehype && ghostPost.childHtmlRehype.html && (
         <div
           dangerouslySetInnerHTML={{ __html: ghostPost.childHtmlRehype.html }}
-          className="richtext max-w-3xl mx-4 lg:mx-auto font-serif text-gray-800"
+          className="richtext max-w-3xl px-4 mx-auto font-serif text-gray-800"
         ></div>
       )}
 
@@ -167,16 +167,16 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       <NextPrevPost prevPost={prevPost} nextPost={nextPost} />
       {process.env.GATSBY_DISQUS_SHORTNAME && (
         <>
-          <hr className="spacer my-8 container mx-auto" />
-          <section className="max-w-3xl container mx-auto px-4">
+          {/* <hr className="spacer my-8 container mx-auto" /> */}
+          <section className="max-w-4xl container mx-auto px-4 mt-16">
             <Disqus slug={ghostPost.slug} title={ghostPost.title} />
           </section>
         </>
       )}
       {process.env.GATSBY_FB_APP_ID && (
         <>
-          <hr className="spacer my-8 container mx-auto" />
-          <section className="max-w-3xl container mx-auto px-4">
+          {/* <hr className="spacer my-8 container mx-auto" /> */}
+          <section className="max-w-4xl container mx-auto px-4 mt-16">
             <FbComments href={href} />
           </section>
           )

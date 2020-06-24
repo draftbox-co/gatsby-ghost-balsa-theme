@@ -23,8 +23,8 @@ const NextPrevPost: React.FC<NextPrevPostProps> = ({ prevPost, nextPost }) => {
               <h2 className="text-xl font-bold mb-2 text-gray-800">
                 {nextPost.title}
               </h2>
-              <p className="mb-2">{nextPost.excerpt}&hellip;</p>
-              <p className="text-gray-600 text-xs uppercase mt-auto">
+              <p className="mb-2 prev-next-post text-gray-600">{nextPost.excerpt}&hellip;</p>
+              <p className="text-gray-600 text-xs mt-auto">
                 <time dateTime="{{date format='DD-MM-YYYY'}}">
                   {nextPost.published_at}
                 </time>
@@ -47,8 +47,8 @@ const NextPrevPost: React.FC<NextPrevPostProps> = ({ prevPost, nextPost }) => {
               <h2 className="text-xl font-bold mb-2 text-gray-800">
                 {prevPost.title}
               </h2>
-              <p className="mb-2">{prevPost.excerpt}&hellip;</p>
-              <p className="text-gray-600 text-xs uppercase mt-auto">
+              <p className="mb-2 prev-next-post text-gray-600">{prevPost.excerpt}&hellip;</p>
+              <p className="text-gray-600 text-xs mt-auto">
                 <time dateTime="{{date format='DD-MM-YYYY'}}">
                   {prevPost.published_at}
                 </time>
