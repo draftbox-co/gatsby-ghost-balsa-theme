@@ -99,7 +99,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       )}
 
       {ghostPost.tags && ghostPost.tags.length > 0 && (
-        <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto flex-wrap">
+        <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto flex-wrap px-4">
           {ghostPost.tags.map((tag, index) => {
             return (
               <div
@@ -114,7 +114,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         </div>
       )}
 
-      <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto">
+      <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto px-4">
         <span className="mr-2 text-lg text-gray-700">Share:</span>
         <div className="social-icons">
           <ul className="flex">
