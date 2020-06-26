@@ -14,7 +14,7 @@ import "../styles/richtext.css";
 import "../styles/prism.css";
 import facebookShare from "../images/facebook-share.svg";
 import twitterShare from "../images/twitter-share.svg";
-import linkedInShare from "../images/linkedin.svg";
+import linkedInShare from "../images/linkedin-share.svg";
 import mailShare from "../images/mail.svg";
 import CopyLink from "../components/copy-link";
 import NextPrevPost from "../components/NextPrevPosts";
@@ -57,8 +57,8 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           dangerouslySetInnerHTML={{ __html: ghostPost.title }}
           className="text-5xl text-center font-heading font-medium break-words"
         ></h1>
-        <p className="text-center">
-          <span>{ghostPost.published_at}, by </span>
+        <p className="text-center mt-3">
+          <span>{ghostPost.published_at}</span><strong className="mx-2">&bull;</strong>
           <Link
             className="text-blue-700 hover:underline"
             to={`/author/${ghostPost.primary_author.slug}`}
@@ -94,12 +94,12 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       {ghostPost.childHtmlRehype && ghostPost.childHtmlRehype.html && (
         <div
           dangerouslySetInnerHTML={{ __html: ghostPost.childHtmlRehype.html }}
-          className="richtext max-w-3xl mx-4 lg:mx-auto font-serif text-gray-800"
+          className="richtext max-w-3xl px-4 mx-auto font-serif text-gray-800"
         ></div>
       )}
 
       {ghostPost.tags && ghostPost.tags.length > 0 && (
-        <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto flex-wrap">
+        <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto flex-wrap px-4">
           {ghostPost.tags.map((tag, index) => {
             return (
               <div
@@ -114,7 +114,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         </div>
       )}
 
-      <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto">
+      <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto px-4">
         <span className="mr-2 text-lg text-gray-700">Share:</span>
         <div className="social-icons">
           <ul className="flex">
@@ -167,16 +167,16 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       <NextPrevPost prevPost={prevPost} nextPost={nextPost} />
       {process.env.GATSBY_DISQUS_SHORTNAME && (
         <>
-          <hr className="spacer my-8 container mx-auto" />
-          <section className="max-w-3xl container mx-auto px-4">
+          {/* <hr className="spacer my-8 container mx-auto" /> */}
+          <section className="max-w-4xl container mx-auto px-4 mt-16">
             <Disqus slug={ghostPost.slug} title={ghostPost.title} />
           </section>
         </>
       )}
       {process.env.GATSBY_FB_APP_ID && (
         <>
-          <hr className="spacer my-8 container mx-auto" />
-          <section className="max-w-3xl container mx-auto px-4">
+          {/* <hr className="spacer my-8 container mx-auto" /> */}
+          <section className="max-w-4xl container mx-auto px-4 mt-16">
             <FbComments href={href} />
           </section>
           )
