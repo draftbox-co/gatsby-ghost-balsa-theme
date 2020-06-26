@@ -42,7 +42,7 @@
 .kg-image-card.kg-width-wide + .kg-gallery-card,
 .kg-image-card.kg-width-wide + .kg-image-card.kg-width-wide {
   margin: -2.25em 0 3em;
-} 
+}
 
 .richtext {
   @apply leading-normal break-words text-body font-serif text-lg;
@@ -105,6 +105,10 @@
 
 .richtext h6 {
   @apply leading-tight italic font-medium mb-4 mt-6;
+}
+
+.richtext p {
+  @apply font-light;
 }
 
 .richtext blockquote {

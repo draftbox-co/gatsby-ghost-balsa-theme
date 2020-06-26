@@ -52,29 +52,52 @@ const PostTemplate: React.FC<PostTemplateProps> = ({
               </time>{" "}
             </div>
           </header>
-          {data.ghostPost.localFeatureImage && data.ghostPost.localFeatureImage.childImageSharp && (
-            <figure className="post-image">
-              <img
-                src={data.ghostPost.localFeatureImage.childImageSharp.fluid.src}
-                alt={data.ghostPost.title}
-              />
-            </figure>
+          {data.ghostPost.localFeatureImage &&
+            data.ghostPost.localFeatureImage.childImageSharp && (
+              <figure className="post-image">
+                <img
+                  src={
+                    data.ghostPost.localFeatureImage.childImageSharp.fluid.src
+                  }
+                  alt={data.ghostPost.title}
+                />
+              </figure>
+            )}
+          {data.ghostPost.localFeatureImage &&
+            data.ghostPost.localFeatureImage.extension === "svg" && (
+              <figure className="post-image">
+                <img
+                  src={data.ghostPost.localFeatureImage.publicURL}
+                  alt={data.ghostPost.title}
+                />
+              </figure>
+            )}
+          {data.ghostPost.childHtmlRehype &&
+            data.ghostPost.childHtmlRehype.html && (
+              <section
+                className="post-content"
+                dangerouslySetInnerHTML={{
+                  __html: data.ghostPost.childHtmlRehype.html,
+                }}
+              ></section>
+            )}
+          {data.ghostPost?.primary_tag && (
+            <div className="tags">
+              <span>Tag:</span>
+              <a
+                className="tag"
+                href={`/tag/${data.ghostPost.primary_tag.slug}`}
+              >
+                {data.ghostPost.primary_tag.name}
+              </a>
+            </div>
           )}
-          {data.ghostPost.localFeatureImage && data.ghostPost.localFeatureImage.extension === "svg" && (
-            <figure className="post-image">
-              <img
-                src={data.ghostPost.localFeatureImage.publicURL}
-                alt={data.ghostPost.title}
-              />
-            </figure>
-          )}
-          {data.ghostPost.childHtmlRehype && data.ghostPost.childHtmlRehype.html && <section
-            className="post-content"
-            dangerouslySetInnerHTML={{
-              __html: data.ghostPost.childHtmlRehype.html,
-            }}
-          ></section>}
-          
+
+          <div className="comment-button-container">
+            <button>
+              <a href={`/${data.ghostPost.slug}`}>Leave a comment</a>
+            </button>
+          </div>
         </article>
       </main>
     </>

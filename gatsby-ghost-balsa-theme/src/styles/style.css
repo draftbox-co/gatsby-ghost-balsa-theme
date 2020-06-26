@@ -9,6 +9,11 @@
 @tailwind utilities;
 
 /* ! purgecss start ignore */
+
+html {
+  @apply text-gray-800;
+}
+
 .fb-comments iframe { width: 100% !important; }
 
 .prev-next-post {
