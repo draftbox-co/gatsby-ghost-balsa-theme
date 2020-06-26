@@ -2,7 +2,7 @@ import React from "react";
 import { Link, navigate } from "gatsby";
 import { GhostPostDescription } from "../models/all-post-description.model";
 import Img from "gatsby-image";
-import starSVG from './../images/star.svg';
+import starSVG from "./../images/star.svg";
 
 type PostCardTypes = {
   post: GhostPostDescription;
@@ -27,15 +27,18 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
       onClick={(e) => handleNavigation(e, `/${post.slug}`)}
       className="w-full lg:w-1/3 px-4 mb-8 cursor-pointer relative"
     >
-      { post.featured && <span
-        className="absolute bg-white rounded-full px-2 py-1 text-xs font-semibold z-10 flex items-center"
-        style={{ right: "20px", top: "5px" }}
-      >
-        <span className="mr-1"><img src={starSVG} alt="Featured" className="h-3 w-3"></img></span>
-        Featured
-      </span>
-      }
-      
+      {post.featured && (
+        <span
+          className="absolute bg-white rounded-full px-2 py-1 text-xs font-semibold z-10 flex items-center"
+          style={{ right: "20px", top: "5px" }}
+        >
+          <span className="mr-1">
+            <img src={starSVG} alt="Featured" className="h-3 w-3"></img>
+          </span>
+          Featured
+        </span>
+      )}
+
       <div className="h-full rounded shadow-md flex flex-col justify-between hover:shadow-2xl">
         <div>
           {post.localFeatureImage &&
@@ -89,7 +92,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
                 dangerouslySetInnerHTML={{ __html: post.title }}
               ></h3>
               <p
-                className="text-gray-600 font-serif break-words"
+                className="text-gray-600 font-serif break-words font-light"
                 dangerouslySetInnerHTML={{ __html: excerpt }}
               ></p>
             </div>

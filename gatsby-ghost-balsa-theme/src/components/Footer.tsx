@@ -24,7 +24,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
     <footer className="bg-gray-100">
       <div className="flex flex-wrap items-center py-4 px-4 border-b container mx-auto">
         <div className="w-full lg:w-1/5 text-center lg:text-left">
-          <span className="block md:inline-block md:mb-0">
+          <span className="block md:inline-block md:mb-0 text-blue-900">
             {footer.copyright ? footer.copyright : title} ©{" "}
             {new Date().getFullYear()}
           </span>
