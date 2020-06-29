@@ -58,7 +58,8 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           className="text-5xl text-center font-heading font-medium break-words"
         ></h1>
         <p className="text-center mt-3">
-          <span>{ghostPost.published_at}</span><strong className="mx-2">&bull;</strong>
+          <span>{ghostPost.published_at}</span>
+          <strong className="mx-2">&bull;</strong>
           <Link
             className="text-blue-700 hover:underline"
             to={`/author/${ghostPost.primary_author.slug}`}
@@ -99,7 +100,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       )}
 
       {ghostPost.tags && ghostPost.tags.length > 0 && (
-        <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto flex-wrap px-4">
+        <div className="flex items-center max-w-3xl mt-8 lg:mx-auto flex-wrap px-4">
           {ghostPost.tags.map((tag, index) => {
             return (
               <div
@@ -114,7 +115,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         </div>
       )}
 
-      <div className="flex items-center max-w-3xl mt-8 mx-4 lg:mx-auto px-4">
+      <div className="flex items-center max-w-3xl mt-8 lg:mx-auto px-4">
         <span className="mr-2 text-lg text-gray-700">Share:</span>
         <div className="social-icons">
           <ul className="flex">
@@ -179,7 +180,6 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           <section className="max-w-4xl container mx-auto px-4 mt-16">
             <FbComments href={href} />
           </section>
-          )
         </>
       )}
       <div className="spacer my-8"></div>

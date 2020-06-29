@@ -9,41 +9,6 @@
   margin-bottom: 1rem;
 }
 
-.kg-gallery-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 1040px;
-  width: 100%;
-}
-
-.kg-gallery-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.kg-gallery-image img {
-  display: block;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.kg-gallery-row:not(:first-of-type) {
-  margin: 0.75em 0 0 0;
-}
-
-.kg-gallery-image:not(:first-of-type) {
-  margin: 0 0 0 0.75em;
-}
-
-.kg-gallery-card + .kg-image-card.kg-width-wide,
-.kg-gallery-card + .kg-gallery-card,
-.kg-image-card.kg-width-wide + .kg-gallery-card,
-.kg-image-card.kg-width-wide + .kg-image-card.kg-width-wide {
-  margin: -2.25em 0 3em;
-}
-
 .richtext {
   @apply leading-normal break-words text-body font-serif text-lg;
 }
@@ -72,7 +37,7 @@
 }
 
 .richtext a {
-  @apply border-blue-200 border-b-2;
+  @apply border-blue-200 border-b-2 inline-block;
 }
 
 .richtext strong a {
@@ -191,13 +156,14 @@
 }
 
 .kg-bookmark-container {
-  display: flex;
+  display: flex !important;
   min-height: 148px;
   color: var(--color-base);
   font-family: var(--font-sans-serif);
   text-decoration: none;
   border-radius: 3px;
   box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.09);
+  border-bottom: none;
 }
 
 .kg-bookmark-container:hover {
@@ -217,7 +183,7 @@
 
 .kg-bookmark-title {
   color: color(var(--color-secondary) l(-30%));
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   line-height: 1.5em;
   font-weight: 600;
   transition: color 0.2s ease-in-out;
@@ -233,7 +199,7 @@
   margin-top: 12px;
   max-height: 48px;
   color: color(var(--color-secondary) l(-10%));
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.5em;
   font-weight: 400;
 
@@ -264,7 +230,7 @@
   align-items: center;
   margin-top: 14px;
   color: color(var(--color-secondary) l(-10%));
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -289,6 +255,31 @@
   line-height: 1.5em;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+@media screen and (max-width: 425px) {
+  .kg-bookmark-container {
+    flex-direction: column;
+  }
+
+  .kg-bookmark-thumbnail {
+    height: 200px;
+  }
+
+  .kg-bookmark-thumbnail img {
+    width: 100%;
+    order: 1;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .kg-bookmark-content {
+    order: 2;
+  }
+
+  .kg-bookmark-publisher {
+    max-width: 320px;
+    word-break: break-all;
+  }
 }
 
 /*!purgecss end ignore */
