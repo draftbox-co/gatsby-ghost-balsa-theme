@@ -17,6 +17,13 @@ type IndexPageProps = {
       description: string;
       cover_image: string;
     };
+    site: {
+      siteMetadata: {
+        siteTitle;
+        siteDescription;
+        coverUrl;
+      };
+    };
   };
   location: any;
   pageContext?: PaginationContext;
@@ -27,7 +34,13 @@ const IndexPage: React.FC<IndexPageProps> = ({
   location,
   pageContext,
 }) => {
-  const { allGhostPost, ghostSettings } = data;
+  const {
+    allGhostPost,
+    ghostSettings,
+    site: {
+      siteMetadata: { siteTitle, siteDescription, coverUrl },
+    },
+  } = data;
 
   return (
     <Layout>
@@ -35,9 +48,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
       <section
         className="text-center bg-cover max-w-full"
         style={{
-          backgroundImage: `url(${
-            ghostSettings.cover_image ? ghostSettings.cover_image : "none"
-          })`,
+          backgroundImage: `url(/${coverUrl ? coverUrl : "none"})`,
         }}
       >
         <div className="relative flex items-center py-32">
@@ -49,11 +60,11 @@ const IndexPage: React.FC<IndexPageProps> = ({
           />
           <div className="z-10 max-w-2xl mx-auto px-4">
             <h1
-              dangerouslySetInnerHTML={{ __html: ghostSettings.title }}
+              dangerouslySetInnerHTML={{ __html: siteTitle }}
               className="mb-4 text-4xl leading-tight font-semibold font-heading text-white break-words"
             ></h1>
             <p
-              dangerouslySetInnerHTML={{ __html: ghostSettings.description }}
+              dangerouslySetInnerHTML={{ __html: siteDescription }}
               className="text-2xl leading-tight font-light text-white"
             ></p>
           </div>
@@ -80,7 +91,7 @@ export default IndexPage;
 export const indexPageQuery = graphql`
   query($limit: Int!, $skip: Int!) {
     allGhostPost(
-      sort: {fields: [featured, published_at], order: [DESC, DESC]}
+      sort: { fields: [featured, published_at], order: [DESC, DESC] }
       filter: { slug: { ne: "data-schema" } }
       limit: $limit
       skip: $skip
@@ -94,6 +105,14 @@ export const indexPageQuery = graphql`
       title
       description
       cover_image
+    }
+
+    site {
+      siteMetadata {
+        siteTitle
+        siteDescription
+        coverUrl
+      }
     }
   }
 `;

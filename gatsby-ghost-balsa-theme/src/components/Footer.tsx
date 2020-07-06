@@ -14,9 +14,8 @@ type FooterProps = {
 
 const Footer: React.FC<FooterProps> = ({ footerData }) => {
   const {
-    ghostSettings: { title, navigation, facebook, twitter },
     site: {
-      siteMetadata: { siteUrl, footer, apiUrl, socialLinks },
+      siteMetadata: { siteTitle, siteUrl, footer, apiUrl, socialLinks },
     },
   } = footerData;
 
@@ -25,7 +24,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
       <div className="flex flex-wrap items-center py-4 px-4 border-b container mx-auto">
         <div className="w-full lg:w-1/5 text-center lg:text-left">
           <span className="block md:inline-block md:mb-0 text-blue-900">
-            {footer.copyright ? footer.copyright : title} ©{" "}
+            {footer.copyright ? footer.copyright : siteTitle} ©{" "}
             {new Date().getFullYear()}
           </span>
         </div>

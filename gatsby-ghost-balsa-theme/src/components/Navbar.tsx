@@ -9,18 +9,20 @@ type NavbarProps = {
 
 const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
   const {
-    ghostSettings: { title, logo },
     site: {
-      siteMetadata: { siteUrl, apiUrl, header, footer, subscribeWidget },
+      siteMetadata: {
+        siteUrl,
+        apiUrl,
+        header,
+        footer,
+        subscribeWidget,
+        logoUrl,
+        siteTitle,
+      },
     },
   } = navbarData;
 
-  let {
-    ghostSettings: { navigation },    
-  } = navbarData;
-
   const [isMenuToggled, setIsMenuToggled] = useState(false);
-  navigation = navigation.filter(nav => !nav.url.startsWith("/contact"));
 
   return (
     <nav className="flex flex-wrap items-center justify-between p-4 container mx-auto">
@@ -29,10 +31,10 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
           className="text-2xl text-blue-700 font-semibold font-serif"
           to="/"
         >
-          {logo ? (
-            <img className="h-10" src={logo} alt={title} />
+          {logoUrl ? (
+            <img className="h-10" src={logoUrl} alt={siteTitle} />
           ) : (
-            <span dangerouslySetInnerHTML={{ __html: title }}></span>
+            <span dangerouslySetInnerHTML={{ __html: siteTitle }}></span>
           )}
         </Link>
       </div>
@@ -59,40 +61,19 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
         )}
       >
         <div>
-          {/* <Link
-            className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
-            to="/"
-          >
-            Home
-          </Link>
-          <Link
-            className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
-            to="/tags"
-          >
-            Tags
-          </Link>
-
-          <Link
-            className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
-            to="/authors"
-          >
-            Authors
-          </Link>
-          <Link
-            className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
-            to="/contact"
-          >
-            Contact Us
-          </Link> */}
           {header.navigation.map(({ label, url }, i) => {
-            return url.startsWith("/") || url.startsWith(siteUrl) || url.startsWith(apiUrl) ? (
+            return url.startsWith("/") ||
+              url.startsWith(siteUrl) ||
+              url.startsWith(apiUrl) ? (
               <Link
                 key={i}
                 className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
                 to={`${
                   url.startsWith("/")
                     ? url
-                    : (url.startsWith(siteUrl) ? url.slice(siteUrl.length, url.length): url.slice(apiUrl.length, url.length))
+                    : url.startsWith(siteUrl)
+                    ? url.slice(siteUrl.length, url.length)
+                    : url.slice(apiUrl.length, url.length)
                 }`}
               >
                 {label}

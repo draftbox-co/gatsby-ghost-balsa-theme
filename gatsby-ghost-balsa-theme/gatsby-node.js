@@ -78,7 +78,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     {
       allGhostPost(
-        sort: {fields: [featured, published_at], order: [DESC, DESC]}
+        sort: { fields: [featured, published_at], order: [DESC, DESC] }
         filter: { slug: { ne: "data-schema" } }
       ) {
         edges {
@@ -119,11 +119,8 @@ exports.createPages = async ({ graphql, actions }) => {
       site {
         siteMetadata {
           postsPerPage
+          siteTitle
         }
-      }
-
-      ghostSettings {
-        title
       }
     }
   `);
@@ -139,7 +136,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const pages = result.data.allGhostPage.edges;
   const posts = result.data.allGhostPost.edges;
   const postsPerPage = result.data.site.siteMetadata.postsPerPage;
-  const websiteTitle = result.data.ghostSettings.title;
+  const websiteTitle = result.data.site.siteMetadata.siteTitle;
 
   // Load templates
   const indexTemplate = require.resolve(`./src/templates/indexTemplate.tsx`);

@@ -71,12 +71,10 @@ module.exports = (themeOptions) => {
           icon: `static/${siteConfig.siteIcon}`,
           legacy: true,
           query: `{
-            allGhostSettings {
-              edges {
-                node {
-                  title
-                  description
-                }
+            site {
+              siteMetadata {
+                siteTitle
+                siteDescription
               }
             }
           }`,

@@ -8,35 +8,30 @@ interface SocialLinks {
   facebook: string;
   instagram: string;
   linkedin: string;
-  github: string
+  github: string;
 }
 
 export interface SettingsAndSlugs {
-  ghostSettings: {
-    title: string;
-    navigation: Navigation[];
-    facebook: string;
-    twitter: string;
-    logo: string;
-    lang: string;
-  };
   site: {
     siteMetadata: {
       siteUrl: string;
       apiUrl: string;
       header: {
-        navigation: Navigation[]
+        navigation: Navigation[];
       };
       footer: {
-        navigation: Navigation[],
+        navigation: Navigation[];
         copyright: string;
       };
       subscribeWidget: {
         title: string;
         helpText: string;
         successMessage: string;
-      },
-      socialLinks: SocialLinks
+      };
+      socialLinks: SocialLinks;
+      logoUrl: string;
+      siteTitle: string;
+      language: string
     };
   };
 }

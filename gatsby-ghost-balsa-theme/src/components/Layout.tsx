@@ -12,21 +12,13 @@ const Layout: React.FC = ({ children }) => {
 
   const data = useStaticQuery<SettingsAndSlugs>(graphql`
     query {
-      ghostSettings {
-        title
-        logo
-        navigation {
-          label
-          url
-        }
-        twitter
-        facebook
-        lang
-      }
       site {
         siteMetadata {
           siteUrl
           apiUrl
+          logoUrl
+          siteTitle
+          language
           header {
             navigation {
               url
@@ -59,7 +51,13 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <ArmadaFormsProvider client={process.env.GATSBY_FORM_URL}>
-      <Helmet htmlAttributes={{ lang: data.ghostSettings.lang ? data.ghostSettings.lang : 'auto' }} />
+      <Helmet
+        htmlAttributes={{
+          lang: data.site.siteMetadata.language
+            ? data.site.siteMetadata.language
+            : "auto",
+        }}
+      />
       <div>
         <Navbar navbarData={data} />
         <hr />

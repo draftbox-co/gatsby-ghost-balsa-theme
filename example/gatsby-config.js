@@ -69,11 +69,41 @@ module.exports = {
             title: "Contact Built with Draftbox",
             successMessage: "We’ll get in touch with you soon.",
           },
+          metadata: {
+            title: "Built with Draftbox",
+            description:
+              "Lightning fast, secure front-end for your WordPress or Ghost blog, without coding. Draftbox is a new-age blogging platform for everyone, built on Gatsby.",
+          },
+          twitterCard: {
+            title: "Built with Draftbox",
+            description:
+              "Lightning fast, secure front-end for your WordPress or Ghost blog, without coding. Draftbox is a new-age blogging platform for everyone, built on Gatsby.",
+            imageUrl: "twitterImage.png",
+            username: "@DraftboxHQ",
+          },
+          facebookCard: {
+            title: "Built with Draftbox",
+            description:
+              "Lightning fast, secure front-end for your WordPress or Ghost blog, without coding. Draftbox is a new-age blogging platform for everyone, built on Gatsby.",
+            imageUrl: "facebookImage.png",
+            appId: "2391725224459953",
+            width: 1000,
+            height: 523,
+          },
+          siteTitle: "Built with Draftbox",
+          siteDescription:
+            "Lightning fast, secure front-end for your WordPress or Ghost blog, without coding.",
+          language: "en",
+          logoUrl: "logo.svg",
+          iconUrl:
+            "https://ghost.theasdfghjkl.com/content/images/2020/05/draftbox-colored-icon.png",
+          coverUrl: "cover.png",
+          alternateLogoUrl: "alternateLogo.svg",
         },
         ghostConfig: {
           development: {
-            apiUrl: "https://ghost.theasdfghjkl.com",
-            contentApiKey: "3d17fad3efaa911df1ed577638",
+            apiUrl: "https://blog.jabrafan.com",
+            contentApiKey: "f78858ac081c27c54a131d0c18",
             version: "v3",
           },
           production: {
