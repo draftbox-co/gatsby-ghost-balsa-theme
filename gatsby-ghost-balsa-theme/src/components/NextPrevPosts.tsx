@@ -18,7 +18,7 @@ const NextPrevPost: React.FC<NextPrevPostProps> = ({ prevPost, nextPost }) => {
               "py-4": nextPost,
             }
           )}
-          href={nextPost?.slug ? nextPost.slug : "#"}
+          href={nextPost?.slug ? `/${nextPost.slug}` : "#"}
         >
           {nextPost && (
             <section className="h-full flex flex-col">
@@ -47,7 +47,7 @@ const NextPrevPost: React.FC<NextPrevPostProps> = ({ prevPost, nextPost }) => {
               "border-t": !nextPost,
             }
           )}
-          href={prevPost?.slug ? prevPost.slug : "#"}
+          href={prevPost?.slug ? `/${prevPost.slug}` : "#"}
         >
           {prevPost && (
             <section className="h-full flex flex-col">

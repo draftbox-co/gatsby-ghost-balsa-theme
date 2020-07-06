@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { SettingsAndSlugs } from "../models/settings-and-page-slugs.model";
+import url from "url";
 
 type NavbarProps = {
   navbarData: SettingsAndSlugs;
@@ -32,7 +33,11 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
           to="/"
         >
           {logoUrl ? (
-            <img className="h-10" src={logoUrl} alt={siteTitle} />
+            <img
+              className="h-10"
+              src={url.resolve(siteUrl, logoUrl)}
+              alt={siteTitle}
+            />
           ) : (
             <span dangerouslySetInnerHTML={{ __html: siteTitle }}></span>
           )}
