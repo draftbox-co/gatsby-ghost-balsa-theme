@@ -102,8 +102,8 @@ module.exports = {
         },
         ghostConfig: {
           development: {
-            apiUrl: "https://blog.jabrafan.com",
-            contentApiKey: "f78858ac081c27c54a131d0c18",
+            apiUrl: "https://ghost.theasdfghjkl.com",
+            contentApiKey: "3d17fad3efaa911df1ed577638",
             version: "v3",
           },
           production: {
