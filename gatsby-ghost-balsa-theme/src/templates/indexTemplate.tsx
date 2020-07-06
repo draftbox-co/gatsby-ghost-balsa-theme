@@ -8,6 +8,7 @@ import { MetaData } from "../components/meta";
 import PostCard from "../components/PostCard";
 import Pagination from "../components/Pagination";
 import classNames from "classnames";
+import url from "url";
 
 type IndexPageProps = {
   data: {
@@ -19,6 +20,7 @@ type IndexPageProps = {
     };
     site: {
       siteMetadata: {
+        siteUrl;
         siteTitle;
         siteDescription;
         coverUrl;
@@ -38,7 +40,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
     allGhostPost,
     ghostSettings,
     site: {
-      siteMetadata: { siteTitle, siteDescription, coverUrl },
+      siteMetadata: { siteTitle, siteUrl, siteDescription, coverUrl },
     },
   } = data;
 
@@ -48,7 +50,9 @@ const IndexPage: React.FC<IndexPageProps> = ({
       <section
         className="text-center bg-cover max-w-full"
         style={{
-          backgroundImage: `url(/${coverUrl ? coverUrl : "none"})`,
+          backgroundImage: `url(${
+            coverUrl ? url.resolve(siteUrl, coverUrl) : "none"
+          })`,
         }}
       >
         <div className="relative flex items-center py-32">
@@ -109,6 +113,7 @@ export const indexPageQuery = graphql`
 
     site {
       siteMetadata {
+        siteUrl
         siteTitle
         siteDescription
         coverUrl
