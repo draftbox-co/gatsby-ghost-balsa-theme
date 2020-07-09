@@ -142,6 +142,11 @@ export const ghostPostDescription = graphql`
           ...GatsbyImageSharpFluid
         }
       }
+      seo: childImageSharp {
+        fixed(width: 1200, quality: 100) {
+          src
+        }
+      }
       extension
       publicURL
     }
@@ -179,6 +184,11 @@ export const ghostPageDetails = graphql`
       childImageSharp {
         fluid(maxHeight: 360) {
           ...GatsbyImageSharpFluid
+        }
+      }
+      seo: childImageSharp {
+        fixed(width: 1200, quality: 100) {
+          src
         }
       }
       extension

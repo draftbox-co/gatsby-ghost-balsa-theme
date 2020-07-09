@@ -23,6 +23,11 @@ export interface GhostPost {
     childImageSharp: {
       fluid: any;
     };
+    seo: {
+      fixed: {
+        src: string;
+      };
+    };
     publicURL: string;
     extension: string;
   };

@@ -21,8 +21,11 @@ const ArticleMetaGhost = ({ data, settings, canonical, amp }) => {
     `name`
   );
   const primaryTag = publicTags[0] || ``;
-  const shareImage = ghostPost.feature_image
-    ? url.resolve(config.siteUrl, ghostPost.feature_image)
+
+  const postHeroImage = ghostPost.localFeatureImage?.seo?.fixed?.src;
+
+  const shareImage = postHeroImage
+    ? url.resolve(config.siteUrl, postHeroImage)
     : config.coverUrl ||
       config.facebookCard.imageUrl ||
       config.twitterCard.imageUrl
