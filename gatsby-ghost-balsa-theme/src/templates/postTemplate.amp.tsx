@@ -108,6 +108,13 @@ export const pageQuery = graphql`
   query($slug: String!) {
     ghostPost(slug: { eq: $slug }) {
       title
+      og_title
+      og_description
+      excerpt
+      twitter_title
+      twitter_description
+      meta_title
+      meta_description
       childHtmlRehype {
         html
       }
@@ -127,6 +134,11 @@ export const pageQuery = graphql`
         childImageSharp {
           fluid {
             srcSet
+            src
+          }
+        }
+        seo: childImageSharp {
+          fixed(width: 1200, quality: 100) {
             src
           }
         }
