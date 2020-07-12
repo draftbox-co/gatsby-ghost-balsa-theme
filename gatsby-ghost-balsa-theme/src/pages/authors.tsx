@@ -1,17 +1,20 @@
 import React from "react";
 import Layout from "../components/Layout";
 import userAvatar from "../images/female_avatar.svg";
+import MetaData from "../components/meta/MetaData";
 import { graphql, Link } from "gatsby";
 import { AllGHostAuthorsData } from "../models/all-authors-description.model";
 import CtaMini from "../components/CtaMini";
 
 type AuthorsProps = AllGHostAuthorsData;
 
-const Authors: React.FC<AuthorsProps> = ({ data }) => {
+const Authors: React.FC<AuthorsProps> = ({ data, location }) => {
   const { allGhostAuthor } = data;
 
   return (
     <Layout>
+      <MetaData title="Authors" location={location} />
+
       <div className="spacer my-6"></div>
       <h1 className="text-4xl font-bold text-center">Authors</h1>
       <div className="spacer my-6"></div>

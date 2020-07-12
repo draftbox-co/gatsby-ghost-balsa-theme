@@ -36,7 +36,7 @@ const WebsiteMeta = ({
     data.description ||
     config.siteDescriptionMeta ||
     settings.description;
-  title = settings.title;
+  title = title || settings.title;
 
   const jsonLd = {
     "@context": `https://schema.org/`,
@@ -93,7 +93,7 @@ const WebsiteMeta = ({
     // </>
     <>
       <Helmet htmlAttributes={{ lang: config.language || "auto" }}>
-        <title>{config.metadata.title || config.siteTitle}</title>
+        <title>{title || config.metadata.title || config.siteTitle}</title>
         <meta
           name="description"
           content={config.metadata.description || config.siteDescription}

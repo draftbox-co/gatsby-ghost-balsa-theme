@@ -1,15 +1,18 @@
 import React from "react";
 import Layout from "../components/Layout";
 import CtaMini from "../components/CtaMini";
+import MetaData from "../components/meta/MetaData";
 import { graphql, Link } from "gatsby";
 import { AllTagsInfo } from "../models/all-tags-description.model";
 
 type TagsProps = AllTagsInfo;
 
-const Tags: React.FC<TagsProps> = ({ data }) => {
+const Tags: React.FC<TagsProps> = ({ data, location }) => {
   const { allGhostTag } = data;
   return (
     <Layout>
+      <MetaData title="Tags" location={location} />
+
       <div className="spacer my-6"></div>
       <h1 className="text-4xl font-bold text-center">
         {allGhostTag.edges.length > 0 ? "Tags" : "No tags available."}
