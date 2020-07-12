@@ -29,7 +29,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({
         <nav className="blog-title">
           <Link
             to="/"
-            dangerouslySetInnerHTML={{ __html: data.ghostPost.title }}
+            dangerouslySetInnerHTML={{ __html: data.site.siteMetadata.siteTitle }}
           ></Link>
         </nav>
       </header>
@@ -115,6 +115,7 @@ export const pageQuery = graphql`
       twitter_description
       meta_title
       meta_description
+      slug
       childHtmlRehype {
         html
       }
@@ -144,6 +145,11 @@ export const pageQuery = graphql`
         }
         extension
         publicURL
+      }
+    }
+    site {
+      siteMetadata {
+        siteTitle
       }
     }
   }
