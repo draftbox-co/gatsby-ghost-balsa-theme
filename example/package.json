@@ -6,13 +6,13 @@
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths --log-pages",
     "serve": "gatsby serve"
   },
   "dependencies": {
     "@draftbox-co/gatsby-ghost-balsa-theme": "^1.0.0",
     "disqus-react": "^1.0.7",
-    "gatsby": "2.21.1",
+    "gatsby": "2.21.20",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-facebook": "^8.1.4"
