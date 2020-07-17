@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import "../styles/style.css";
 
-const ErrorPage = () => {
+const OfflinePage = () => {
   return (
     <div className="min-h-screen w-full flex flex-col justify-center items-center ">
       <div className="max-w-xl px-6 lg:px-12">
@@ -23,4 +23,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default OfflinePage;
