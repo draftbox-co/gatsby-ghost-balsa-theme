@@ -20,7 +20,6 @@ const injectScript = function injectScript() {
   js.src = "https://instagram.com/embed.js";
   firstScript.parentNode.insertBefore(js, firstScript);
   injected = true;
-  console.log("Script loaded");
   if (
     typeof instgrm !== "undefined" &&
     window.instgrm.Embeds &&
@@ -38,7 +37,6 @@ var injectTwitterScript = function injectTwitterScript() {
     s.type = "text/javascript";
     s.innerText = jsCode;
     document.getElementsByTagName("head")[0].appendChild(s);
-    console.log("injectTwitterScript called");
     injectedTwitterScript = true;
 
     if (
@@ -63,13 +61,11 @@ export const onRouteUpdate = ({ location: { hash } }) => {
   }
 
   if (document.querySelector(instaEmbedClasses) !== null) {
-    console.log("I am here");
     setTimeout(() => {
       if (!injected) {
         window.addEventListener(
           "scroll",
           function () {
-            console.log("IG Scroll");
             injectScript();
           },
           { once: true }
@@ -84,7 +80,6 @@ export const onRouteUpdate = ({ location: { hash } }) => {
         window.addEventListener(
           "scroll",
           function () {
-            console.log("Twitter Scroll");
             injectTwitterScript();
           },
           { once: true }
