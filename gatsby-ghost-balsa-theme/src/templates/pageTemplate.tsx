@@ -52,7 +52,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
       <section className="px-4 max-w-4xl mx-auto">
         <h1
           dangerouslySetInnerHTML={{ __html: ghostPage.title }}
-          className=" text-5xl text-center font-heading font-medium break-words"
+          className=" text-5xl text-center font-sansMedium break-words"
         ></h1>
       </section>
       <div className="spacer my-6"></div>
@@ -80,7 +80,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
       <div className="spacer my-6"></div>
       {ghostPage.childHtmlRehype && ghostPage.childHtmlRehype.html && <div
         dangerouslySetInnerHTML={{ __html: ghostPage.childHtmlRehype.html }}
-        className="richtext max-w-3xl px-4 mx-auto font-serif text-gray-800"
+        className="richtext max-w-3xl px-4 mx-auto font-serifNormal text-gray-800"
       ></div>}
 
       <div className="flex items-center max-w-3xl mt-8 lg:mx-auto px-4">
@@ -89,7 +89,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
           <ul className="flex">
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-blue-500 hover:bg-primary rounded-full mr-2"
                 href={facebookShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -99,7 +99,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-blue-500 hover:bg-primary rounded-full mr-2"
                 href={twitterShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -109,7 +109,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-blue-500 hover:bg-primary rounded-full mr-2"
                 href={linkedInShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -119,7 +119,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-blue-500 hover:bg-primary rounded-full mr-2"
                 href={mailShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"

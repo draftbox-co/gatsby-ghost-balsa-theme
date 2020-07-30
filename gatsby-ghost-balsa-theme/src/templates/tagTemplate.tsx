@@ -47,14 +47,14 @@ const TagTemplate: React.FC<TagTemplateProps> = ({
           <div
             className={classNames("absolute inset-0", {
               "bg-black opacity-50": ghostTag.feature_image,
-              "bg-blue-900": !ghostTag.feature_image,
+              "bg-primaryActive": !ghostTag.feature_image,
             })}
           />
           <div className="z-10 max-w-2xl mx-auto px-4">
-            <h3 className="text-3xl font-semibold font-heading text-white capitalize">
+            <h3 className="text-3xl font-sansBold text-white capitalize">
               {ghostTag.name}
             </h3>
-            <span className="font-semibold font-heading text-white">
+            <span className="font-sansBold text-white">
               {ghostTag.postCount} {ghostTag.postCount > 1 ? "posts" : "post"}
             </span>
           </div>

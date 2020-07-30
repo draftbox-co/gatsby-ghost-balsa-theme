@@ -1,7 +1,6 @@
 import React from "react";
 import { SettingsAndSlugs } from "../models/settings-and-page-slugs.model";
 import { Link } from "gatsby";
-import rssLogo from "../images/rss.svg";
 import facebookLogo from "../images/facebook.svg";
 import twitterLogo from "../images/twitter.svg";
 import instagramLogo from "./../images/instagram.svg";
@@ -23,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
     <footer className="bg-gray-100">
       <div className="flex flex-wrap items-center py-4 px-4 border-b container mx-auto">
         <div className="w-full lg:w-1/5 text-center lg:text-left">
-          <span className="block md:inline-block md:mb-0 text-blue-900">
+          <span className="block md:inline-block md:mb-0 text-primaryActice">
             {footer.copyright ? footer.copyright : siteTitle} ©{" "}
             {new Date().getFullYear()}
           </span>
@@ -35,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               url.startsWith(apiUrl) ? (
               <Link
                 key={i}
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
+                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-body hover:text-primary"
                 to={`${
                   url.startsWith("/")
                     ? url
@@ -52,7 +51,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
                 href={url}
                 rel="noreferrer noopener"
                 target="_blank"
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
+                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActice hover:text-primary"
               >
                 {label}
               </a>
@@ -135,7 +134,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
       </div>
       <div className="py-4 flex flex-col items-center justify-center">
         <a
-          className="text-blue-500 uppercase"
+          className="text-primary text-primaryActice uppercase"
           href="https://draftbox.co?ref=preview"
           rel="noreferrer noopener"
           target="_blank"

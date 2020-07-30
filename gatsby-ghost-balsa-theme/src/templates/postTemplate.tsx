@@ -63,13 +63,13 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       <section className="px-4 max-w-4xl mx-auto">
         <h1
           dangerouslySetInnerHTML={{ __html: ghostPost.title }}
-          className="text-5xl text-center font-heading font-medium break-words"
+          className="text-5xl text-center font-sansMedium break-words"
         ></h1>
         <p className="text-center mt-3">
           <span>{ghostPost.published_at}</span>
           <strong className="mx-2">&bull;</strong>
           <Link
-            className="text-blue-700 hover:underline"
+            className="text-primary hover:underline"
             to={`/author/${ghostPost.primary_author.slug}`}
           >
             {ghostPost.primary_author.name}
@@ -103,7 +103,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       {ghostPost.childHtmlRehype && ghostPost.childHtmlRehype.html && (
         <div
           dangerouslySetInnerHTML={{ __html: ghostPost.childHtmlRehype.html }}
-          className="richtext max-w-3xl px-4 mx-auto font-serif text-gray-800"
+          className="richtext max-w-3xl px-4 mx-auto font-serifNormal text-gray-800"
         ></div>
       )}
 
@@ -129,7 +129,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           <ul className="flex">
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-blue-500 hover:bg-primary rounded-full mr-2"
                 href={facebookShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -139,7 +139,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-blue-500 hover:bg-primary rounded-full mr-2"
                 href={twitterShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -149,7 +149,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-blue-500 hover:bg-primary rounded-full mr-2"
                 href={linkedInShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -159,7 +159,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-blue-500 hover:bg-primary rounded-full mr-2"
                 href={mailShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"

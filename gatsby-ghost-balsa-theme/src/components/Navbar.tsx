@@ -29,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
     <nav className="flex flex-wrap items-center justify-between p-4 container mx-auto">
       <div className="flex flex-shrink-0 mr-6 w-4/5 lg:w-auto">
         <Link
-          className="text-2xl text-blue-700 font-semibold font-serif"
+          className="text-2xl text-primary font-serifBold"
           to="/"
         >
           {logoUrl ? (
@@ -47,7 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
         {" "}
         <button
           onClick={(e) => setIsMenuToggled(!isMenuToggled)}
-          className="navbar-burger flex items-center py-2 px-3 text-blue-700 rounded border border-blue-700"
+          className="navbar-burger flex items-center py-2 px-3 text-primary rounded border border-blue-700"
         >
           <svg
             className="fill-current h-3 w-3"
@@ -72,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
               url.startsWith(apiUrl) ? (
               <Link
                 key={i}
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
+                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActice hover:text-primary"
                 to={`${
                   url.startsWith("/")
                     ? url
@@ -89,14 +89,14 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
                 href={url}
                 rel="noreferrer noopener"
                 target="_blank"
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
+                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActice hover:text-primary"
               >
                 {label}
               </a>
             );
           })}
           {/* <Link
-            className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
+            className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActice hover:text-primary"
             to="/contact"
           >
             Contact

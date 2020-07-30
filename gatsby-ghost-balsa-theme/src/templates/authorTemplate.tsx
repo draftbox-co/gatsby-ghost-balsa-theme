@@ -30,7 +30,7 @@ const AuthorTemplate: React.FC<AuthorTemplateProps> = ({
         style={{ backgroundColor: "pink" }}
       >
         <div className="relative flex items-center py-32">
-          <div className="absolute bg-blue-900 inset-0"></div>
+          <div className="absolute bg-primaryActive inset-0"></div>
           <div className="z-10 max-w-2xl mx-auto px-4">
             <img
               className="w-16 mx-auto mb-4 rounded-full"
@@ -41,10 +41,10 @@ const AuthorTemplate: React.FC<AuthorTemplateProps> = ({
               }
               alt=""
             />
-            <h3 className="text-3xl font-semibold font-heading text-white">
+            <h3 className="text-3xl font-sansBold text-white">
               {ghostAuthor.name}
             </h3>
-            {/* <span className="text-lg font-semibold font-heading text-white">
+            {/* <span className="text-lg font-semibold font-sans text-white">
               Regional Manager
             </span> */}
             {ghostAuthor.bio && (

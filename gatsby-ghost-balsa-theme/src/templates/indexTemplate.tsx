@@ -59,13 +59,13 @@ const IndexPage: React.FC<IndexPageProps> = ({
           <div
             className={classNames("absolute inset-0", {
               "bg-black opacity-50": ghostSettings.cover_image,
-              "bg-blue-900": !ghostSettings.cover_image,
+              "bg-primaryActive": !ghostSettings.cover_image,
             })}
           />
           <div className="z-10 max-w-2xl mx-auto px-4">
             <h1
               dangerouslySetInnerHTML={{ __html: siteTitle }}
-              className="mb-4 text-4xl leading-tight font-semibold font-heading text-white break-words"
+              className="mb-4 text-4xl leading-tight font-sansBold text-white break-words"
             ></h1>
             <p
               dangerouslySetInnerHTML={{ __html: siteDescription }}

@@ -30,7 +30,7 @@ const Tags: React.FC<TagsProps> = ({ data }) => {
                       {node.name[0]}
                     </div>
                     <div className="text-center p-4">
-                      <h1 className="text-3xl font-heading capitalize">
+                      <h1 className="text-3xl font-sansNormal capitalize">
                         {node.name}
                       </h1>
                       <span className="text-gray-600">

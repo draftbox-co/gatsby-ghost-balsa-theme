@@ -30,7 +30,7 @@ const Authors: React.FC<AuthorsProps> = ({ data }) => {
                       src={userAvatar}
                       alt=""
                     />
-                    <h3 className="text-xl font-heading">{node.name}</h3>
+                    <h3 className="text-xl font-sansNormal">{node.name}</h3>
                     {/* <span>Regional Manager</span> */}
                     {node.bio && (
                       <p className="mt-4 text-gray-500 leading-relaxed">

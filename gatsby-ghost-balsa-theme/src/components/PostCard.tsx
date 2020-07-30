@@ -88,11 +88,11 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
                 )}
               </p>
               <Link to={`/${post.slug}`}
-                className="text-2xl my-2 font-heading font-semibold tracking-tight leading-tight break-words"
+                className="text-2xl my-2 font-sansBold tracking-tight leading-tight break-words"
                 dangerouslySetInnerHTML={{ __html: post.title }}
               ></Link>
               <p
-                className="text-gray-600 font-serif break-words font-light"
+                className="text-gray-600 break-words font-serifLight"
                 dangerouslySetInnerHTML={{ __html: excerpt }}
               ></p>
             </div>
