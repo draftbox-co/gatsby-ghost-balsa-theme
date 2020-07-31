@@ -23,7 +23,7 @@ const NextPrevPost: React.FC<NextPrevPostProps> = ({ prevPost, nextPost }) => {
           {nextPost && (
             <section className="h-full flex flex-col">
               <i className="icon icon-arrow-left"></i>
-              <h2 className="text-xl font-bold mb-2 text-gray-800">
+              <h2 className="text-xl font-sansBold mb-2 text-gray-800">
                 {nextPost.title}
               </h2>
               <p className="mb-2 prev-next-post text-gray-600 font-serifLight break-words">
@@ -52,7 +52,7 @@ const NextPrevPost: React.FC<NextPrevPostProps> = ({ prevPost, nextPost }) => {
           {prevPost && (
             <section className="h-full flex flex-col">
               <i className="icon icon-arrow-right"></i>
-              <h2 className="text-xl font-bold mb-2 text-gray-800">
+              <h2 className="text-xl font-sansBold mb-2 text-gray-800">
                 {prevPost.title}
               </h2>
               <p className="mb-2 prev-next-post text-gray-600 font-serifLight break-words">

@@ -41,7 +41,7 @@ const AuthorTemplate: React.FC<AuthorTemplateProps> = ({
               }
               alt=""
             />
-            <h3 className="text-3xl font-sansBold text-white">
+            <h3 className="text-3xl font-sansSemiold text-white">
               {ghostAuthor.name}
             </h3>
             {/* <span className="text-lg font-semibold font-sans text-white">

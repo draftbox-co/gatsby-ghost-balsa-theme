@@ -242,8 +242,12 @@ module.exports = (themeOptions) => {
               value: `500`,
             },
             {
-              varName: "--sans-font-bold",
+              varName: "--sans-font-semibold",
               value: `600`,
+            },
+            {
+              varName: "--sans-font-bold",
+              value: `700`,
             },
             {
               varName: "--serif-font",

@@ -11,7 +11,7 @@ const Tags: React.FC<TagsProps> = ({ data }) => {
   return (
     <Layout>
       <div className="spacer my-6"></div>
-      <h1 className="text-4xl font-bold text-center">
+      <h1 className="text-4xl font-sansBold text-center">
         {allGhostTag.edges.length > 0 ? "Tags" : "No tags available."}
       </h1>
       <div className="spacer my-6"></div>

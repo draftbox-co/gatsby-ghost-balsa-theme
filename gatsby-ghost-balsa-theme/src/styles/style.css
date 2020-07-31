@@ -12,6 +12,8 @@
 
 html {
   @apply text-gray-800;
+  font-family: var(--sans-font);
+  font-weight: var(--sans-font-normal);
 }
 
 .font-sansNormal {
@@ -22,6 +24,11 @@ html {
 .font-sansMedium {
   font-family: var(--sans-font);
   font-weight: var(--sans-font-medium);
+}
+
+.font-sansSemibold {
+  font-family: var(--sans-font);
+  font-weight: var(--sans-font-semibold);
 }
 
 .font-sansBold {

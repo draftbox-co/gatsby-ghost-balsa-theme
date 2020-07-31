@@ -51,10 +51,10 @@ const TagTemplate: React.FC<TagTemplateProps> = ({
             })}
           />
           <div className="z-10 max-w-2xl mx-auto px-4">
-            <h3 className="text-3xl font-sansBold text-white capitalize">
+            <h3 className="text-3xl font-sansSemibold text-white capitalize">
               {ghostTag.name}
             </h3>
-            <span className="font-sansBold text-white">
+            <span className="font-sansSemibold text-white">
               {ghostTag.postCount} {ghostTag.postCount > 1 ? "posts" : "post"}
             </span>
           </div>

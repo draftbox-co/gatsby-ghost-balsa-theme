@@ -13,7 +13,7 @@ const Authors: React.FC<AuthorsProps> = ({ data }) => {
   return (
     <Layout>
       <div className="spacer my-6"></div>
-      <h1 className="text-4xl font-bold text-center">Authors</h1>
+      <h1 className="text-4xl font-sansBold text-center">Authors</h1>
       <div className="spacer my-6"></div>
       <section className="px-4 container mx-auto">
         <div className="flex flex-wrap justify-center -mx-4">

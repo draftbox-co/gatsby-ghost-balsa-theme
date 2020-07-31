@@ -10,7 +10,11 @@
 }
 
 .richtext {
-  @apply leading-normal break-words text-body font-serif text-lg font-serifNormal;
+  @apply leading-normal break-words text-body font-serif text-lg;
+}
+
+.richtext * {
+  font-weight: var(--serif-font-normal);
 }
 
 @screen lg {
@@ -33,7 +37,7 @@
 } */
 
 .richtext strong {
-  @apply font-serifMedium;
+  font-weight: var(--serif-font-medium);
 }
 
 .richtext a {
@@ -41,7 +45,7 @@
 }
 
 .richtext strong a {
-  @apply font-serifMedium;
+  font-weight: var(--serif-font-medium);
 }
 
 .richtext a:hover {
@@ -49,31 +53,37 @@
 }
 
 .richtext h1 {
-  @apply leading-tight text-4xl font-serifBold mb-4 mt-12 pb-2;
+  font-weight: var(--serif-font-bold);
+  @apply leading-tight text-4xl mb-4 mt-12 pb-2;
 }
 
 .richtext h2 {
-  @apply leading-tight text-3xl font-serifBold mb-4 mt-12 pb-2;
+  font-weight: var(--serif-font-bold);
+  @apply leading-tight text-3xl mb-4 mt-12 pb-2;
 }
 
 .richtext h3 {
-  @apply leading-snug text-2xl font-serifBold mb-4 mt-8;
+  font-weight: var(--serif-font-bold);
+  @apply leading-snug text-2xl mb-4 mt-8;
 }
 
 .richtext h4 {
-  @apply leading-none text-xl uppercase font-serifBold mb-4 mt-8;
+  font-weight: var(--serif-font-bold);
+  @apply leading-none text-xl uppercase mb-4 mt-8;
 }
 
 .richtext h5 {
-  @apply leading-tight text-lg font-serifBold mb-4 mt-6;
+  font-weight: var(--serif-font-bold);
+  @apply leading-tight text-lg mb-4 mt-6;
 }
 
 .richtext h6 {
-  @apply leading-tight text-base italic font-serifBold mb-4 mt-6;
+  font-weight: var(--serif-font-bold);
+  @apply leading-tight text-base italic mb-4 mt-6;
 }
 
 .richtext p {
-  @apply font-serifLight;
+  font-weight: var(--serif-font-light);
 }
 
 .richtext blockquote {

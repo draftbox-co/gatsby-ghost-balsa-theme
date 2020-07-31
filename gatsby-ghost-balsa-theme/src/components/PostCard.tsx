@@ -29,7 +29,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
     >
       {post.featured && (
         <span
-          className="absolute bg-white rounded-full px-2 py-1 text-xs font-semibold z-10 flex items-center"
+          className="absolute bg-white rounded-full px-2 py-1 text-xs font-sansSemibold z-10 flex items-center"
           style={{ right: "20px", top: "5px" }}
         >
           <span className="mr-1">
@@ -87,8 +87,9 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
                   </>
                 )}
               </p>
-              <Link to={`/${post.slug}`}
-                className="text-2xl my-2 font-sansBold tracking-tight leading-tight break-words"
+              <Link
+                to={`/${post.slug}`}
+                className="text-2xl my-2 font-sansSemibold tracking-tight leading-tight break-words"
                 dangerouslySetInnerHTML={{ __html: post.title }}
               ></Link>
               <p
