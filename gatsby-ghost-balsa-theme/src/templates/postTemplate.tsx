@@ -112,7 +112,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           {ghostPost.tags.map((tag, index) => {
             return (
               <div
-                onClick={(e) => handleNavigation(e, `tag/${tag.slug}`)}
+                onClick={(e) => handleNavigation(e, `/tag/${tag.slug}`)}
                 className="px-3 py-1 rounded-full mr-3 text-gray-700 cursor-pointer hover:text-white hover:border-gray-700 hover:bg-gray-700 bg-gray-300 mb-4"
                 key={index}
               >

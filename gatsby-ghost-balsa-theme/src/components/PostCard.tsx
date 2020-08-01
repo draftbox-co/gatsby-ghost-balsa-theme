@@ -59,7 +59,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
             )}
           {!post.feature_image && (
             <div
-              className="flex justify-center items-center bg-primary text-white font-black mb-4 h-48 w-full object-cover rounded-t"
+              className="flex justify-center items-center bg-primary text-white font-sansBold mb-4 h-48 w-full object-cover rounded-t"
               style={{
                 fontSize: "6rem",
               }}
