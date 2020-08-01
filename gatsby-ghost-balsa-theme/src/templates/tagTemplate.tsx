@@ -5,7 +5,6 @@ import { PaginationContext } from "../models/pagination.model";
 import { AllGhostPostDescription } from "../models/all-post-description.model";
 import PostCard from "../components/PostCard";
 import Pagination from "../components/Pagination";
-import CtaBig from "../components/CtaBig";
 import { MetaData } from "../components/meta";
 import classNames from "classnames";
 
@@ -69,7 +68,6 @@ const TagTemplate: React.FC<TagTemplateProps> = ({
         </div>
       </section>
       <Pagination pageContext={pageContext} />
-      <CtaBig />
     </Layout>
   );
 };

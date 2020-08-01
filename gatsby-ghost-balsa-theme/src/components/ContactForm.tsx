@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Layout from "./Layout";
-import CtaBig from "./CtaBig";
 import { useForm } from "../hook/useForm";
-import checkMark from "../images/check.svg";
 import { useStaticQuery, graphql } from "gatsby";
+import CtaMini from "./CtaMini";
 
 const ContactForm = () => {
   const {
@@ -128,7 +127,7 @@ const ContactForm = () => {
               </div>
               <div>
                 <button className="inline-block w-full py-4 px-8 leading-none text-white bg-primary hover:bg-primaryActive rounded shadow">
-                  {submitting ? "Submitting..." : "Submit"}
+                  {submitting ? "Sending..." : "Send"}
                 </button>
               </div>
             </form>
@@ -136,7 +135,7 @@ const ContactForm = () => {
         </section>
       )}
       <div className="spacer my-8"></div>
-      <CtaBig />
+      <CtaMini />
     </>
   );
 };

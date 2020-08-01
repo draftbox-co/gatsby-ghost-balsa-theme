@@ -44,7 +44,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
     e.stopPropagation();
     navigate(slug);
   };
-  
+
   return (
     <Layout>
       <MetaData data={data} location={location} />
@@ -52,7 +52,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
       <section className="px-4 max-w-4xl mx-auto">
         <h1
           dangerouslySetInnerHTML={{ __html: ghostPage.title }}
-          className=" text-5xl text-center font-sansMedium break-words"
+          className="text-3xl md:text-5xl text-center font-sansMedium break-words"
         ></h1>
       </section>
       <div className="spacer my-6"></div>
@@ -60,7 +60,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
         ghostPage.localFeatureImage.childImageSharp && (
           <section className="px-4 container mx-auto">
             <Img
-              style={{ maxHeight: "60vh", maxWidth: '100%' }}
+              style={{ maxHeight: "60vh", maxWidth: "100%" }}
               fluid={ghostPage.localFeatureImage.childImageSharp.fluid}
               alt={ghostPage.title}
             />
@@ -78,10 +78,12 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
           </section>
         )}
       <div className="spacer my-6"></div>
-      {ghostPage.childHtmlRehype && ghostPage.childHtmlRehype.html && <div
-        dangerouslySetInnerHTML={{ __html: ghostPage.childHtmlRehype.html }}
-        className="richtext max-w-3xl px-4 mx-auto font-serifNormal text-gray-800"
-      ></div>}
+      {ghostPage.childHtmlRehype && ghostPage.childHtmlRehype.html && (
+        <div
+          dangerouslySetInnerHTML={{ __html: ghostPage.childHtmlRehype.html }}
+          className="richtext max-w-3xl px-4 mx-auto font-serifNormal text-gray-800"
+        ></div>
+      )}
 
       <div className="flex items-center max-w-3xl mt-8 lg:mx-auto px-4">
         <span className="mr-2 text-lg text-gray-700">Share:</span>
@@ -133,7 +135,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
           </ul>
         </div>
       </div>
-      
+
       <div className="spacer my-6"></div>
       <CtaMini />
     </Layout>

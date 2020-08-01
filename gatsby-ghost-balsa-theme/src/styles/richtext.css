@@ -10,7 +10,8 @@
 }
 
 .richtext {
-  @apply leading-normal break-words text-body font-serif text-lg;
+  line-height: 1.75;
+  @apply break-words text-body font-serif text-lg;
 }
 
 .richtext * {
@@ -41,7 +42,7 @@
 }
 
 .richtext a {
-  @apply border-blue-200 border-b-2 inline-block;
+  @apply border-primaryLight border-b-3 inline;
 }
 
 .richtext strong a {
@@ -49,7 +50,7 @@
 }
 
 .richtext a:hover {
-  @apply border-blue-700;
+  @apply border-primary;
 }
 
 .richtext h1 {

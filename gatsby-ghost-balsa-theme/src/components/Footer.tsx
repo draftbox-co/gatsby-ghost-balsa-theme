@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
     <footer className="bg-gray-100">
       <div className="flex flex-wrap items-center py-4 px-4 border-b container mx-auto">
         <div className="w-full lg:w-1/5 text-center lg:text-left">
-          <span className="block md:inline-block md:mb-0 text-primaryActice">
+          <span className="block md:inline-block md:mb-0 text-primaryActive">
             {footer.copyright ? footer.copyright : siteTitle} ©{" "}
             {new Date().getFullYear()}
           </span>
@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               url.startsWith(apiUrl) ? (
               <Link
                 key={i}
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-body hover:text-primary"
+                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-body border-b-3 border-transparent hover:border-b-3 hover:border-primary"
                 to={`${
                   url.startsWith("/")
                     ? url
@@ -51,7 +51,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
                 href={url}
                 rel="noreferrer noopener"
                 target="_blank"
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActice hover:text-primary"
+                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-body border-b-3 border-transparent hover:border-b-3 hover:border-primary"
               >
                 {label}
               </a>
@@ -134,7 +134,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
       </div>
       <div className="py-4 flex flex-col items-center justify-center">
         <a
-          className="text-primary text-primaryActice uppercase"
+          className="text-primary hover:text-primaryActive uppercase"
           href="https://draftbox.co?ref=preview"
           rel="noreferrer noopener"
           target="_blank"

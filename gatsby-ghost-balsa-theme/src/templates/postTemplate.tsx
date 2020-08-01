@@ -63,7 +63,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       <section className="px-4 max-w-4xl mx-auto">
         <h1
           dangerouslySetInnerHTML={{ __html: ghostPost.title }}
-          className="text-5xl text-center font-sansMedium break-words"
+          className="text-3xl md:text-5xl text-center font-sansMedium break-words"
         ></h1>
         <p className="text-center mt-3">
           <span>{ghostPost.published_at}</span>

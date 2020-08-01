@@ -28,10 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
   return (
     <nav className="flex flex-wrap items-center justify-between p-4 container mx-auto">
       <div className="flex flex-shrink-0 mr-6 w-4/5 lg:w-auto">
-        <Link
-          className="text-2xl text-primary font-serifBold"
-          to="/"
-        >
+        <Link className="text-2xl text-primary font-serifBold" to="/">
           {logoUrl ? (
             <img
               className="h-10"
@@ -72,7 +69,8 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
               url.startsWith(apiUrl) ? (
               <Link
                 key={i}
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActice hover:text-primary"
+                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-body hover:border-primary hover:border-b-3"
+                activeClassName="border-b-3 border-primaryLight"
                 to={`${
                   url.startsWith("/")
                     ? url
@@ -89,14 +87,14 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
                 href={url}
                 rel="noreferrer noopener"
                 target="_blank"
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActice hover:text-primary"
+                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActive hover:text-primary"
               >
                 {label}
               </a>
             );
           })}
           {/* <Link
-            className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActice hover:text-primary"
+            className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActive hover:text-primary"
             to="/contact"
           >
             Contact

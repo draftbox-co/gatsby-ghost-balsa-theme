@@ -227,7 +227,7 @@ module.exports = (themeOptions) => {
             },
             {
               varName: "--primary-color-light",
-              value: `#2b6cb0`,
+              value: `#bee3f8`,
             },
             {
               varName: "--sans-font",
