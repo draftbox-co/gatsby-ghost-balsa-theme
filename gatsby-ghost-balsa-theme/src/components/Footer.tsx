@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               url.startsWith(apiUrl) ? (
               <Link
                 key={i}
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-body border-b-3 border-transparent hover:border-b-3 hover:border-primary"
+                className="inline-block my-2 mx-4 lg:mx-5 text-body border-b-3 border-transparent hover:border-b-3 hover:border-primary"
                 to={`${
                   url.startsWith("/")
                     ? url
@@ -51,7 +51,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
                 href={url}
                 rel="noreferrer noopener"
                 target="_blank"
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-body border-b-3 border-transparent hover:border-b-3 hover:border-primary"
+                className="inline-block my-2 mx-4 lg:mx-5 text-body border-b-3 border-transparent hover:border-b-3 hover:border-primary"
               >
                 {label}
               </a>
@@ -60,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
         </div>
 
         {/* social Icons */}
-        <div className="flex justify-center items-center lg:justify-end w-full lg:w-1/5 my-2 lg:my-0 mt-4 lg:mt-0">
+        <div className="flex flex-wrap justify-center items-center lg:justify-end w-full lg:w-1/5 my-2 lg:my-0 mt-4 lg:mt-0">
           {socialLinks && socialLinks.facebook && (
             <a
               rel="noreferrer noopener"
@@ -68,7 +68,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-4 h-4 mr-4"
+                className="w-5 h-5 mx-2 my-2"
                 src={facebookLogo}
                 alt="Facebook Logo"
               />
@@ -82,7 +82,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-4 h-4 mr-4"
+                className="w-5 h-5 mx-2 my-2"
                 src={twitterLogo}
                 alt="Twitter Logo"
               />
@@ -96,7 +96,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-4 h-4 mr-4"
+                className="w-5 h-5 mx-2 my-2"
                 src={instagramLogo}
                 alt="Instagram Logo"
               />
@@ -110,7 +110,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-4 h-4 mr-4"
+                className="w-5 h-5 mx-2 my-2"
                 src={linkedinLogo}
                 alt="LinkedIn Logo"
               />
@@ -124,7 +124,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-4 h-4 mr-4"
+                className="w-5 h-5 mx-2 my-2"
                 src={githubLogo}
                 alt="LinkedIn Logo"
               />

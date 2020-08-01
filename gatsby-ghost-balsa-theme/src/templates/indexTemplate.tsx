@@ -48,11 +48,11 @@ const IndexPage: React.FC<IndexPageProps> = ({
     <Layout>
       <MetaData data={data} location={location} />
       <section
-        className="text-center bg-cover max-w-full"
+        className="text-center bg-cover max-w-full bg-primary"
         style={{
-          backgroundImage: `url(${
-            coverUrl ? url.resolve(siteUrl, coverUrl) : "none"
-          })`,
+          backgroundImage: coverUrl
+            ? `url(${url.resolve(siteUrl, coverUrl)})`
+            : "none",
         }}
       >
         <div className="relative flex items-center py-32">
