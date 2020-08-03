@@ -240,7 +240,8 @@ module.exports = {
       heading: "var(--sans-font)",
       sans: "var(--sans-font)",
       serif: "var(--serif-font)",
-      mono: "var(--mono-font)",
+      mono:
+        'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
     },
     fontSize: {
       xs: "0.75rem",
