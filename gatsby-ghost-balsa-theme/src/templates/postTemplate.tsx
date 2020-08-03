@@ -16,6 +16,8 @@ import facebookShare from "../images/facebook-share.svg";
 import twitterShare from "../images/twitter-share.svg";
 import linkedInShare from "../images/linkedin-share.svg";
 import mailShare from "../images/mail.svg";
+import pintrestShare from "../images/pinterest-share.svg";
+import whatsappShare from "../images/whatsapp-share.svg";
 import CopyLink from "../components/copy-link";
 import NextPrevPost from "../components/NextPrevPosts";
 import { InView } from "react-intersection-observer";
@@ -29,6 +31,9 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
   const { ghostPost, prevPost, nextPost } = data;
 
   const [href, sethref] = useState("");
+
+  const [origin, setOrigin] = useState("");
+
   const [showComments, setshowComments] = useState(false);
 
   const handleCommentsVisibility = (inView) => {
@@ -40,6 +45,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       sethref(window.location.href);
+      setOrigin(window.location.origin);
     }
   }, []);
 
@@ -50,6 +56,17 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
   const linkedInShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${href}&title=${ghostPost.title}`;
 
   const mailShareUrl = `mailto:?subject=${ghostPost.title}&body=${href}`;
+
+  let pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${href}&description=${data.ghostPost.title}`;
+  if (ghostPost.localFeatureImage && ghostPost.localFeatureImage.publicURL) {
+    pinterestShareUrl += `&media=${
+      origin + ghostPost.localFeatureImage.publicURL
+    }`;
+  }
+
+  const whatsAppShareUrl = `https://wa.me/?text=${encodeURIComponent(
+    ghostPost.title + "\n" + href
+  )}`;
 
   const handleNavigation = (e: any, slug) => {
     e.stopPropagation();
@@ -79,7 +96,6 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
                 </Link>
               </span>
             </>
-          
           )}
         </p>
       </section>
@@ -167,6 +183,26 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
             <li>
               <a
                 className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
+                href={pinterestShareUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img className="h-4" src={pintrestShare} alt="LinkedIn Share" />
+              </a>
+            </li>
+            <li>
+              <a
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
+                href={whatsAppShareUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img className="h-4" src={whatsappShare} alt="LinkedIn Share" />
+              </a>
+            </li>
+            <li>
+              <a
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={mailShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -187,12 +223,12 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       ></InView>
       <div>
         {process.env.GATSBY_DISQUS_SHORTNAME && showComments && (
-            <>
-              {/* <hr className="spacer my-8 container mx-auto" /> */}
-              <section className="max-w-4xl container mx-auto px-4 mt-16">
-                <Disqus slug={ghostPost.slug} title={ghostPost.title} />
-              </section>
-            </>
+          <>
+            {/* <hr className="spacer my-8 container mx-auto" /> */}
+            <section className="max-w-4xl container mx-auto px-4 mt-16">
+              <Disqus slug={ghostPost.slug} title={ghostPost.title} />
+            </section>
+          </>
         )}
         {process.env.GATSBY_FB_APP_ID && showComments && (
           <>
