@@ -63,7 +63,7 @@ const CtaMini = () => {
       {!succeeded && (
         <section className="px-4 py-8 bg-gray-200" id="subscribe">
           <div className="w-full max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl mt-4 mb-8 leading-tight font-sansNormal">
+            <h2 className="text-3xl mt-4 mb-8 leading-tight font-sansMedium">
               <span
                 dangerouslySetInnerHTML={{
                   __html: `${

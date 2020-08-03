@@ -11,7 +11,7 @@
 /* ! purgecss start ignore */
 
 html {
-  @apply text-gray-800;
+  @apply text-body;
   font-family: var(--sans-font);
   font-weight: var(--sans-font-normal);
 }

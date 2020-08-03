@@ -48,7 +48,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
     <Layout>
       <MetaData data={data} location={location} />
       <section
-        className="text-center bg-cover max-w-full bg-primary"
+        className="text-center bg-cover bg-center max-w-full bg-primary"
         style={{
           backgroundImage: coverUrl
             ? `url(${url.resolve(siteUrl, coverUrl)})`
@@ -58,7 +58,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
         <div className="relative flex items-center py-32">
           <div
             className={classNames("absolute inset-0", {
-              "bg-black opacity-50": ghostSettings.cover_image,
+              "bg-black opacity-70": ghostSettings.cover_image,
               "bg-primaryActive": !ghostSettings.cover_image,
             })}
           />
@@ -69,7 +69,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
             ></h1>
             <p
               dangerouslySetInnerHTML={{ __html: siteDescription }}
-              className="text-2xl leading-tight font-sansNormal text-white"
+              className="text-2xl font-serifLight text-white opacity-85"
             ></p>
           </div>
         </div>

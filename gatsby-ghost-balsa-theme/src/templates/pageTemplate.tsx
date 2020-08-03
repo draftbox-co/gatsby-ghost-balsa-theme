@@ -48,19 +48,19 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
   return (
     <Layout>
       <MetaData data={data} location={location} />
-      <div className="spacer my-6"></div>
-      <section className="px-4 max-w-4xl mx-auto">
+      <div className="spacer my-8 lg:my-12"></div>
+      <section className="px-4 max-w-3xl mx-auto">
         <h1
           dangerouslySetInnerHTML={{ __html: ghostPage.title }}
-          className="text-3xl md:text-5xl text-center font-sansMedium break-words"
+          className="text-4xl lg:text-5xl font-sansSemibold break-words leading-tight"
         ></h1>
       </section>
-      <div className="spacer my-6"></div>
+      <div className="spacer my-8 lg:my-12"></div>
       {ghostPage.localFeatureImage &&
         ghostPage.localFeatureImage.childImageSharp && (
-          <section className="px-4 container mx-auto">
+          <section className="px-4 container mx-auto max-w-4xl">
             <Img
-              style={{ maxHeight: "60vh", maxWidth: "100%" }}
+              style={{ maxHeight: "100%", maxWidth: "100%" }}
               fluid={ghostPage.localFeatureImage.childImageSharp.fluid}
               alt={ghostPage.title}
             />
@@ -68,16 +68,16 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
         )}
       {ghostPage.localFeatureImage &&
         ghostPage.localFeatureImage.extension === "svg" && (
-          <section className="px-4 container mx-auto">
+          <section className="px-4 container mx-auto max-w-4xl">
             <img
-              style={{ maxHeight: "60vh" }}
+              style={{ maxHeight: "100%" }}
               className="mx-auto"
               src={ghostPage.localFeatureImage.publicURL}
               alt={ghostPage.title}
             />
           </section>
         )}
-      <div className="spacer my-6"></div>
+      <div className="spacer my-8 lg:my-12"></div>
       {ghostPage.childHtmlRehype && ghostPage.childHtmlRehype.html && (
         <div
           dangerouslySetInnerHTML={{ __html: ghostPage.childHtmlRehype.html }}
@@ -91,7 +91,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
           <ul className="flex">
             <li>
               <a
-                className="block p-2 bg-primary hover:bg-primaryActive rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={facebookShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -101,7 +101,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-primary hover:bg-primaryActive rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={twitterShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -111,7 +111,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-primary hover:bg-primaryActive rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={linkedInShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -121,7 +121,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-primary hover:bg-primaryActive rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={mailShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -136,7 +136,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
         </div>
       </div>
 
-      <div className="spacer my-6"></div>
+      <div className="spacer my-8 lg:my-12"></div>
       <CtaMini />
     </Layout>
   );

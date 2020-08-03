@@ -77,7 +77,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
                     <span className="text-gray-600">
                       <a
                         onClick={(e) =>
-                          handleNavigation(e, `tag/${post.primary_tag.slug}`)
+                          handleNavigation(e, `/tag/${post.primary_tag.slug}`)
                         }
                         className="no-underline hover:underline mr-2"
                       >
@@ -87,11 +87,12 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
                   </>
                 )}
               </p>
+              <div className="my-2">
               <Link
                 to={`/${post.slug}`}
-                className="text-2xl my-2 font-sansSemibold tracking-tight leading-tight break-words"
+                className="text-2xl font-sansSemibold tracking-tight leading-tight break-words"
                 dangerouslySetInnerHTML={{ __html: post.title }}
-              ></Link>
+              ></Link></div>
               <p
                 className="text-gray-600 break-words font-serifLight"
                 dangerouslySetInnerHTML={{ __html: excerpt }}

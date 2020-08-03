@@ -266,6 +266,7 @@ module.exports = {
       black: "900",
       sansNormal: "var(--sans-font-normal)",
       sansMedium: "var(--sans-font-medium)",
+      sansSemibold: "var(--sans-font-semibold)",
       sansBold: "var(--sans-font-bold)",
       serifLight: "var(--serif-font-light)",
       serifNormal: "var(--serif-font-normal)",
@@ -349,7 +350,9 @@ module.exports = {
       "0": "0",
       "25": "0.25",
       "50": "0.5",
+      "70": "0.7",
       "75": "0.75",
+      "85": "0.85",
       "100": "1",
     },
     order: {

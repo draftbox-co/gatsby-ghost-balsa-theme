@@ -44,7 +44,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
         {" "}
         <button
           onClick={(e) => setIsMenuToggled(!isMenuToggled)}
-          className="navbar-burger flex items-center py-2 px-3 text-primary focus:outline-none"
+          className="navbar-burger flex items-center py-2 px-3 text-gray-700 focus:outline-none"
         >
           <svg
             className="fill-current h-6 w-6"
@@ -69,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
               url.startsWith(apiUrl) ? (
               <Link
                 key={i}
-                className="inline-block mt-4 lg:mt-0 mx-3 lg:mx-5 text-body border-b-3 border-transparent hover:border-primary"
+                className="inline-block mt-4 lg:mt-0 mx-3 lg:mx-5 text-gray-700 border-b-3 border-transparent hover:border-primary"
                 activeClassName="border-b-3 border-primaryLight"
                 to={`${
                   url.startsWith("/")
@@ -87,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
                 href={url}
                 rel="noreferrer noopener"
                 target="_blank"
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActive hover:text-primary"
+                className="inline-block mt-4 lg:mt-0 mx-3 lg:mx-5 text-gray-700 border-b-3 border-transparent hover:border-primary"
               >
                 {label}
               </a>

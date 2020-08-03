@@ -35,7 +35,7 @@ const TagTemplate: React.FC<TagTemplateProps> = ({
     <Layout>
       <MetaData data={data} location={location} />
       <section
-        className="text-center bg-cover"
+        className="text-center bg-cover bg-center"
         style={{
           backgroundImage: ghostTag.feature_image
             ? ghostTag.feature_image
@@ -45,17 +45,23 @@ const TagTemplate: React.FC<TagTemplateProps> = ({
         <div className="relative flex items-center py-32">
           <div
             className={classNames("absolute inset-0", {
-              "bg-black opacity-50": ghostTag.feature_image,
+              "bg-black opacity-70": ghostTag.feature_image,
               "bg-primaryActive": !ghostTag.feature_image,
             })}
           />
           <div className="z-10 max-w-2xl mx-auto px-4">
-            <h3 className="text-3xl font-sansSemibold text-white capitalize">
-              {ghostTag.name}
-            </h3>
-            <span className="font-sansSemibold text-white">
+            <span className="text-sm leading-tight font-sansNormal text-white opacity-70 uppercase">
               {ghostTag.postCount} {ghostTag.postCount > 1 ? "posts" : "post"}
             </span>
+            <h1 className="mb-4 mt-2 text-3xl leading-tight font-sansSemibold text-white break-words">
+              {ghostTag.name}
+            </h1>
+            {ghostTag.description && (
+              <p
+                className="text-xl font-serifLight text-white opacity-85"
+                dangerouslySetInnerHTML={{ __html: ghostTag.description }}
+              ></p>
+            )}
           </div>
         </div>
       </section>

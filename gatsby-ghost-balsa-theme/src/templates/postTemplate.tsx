@@ -59,29 +59,36 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
   return (
     <Layout>
       <MetaData data={data} location={location} />
-      <div className="spacer my-6"></div>
-      <section className="px-4 max-w-4xl mx-auto">
+      <div className="spacer my-8 lg:my-12"></div>
+      <section className="px-4 max-w-3xl mx-auto">
         <h1
           dangerouslySetInnerHTML={{ __html: ghostPost.title }}
-          className="text-3xl md:text-5xl text-center font-sansMedium break-words"
+          className="text-4xl lg:text-5xl font-sansSemibold break-words leading-tight"
         ></h1>
-        <p className="text-center mt-3">
-          <span>{ghostPost.published_at}</span>
-          <strong className="mx-2">&bull;</strong>
-          <Link
-            className="text-primary hover:underline"
-            to={`/author/${ghostPost.primary_author.slug}`}
-          >
-            {ghostPost.primary_author.name}
-          </Link>
+        <p className="text-gray-600 break-words my-2 text-sm lg:text-base px-1">
+          {ghostPost.published_at}
+          {ghostPost.primary_author && (
+            <>
+              <span className="mx-2">•</span>
+              <span>
+                <Link
+                  className="no-underline hover:underline cursor-pointer"
+                  to={`/author/${ghostPost.primary_author.slug}`}
+                >
+                  {ghostPost.primary_author.name}
+                </Link>
+              </span>
+            </>
+          
+          )}
         </p>
       </section>
-      <div className="spacer my-6"></div>
+      <div className="spacer my-8 lg:my-12"></div>
       {ghostPost.localFeatureImage &&
         ghostPost.localFeatureImage.childImageSharp && (
-          <section className="px-4 container mx-auto">
+          <section className="px-4 container mx-auto max-w-4xl">
             <Img
-              style={{ maxHeight: "60vh", maxWidth: "100%" }}
+              style={{ maxHeight: "100%", maxWidth: "100%" }}
               fluid={ghostPost.localFeatureImage.childImageSharp.fluid}
               alt=""
             />
@@ -90,16 +97,16 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
 
       {ghostPost.localFeatureImage &&
         ghostPost.localFeatureImage.extension === "svg" && (
-          <section className="px-4 container mx-auto">
+          <section className="px-4 container mx-auto max-w-4xl">
             <img
-              style={{ maxHeight: "60vh" }}
+              style={{ maxHeight: "100%" }}
               className="mx-auto"
               src={ghostPost.localFeatureImage.publicURL}
               alt={ghostPost.title}
             />
           </section>
         )}
-      <div className="spacer my-6"></div>
+      <div className="spacer my-8 lg:my-12"></div>
       {ghostPost.childHtmlRehype && ghostPost.childHtmlRehype.html && (
         <div
           dangerouslySetInnerHTML={{ __html: ghostPost.childHtmlRehype.html }}
@@ -108,12 +115,12 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       )}
 
       {ghostPost.tags && ghostPost.tags.length > 0 && (
-        <div className="flex items-center max-w-3xl mt-8 lg:mx-auto flex-wrap px-4">
+        <div className="flex items-center max-w-3xl mt-8 mx-auto flex-wrap px-4">
           {ghostPost.tags.map((tag, index) => {
             return (
               <div
                 onClick={(e) => handleNavigation(e, `/tag/${tag.slug}`)}
-                className="px-3 py-1 rounded-full mr-3 text-gray-700 cursor-pointer hover:text-white hover:border-gray-700 hover:bg-gray-700 bg-gray-300 mb-4"
+                className="px-3 py-1 rounded-full mr-3 text-gray-700 cursor-pointer hover:text-white hover:bg-primary bg-gray-300 mb-4"
                 key={index}
               >
                 #{tag.name}
@@ -123,13 +130,13 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         </div>
       )}
 
-      <div className="flex items-center max-w-3xl mt-8 lg:mx-auto px-4">
+      <div className="flex items-center max-w-3xl mt-8 mx-auto px-4">
         <span className="mr-2 text-lg text-gray-700">Share:</span>
         <div className="social-icons">
           <ul className="flex">
             <li>
               <a
-                className="block p-2 bg-primary hover:bg-primaryActive rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={facebookShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -139,7 +146,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-primary hover:bg-primaryActive rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={twitterShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -149,7 +156,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-primary hover:bg-primaryActive rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={linkedInShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -159,7 +166,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-primary hover:bg-primaryActive rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={mailShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -196,7 +203,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
           </>
         )}
       </div>
-      <div className="spacer my-8"></div>
+      <div className="spacer my-8 lg:my-12"></div>
       <CtaMini />
     </Layout>
   );
