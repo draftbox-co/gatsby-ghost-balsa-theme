@@ -200,7 +200,7 @@
   color: color(var(--color-secondary) l(-30%));
   font-size: 1.2rem;
   line-height: 1.5em;
-  font-weight: 600;
+  font-weight: var(--serif-font-bold);
   transition: color 0.2s ease-in-out;
 }
 
@@ -216,7 +216,7 @@
   color: color(var(--color-secondary) l(-10%));
   font-size: 1rem;
   line-height: 1.5em;
-  font-weight: 400;
+  font-weight: var(--serif-font-normal);
 
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -246,7 +246,7 @@
   margin-top: 14px;
   color: color(var(--color-secondary) l(-10%));
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: var(--serif-font-normal);
 }
 
 .kg-bookmark-icon {
