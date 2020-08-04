@@ -1,0 +1,10 @@
+{
+  "development": {
+    "apiUrl": "https://ghost.theasdfghjkl.com",
+    "contentApiKey": "09a1517f0bea2d1a71a0057016"
+  },
+  "production": {
+    "apiUrl": "https://ghost.theasdfghjkl.com",
+    "contentApiKey": "09a1517f0bea2d1a71a0057016"
+  }
+}
