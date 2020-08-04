@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import { useForm } from "../hook/useForm";
 import { useStaticQuery, graphql } from "gatsby";
 import CtaMini from "./CtaMini";
+import checkMark from "./../images/check.svg";
 
 const ContactForm = () => {
   const {
