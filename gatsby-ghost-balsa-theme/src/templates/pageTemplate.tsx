@@ -45,7 +45,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
 
   const mailShareUrl = `mailto:?subject=${ghostPage.title}&body=${href}`;
 
-  let pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${href}&description=${data.ghostPost.title}`;
+  let pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${href}&description=${data.ghostPage.title}`;
   if (ghostPage.localFeatureImage && ghostPage.localFeatureImage.publicURL) {
     pinterestShareUrl += `&media=${
       origin + ghostPage.localFeatureImage.publicURL
