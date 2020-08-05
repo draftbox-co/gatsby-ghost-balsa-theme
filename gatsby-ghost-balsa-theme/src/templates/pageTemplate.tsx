@@ -12,6 +12,8 @@ import facebookShare from "../images/facebook-share.svg";
 import twitterShare from "../images/twitter-share.svg";
 import linkedInShare from "../images/linkedin-share.svg";
 import mailShare from "../images/mail.svg";
+import pintrestShare from "../images/pinterest-share.svg";
+import whatsappShare from "../images/whatsapp-share.svg";
 import CopyLink from "../components/copy-link";
 
 type IndexPageProps = {
@@ -26,9 +28,12 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
 
   const [href, sethref] = useState("");
 
+  const [origin, setOrigin] = useState("");
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       sethref(window.location.href);
+      setOrigin(window.location.origin);
     }
   }, []);
 
@@ -40,27 +45,38 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
 
   const mailShareUrl = `mailto:?subject=${ghostPage.title}&body=${href}`;
 
+  let pinterestShareUrl = `https://www.pinterest.com/pin/create/button/?url=${href}&description=${data.ghostPage.title}`;
+  if (ghostPage.localFeatureImage && ghostPage.localFeatureImage.publicURL) {
+    pinterestShareUrl += `&media=${
+      origin + ghostPage.localFeatureImage.publicURL
+    }`;
+  }
+
+  const whatsAppShareUrl = `https://wa.me/?text=${encodeURIComponent(
+    ghostPage.title + "\n" + href
+  )}`;
+
   const handleNavigation = (e: any, slug) => {
     e.stopPropagation();
     navigate(slug);
   };
-  
+
   return (
     <Layout>
       <MetaData data={data} location={location} />
-      <div className="spacer my-6"></div>
-      <section className="px-4 max-w-4xl mx-auto">
+      <div className="spacer my-8 lg:my-12"></div>
+      <section className="px-4 max-w-3xl mx-auto">
         <h1
           dangerouslySetInnerHTML={{ __html: ghostPage.title }}
-          className=" text-5xl text-center font-heading font-medium break-words"
+          className="text-4xl lg:text-5xl font-sansSemibold break-words leading-tight"
         ></h1>
       </section>
-      <div className="spacer my-6"></div>
+      <div className="spacer my-8 lg:my-12"></div>
       {ghostPage.localFeatureImage &&
         ghostPage.localFeatureImage.childImageSharp && (
-          <section className="px-4 container mx-auto">
+          <section className="px-4 container mx-auto max-w-4xl">
             <Img
-              style={{ maxHeight: "60vh", maxWidth: '100%' }}
+              style={{ maxHeight: "100%", maxWidth: "100%" }}
               fluid={ghostPage.localFeatureImage.childImageSharp.fluid}
               alt={ghostPage.title}
             />
@@ -68,20 +84,22 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
         )}
       {ghostPage.localFeatureImage &&
         ghostPage.localFeatureImage.extension === "svg" && (
-          <section className="px-4 container mx-auto">
+          <section className="px-4 container mx-auto max-w-4xl">
             <img
-              style={{ maxHeight: "60vh" }}
+              style={{ maxHeight: "100%" }}
               className="mx-auto"
               src={ghostPage.localFeatureImage.publicURL}
               alt={ghostPage.title}
             />
           </section>
         )}
-      <div className="spacer my-6"></div>
-      {ghostPage.childHtmlRehype && ghostPage.childHtmlRehype.html && <div
-        dangerouslySetInnerHTML={{ __html: ghostPage.childHtmlRehype.html }}
-        className="richtext max-w-3xl px-4 mx-auto font-serif text-gray-800"
-      ></div>}
+      <div className="spacer my-8 lg:my-12"></div>
+      {ghostPage.childHtmlRehype && ghostPage.childHtmlRehype.html && (
+        <div
+          dangerouslySetInnerHTML={{ __html: ghostPage.childHtmlRehype.html }}
+          className="richtext max-w-3xl px-4 mx-auto font-serifNormal text-gray-800"
+        ></div>
+      )}
 
       <div className="flex items-center max-w-3xl mt-8 lg:mx-auto px-4">
         <span className="mr-2 text-lg text-gray-700">Share:</span>
@@ -89,7 +107,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
           <ul className="flex">
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={facebookShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -99,7 +117,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={twitterShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -109,7 +127,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={linkedInShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -119,7 +137,27 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
             </li>
             <li>
               <a
-                className="block p-2 bg-blue-500 hover:bg-blue-700 rounded-full mr-2"
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
+                href={pinterestShareUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img className="h-4" src={pintrestShare} alt="LinkedIn Share" />
+              </a>
+            </li>
+            <li>
+              <a
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
+                href={whatsAppShareUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img className="h-4" src={whatsappShare} alt="LinkedIn Share" />
+              </a>
+            </li>
+            <li>
+              <a
+                className="block p-2 bg-gray-700 hover:bg-primary rounded-full mr-2"
                 href={mailShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -133,8 +171,8 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
           </ul>
         </div>
       </div>
-      
-      <div className="spacer my-6"></div>
+
+      <div className="spacer my-8 lg:my-12"></div>
       <CtaMini />
     </Layout>
   );

@@ -29,7 +29,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
     >
       {post.featured && (
         <span
-          className="absolute bg-white rounded-full px-2 py-1 text-xs font-semibold z-10 flex items-center"
+          className="absolute bg-white rounded-full px-2 py-1 text-xs font-sansSemibold z-10 flex items-center"
           style={{ right: "20px", top: "5px" }}
         >
           <span className="mr-1">
@@ -59,7 +59,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
             )}
           {!post.feature_image && (
             <div
-              className="flex justify-center items-center bg-blue-500 text-white font-black mb-4 h-48 w-full object-cover rounded-t"
+              className="flex justify-center items-center bg-primary text-white font-sansBold mb-4 h-48 w-full object-cover rounded-t"
               style={{
                 fontSize: "6rem",
               }}
@@ -77,7 +77,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
                     <span className="text-gray-600">
                       <a
                         onClick={(e) =>
-                          handleNavigation(e, `tag/${post.primary_tag.slug}`)
+                          handleNavigation(e, `/tag/${post.primary_tag.slug}`)
                         }
                         className="no-underline hover:underline mr-2"
                       >
@@ -87,12 +87,14 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
                   </>
                 )}
               </p>
-              <Link to={`/${post.slug}`}
-                className="text-2xl my-2 font-heading font-semibold tracking-tight leading-tight break-words"
+              <div className="my-2">
+              <Link
+                to={`/${post.slug}`}
+                className="text-2xl font-sansSemibold tracking-tight leading-tight break-words"
                 dangerouslySetInnerHTML={{ __html: post.title }}
-              ></Link>
+              ></Link></div>
               <p
-                className="text-gray-600 font-serif break-words font-light"
+                className="text-gray-600 break-words font-serifLight"
                 dangerouslySetInnerHTML={{ __html: excerpt }}
               ></p>
             </div>

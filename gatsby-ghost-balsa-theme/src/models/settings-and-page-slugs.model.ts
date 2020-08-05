@@ -9,6 +9,12 @@ interface SocialLinks {
   instagram: string;
   linkedin: string;
   github: string;
+  pinterest: string;
+  youtube: string;
+  dribbble: string;
+  behance: string;
+  externalLink: string;
+  whatsapp: string;
 }
 
 export interface SettingsAndSlugs {
@@ -31,7 +37,7 @@ export interface SettingsAndSlugs {
       socialLinks: SocialLinks;
       logoUrl: string;
       siteTitle: string;
-      language: string
+      language: string;
     };
   };
 }

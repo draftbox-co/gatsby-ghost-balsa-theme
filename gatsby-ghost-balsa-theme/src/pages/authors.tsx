@@ -13,7 +13,7 @@ const Authors: React.FC<AuthorsProps> = ({ data }) => {
   return (
     <Layout>
       <div className="spacer my-6"></div>
-      <h1 className="text-4xl font-bold text-center">Authors</h1>
+      <h1 className="text-4xl font-sansBold text-center">Authors</h1>
       <div className="spacer my-6"></div>
       <section className="px-4 container mx-auto">
         <div className="flex flex-wrap justify-center -mx-4">
@@ -30,7 +30,7 @@ const Authors: React.FC<AuthorsProps> = ({ data }) => {
                       src={userAvatar}
                       alt=""
                     />
-                    <h3 className="text-xl font-heading">{node.name}</h3>
+                    <h3 className="text-xl font-sansNormal">{node.name}</h3>
                     {/* <span>Regional Manager</span> */}
                     {node.bio && (
                       <p className="mt-4 text-gray-500 leading-relaxed">

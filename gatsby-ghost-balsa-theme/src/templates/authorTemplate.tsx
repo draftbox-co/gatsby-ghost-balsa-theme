@@ -26,11 +26,11 @@ const AuthorTemplate: React.FC<AuthorTemplateProps> = ({
   return (
     <Layout>
       <section
-        className="text-center bg-cover"
+        className="text-center bg-cover bg-center"
         style={{ backgroundColor: "pink" }}
       >
         <div className="relative flex items-center py-32">
-          <div className="absolute bg-blue-900 inset-0"></div>
+          <div className="absolute bg-primaryActive inset-0"></div>
           <div className="z-10 max-w-2xl mx-auto px-4">
             <img
               className="w-16 mx-auto mb-4 rounded-full"
@@ -41,15 +41,15 @@ const AuthorTemplate: React.FC<AuthorTemplateProps> = ({
               }
               alt=""
             />
-            <h3 className="text-3xl font-semibold font-heading text-white">
+            <h1 className="mb-4 text-3xl leading-tight font-sansSemibold text-white break-words">
               {ghostAuthor.name}
-            </h3>
-            {/* <span className="text-lg font-semibold font-heading text-white">
+            </h1>
+            {/* <span className="text-lg font-semibold font-sans text-white">
               Regional Manager
             </span> */}
             {ghostAuthor.bio && (
               <p
-                className="mt-4 text-gray-100 leading-relaxed break-words"
+                className="text-xl font-serifLight text-white opacity-85"
                 dangerouslySetInnerHTML={{ __html: ghostAuthor.bio }}
               ></p>
             )}

@@ -27,11 +27,8 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
 
   return (
     <nav className="flex flex-wrap items-center justify-between p-4 container mx-auto">
-      <div className="flex flex-shrink-0 mr-6 w-4/5 lg:w-auto">
-        <Link
-          className="text-2xl text-blue-700 font-semibold font-serif"
-          to="/"
-        >
+      <div className="flex flex-shrink-0 mr-6 w-2/3 lg:w-auto">
+        <Link className="text-2xl text-primary font-serifBold" to="/">
           {logoUrl ? (
             <img
               className="h-10"
@@ -47,10 +44,10 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
         {" "}
         <button
           onClick={(e) => setIsMenuToggled(!isMenuToggled)}
-          className="navbar-burger flex items-center py-2 px-3 text-blue-700 rounded border border-blue-700"
+          className="navbar-burger flex items-center py-2 px-3 text-gray-700 focus:outline-none"
         >
           <svg
-            className="fill-current h-3 w-3"
+            className="fill-current h-6 w-6"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -65,14 +62,15 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
           { hidden: !isMenuToggled }
         )}
       >
-        <div>
+        <div className="flex flex-col items-end lg:flex-row">
           {header.navigation.map(({ label, url }, i) => {
             return url.startsWith("/") ||
               url.startsWith(siteUrl) ||
               url.startsWith(apiUrl) ? (
               <Link
                 key={i}
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
+                className="inline-block mt-4 lg:mt-0 mx-3 lg:mx-5 text-gray-700 border-b-3 border-transparent hover:border-primary"
+                activeClassName="border-b-3 border-primaryLight"
                 to={`${
                   url.startsWith("/")
                     ? url
@@ -89,14 +87,14 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
                 href={url}
                 rel="noreferrer noopener"
                 target="_blank"
-                className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
+                className="inline-block mt-4 lg:mt-0 mx-3 lg:mx-5 text-gray-700 border-b-3 border-transparent hover:border-primary"
               >
                 {label}
               </a>
             );
           })}
           {/* <Link
-            className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-blue-900 hover:text-blue-700"
+            className="block lg:inline-block mt-4 lg:mt-0 lg:mx-5 text-primaryActive hover:text-primary"
             to="/contact"
           >
             Contact

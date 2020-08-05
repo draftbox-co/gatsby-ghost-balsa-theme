@@ -15,7 +15,7 @@ module.exports = (themeOptions) => {
 
   siteConfig.apiUrl = finalConfig.apiUrl;
 
-  return {
+  const configOptions = {
     siteMetadata: siteConfig,
     plugins: [
       `gatsby-plugin-typescript`,
@@ -161,8 +161,8 @@ module.exports = (themeOptions) => {
             `/404`,
             `/404.html`,
             `/offline-plugin-app-shell-fallback`,
-            '/offline',
-            '/offline.html'
+            "/offline",
+            "/offline.html",
           ],
           createLinkInHead: true,
           addUncaughtPages: true,
@@ -184,33 +184,9 @@ module.exports = (themeOptions) => {
         },
       },
       {
-        resolve: `@draftbox-co/gatsby-plugin-webfonts`,
+        resolve: "@draftbox-co/gatsby-plugin-css-variables",
         options: {
-          fonts: {
-            google: [
-              {
-                family: "Montserrat",
-                variants: ["400", "500", "600", "700"],
-                //subsets: ['latin']
-                //text: 'Hello'
-                fontDisplay: "swap",
-                strategy: "selfHosted", // 'base64' || 'cdn'
-              },
-              {
-                family: "Merriweather",
-                variants: ["300", "400", "500", "600", "700"],
-                //subsets: ['latin']
-                //text: 'Hello'
-                fontDisplay: "swap",
-                strategy: "selfHosted", // 'base64' || 'cdn'
-              },
-            ],
-          },
-          formats: ["woff2", "woff"],
-          useMinify: true,
-          usePreload: true,
-          usePreconnect: true,
-          blacklist: ["/amp"],
+          variables: siteConfig.themeConfig.variables,
         },
       },
       {
@@ -234,4 +210,21 @@ module.exports = (themeOptions) => {
       },
     ],
   };
+
+  if (siteConfig.themeConfig.fonts && siteConfig.themeConfig.fonts.length > 0) {
+    configOptions.plugins.push({
+      resolve: `@draftbox-co/gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: siteConfig.themeConfig.fonts,
+        },
+        formats: ["woff2", "woff"],
+        useMinify: true,
+        usePreload: true,
+        usePreconnect: true,
+        blacklist: ["/amp"],
+      },
+    },)
+  }
+  return configOptions;
 };
