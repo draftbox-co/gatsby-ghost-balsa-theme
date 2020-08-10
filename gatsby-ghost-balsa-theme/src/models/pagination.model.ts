@@ -6,4 +6,6 @@ export interface PaginationContext {
   numberOfPages: number;
   previousPagePath: string;
   nextPagePath: string;
+  coverUrl: string;
+  siteUrl: string;
 }

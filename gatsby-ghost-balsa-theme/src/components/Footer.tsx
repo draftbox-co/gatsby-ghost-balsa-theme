@@ -33,7 +33,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
             {new Date().getFullYear()}
           </span>
         </div>
-        <div className="w-full lg:w-3/5 mt-4 lg:mt-0 text-center">
+        <div className="w-full lg:w-3/5 mt-4 lg:mt-1 text-center">
           {footer.navigation.map(({ label, url }, i) => {
             return url.startsWith("/") ||
               url.startsWith(siteUrl) ||
@@ -74,7 +74,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-5 h-5 mx-2 my-2"
+                className="w-4 h-4 mx-2 my-2"
                 src={facebookLogo}
                 alt="Facebook Logo"
               />
@@ -88,7 +88,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-5 h-5 mx-2 my-2"
+                className="w-4 h-4 mx-2 my-2"
                 src={twitterLogo}
                 alt="Twitter Logo"
               />
@@ -102,7 +102,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-5 h-5 mx-2 my-2"
+                className="w-4 h-4 mx-2 my-2"
                 src={instagramLogo}
                 alt="Instagram Logo"
               />
@@ -116,7 +116,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-5 h-5 mx-2 my-2"
+                className="w-4 h-4 mx-2 my-2"
                 src={linkedinLogo}
                 alt="LinkedIn Logo"
               />
@@ -130,7 +130,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-5 h-5 mx-2 my-2"
+                className="w-4 h-4 mx-2 my-2"
                 src={githubLogo}
                 alt="LinkedIn Logo"
               />
@@ -143,7 +143,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-5 h-5 mx-2 my-2"
+                className="w-4 h-4 mx-2 my-2"
                 src={whatsappLogo}
                 alt="LinkedIn Logo"
               />
@@ -156,7 +156,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-5 h-5 mx-2 my-2"
+                className="w-4 h-4 mx-2 my-2"
                 src={youtubeLogo}
                 alt="LinkedIn Logo"
               />
@@ -169,7 +169,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-5 h-5 mx-2 my-2"
+                className="w-4 h-4 mx-2 my-2"
                 src={dribbbleLogo}
                 alt="LinkedIn Logo"
               />
@@ -182,7 +182,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-5 h-5 mx-2 my-2"
+                className="w-4 h-4 mx-2 my-2"
                 src={pinterestLogo}
                 alt="LinkedIn Logo"
               />
@@ -195,7 +195,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-5 h-5 mx-2 my-2"
+                className="w-4 h-4 mx-2 my-2"
                 src={behanceLogo}
                 alt="LinkedIn Logo"
               />
@@ -208,7 +208,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               target="_blank"
             >
               <img
-                className="w-5 h-5 mx-2 my-2"
+                className="w-4 h-4 mx-2 my-2"
                 src={linkLogo}
                 alt="LinkedIn Logo"
               />

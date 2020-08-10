@@ -120,6 +120,8 @@ exports.createPages = async ({ graphql, actions }) => {
         siteMetadata {
           postsPerPage
           siteTitle
+          siteUrl
+          coverUrl
         }
       }
     }
@@ -137,6 +139,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.allGhostPost.edges;
   const postsPerPage = result.data.site.siteMetadata.postsPerPage;
   const websiteTitle = result.data.site.siteMetadata.siteTitle;
+  const siteUrl = result.data.site.siteMetadata.siteUrl;
+  const coverUrl = result.data.site.siteMetadata.coverUrl;
 
   // Load templates
   const indexTemplate = require.resolve(`./src/templates/indexTemplate.tsx`);
@@ -186,6 +190,8 @@ exports.createPages = async ({ graphql, actions }) => {
           nextPageNumber: nextPageNumber,
           previousPagePath: previousPagePath,
           nextPagePath: nextPagePath,
+          siteUrl: siteUrl,
+          coverUrl: coverUrl,
         },
       });
     });
@@ -249,6 +255,8 @@ exports.createPages = async ({ graphql, actions }) => {
           nextPageNumber: nextPageNumber,
           previousPagePath: previousPagePath,
           nextPagePath: nextPagePath,
+          siteUrl: siteUrl,
+          coverUrl: coverUrl,
         },
       });
     });

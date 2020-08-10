@@ -181,6 +181,7 @@ module.exports = (themeOptions) => {
           ignore: ["/ignored.css", "prismjs/", "docsearch.js/"],
           purgeOnly: ["components/", "styles/"],
           content: [path.join(__dirname, "src/**/!(*.d).{ts,js,jsx,tsx}")],
+          whitelistPatternsChildren: [/prose$/],
         },
       },
       {

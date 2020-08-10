@@ -28,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
   return (
     <nav className="flex flex-wrap items-center justify-between p-4 container mx-auto">
       <div className="flex flex-shrink-0 mr-6 w-2/3 lg:w-auto">
-        <Link className="text-2xl text-primary font-serifBold" to="/">
+        <Link className="text-2xl text-primary font-sansBold" to="/">
           {logoUrl ? (
             <img
               className="h-10"
@@ -69,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
               url.startsWith(apiUrl) ? (
               <Link
                 key={i}
-                className="inline-block mt-4 lg:mt-0 mx-3 lg:mx-5 text-gray-700 border-b-3 border-transparent hover:border-primary"
+                className="inline-block mt-4 lg:mt-0 mx-3 lg:mx-5 text-gray-700 border-b-3 border-transparent hover:border-primary hover:border-b-3"
                 activeClassName="border-b-3 border-primaryLight"
                 to={`${
                   url.startsWith("/")
@@ -87,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbarData }) => {
                 href={url}
                 rel="noreferrer noopener"
                 target="_blank"
-                className="inline-block mt-4 lg:mt-0 mx-3 lg:mx-5 text-gray-700 border-b-3 border-transparent hover:border-primary"
+                className="inline-block mt-4 lg:mt-0 mx-3 lg:mx-5 text-gray-700 border-b-3 border-transparent hover:border-primary hover:border-b-3"
               >
                 {label}
               </a>
