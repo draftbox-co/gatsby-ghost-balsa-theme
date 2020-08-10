@@ -1,0 +1,88 @@
+/* ! purgecss start ignore */
+
+@tailwind base;
+
+/* ! purgecss end ignore */
+
+@tailwind components;
+
+@tailwind utilities;
+
+/* ! purgecss start ignore */
+
+html {
+  overflow-x: hidden;
+  font-size: 16px;
+  @apply font-sans;
+  font-weight: var(--font-sansNormal);
+}
+
+body {
+  @apply m-0 p-0 relative text-body break-words;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, ::before, ::after { 
+  @apply border-gray-300;
+}
+
+.font-sansNormal {
+  font-family: var(--sans-font);
+  font-weight: var(--sans-font-normal);
+}
+
+.font-sansMedium {
+  font-family: var(--sans-font);
+  font-weight: var(--sans-font-medium);
+}
+
+.font-sansSemibold {
+  font-family: var(--sans-font);
+  font-weight: var(--sans-font-semibold);
+}
+
+.font-sansBold {
+  font-family: var(--sans-font);
+  font-weight: var(--sans-font-bold);
+}
+
+.font-serifLight {
+  font-family: var(--serif-font);
+  font-weight: var(--serif-font-light);
+}
+
+.font-serifNormal {
+  font-family: var(--serif-font);
+  font-weight: var(--serif-font-normal);
+}
+
+.font-serifSemibold {
+  font-family: var(--serif-font);
+  font-weight: var(--serif-font-semibold);
+}
+
+.font-serifBold {
+  font-family: var(--serif-font);
+  font-weight: var(--serif-font-bold);
+}
+
+.font-serifExtrabold {
+  font-family: var(--serif-font);
+  font-weight: var(--serif-font-extrabold);
+}
+
+.fb-comments iframe {
+  width: 100% !important;
+}
+
+.prev-next-post {
+  margin: 0 0 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* ! purgecss end ignore */
