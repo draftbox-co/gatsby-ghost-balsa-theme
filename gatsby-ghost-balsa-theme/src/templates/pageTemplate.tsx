@@ -83,7 +83,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
           </section>
         )}
       {ghostPage.localFeatureImage &&
-        ghostPage.localFeatureImage.extension === "svg" && (
+        !ghostPage.localFeatureImage.childImageSharp && (
           <section className="px-4 container mx-auto max-w-4xl">
             <img
               style={{ maxHeight: "100%" }}

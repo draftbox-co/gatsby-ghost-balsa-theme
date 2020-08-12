@@ -112,7 +112,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         )}
 
       {ghostPost.localFeatureImage &&
-        ghostPost.localFeatureImage.extension === "svg" && (
+        !ghostPost.localFeatureImage.childImageSharp && (
           <section className="px-4 container mx-auto max-w-4xl">
             <img
               style={{ maxHeight: "100%" }}

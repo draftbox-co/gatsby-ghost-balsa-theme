@@ -64,7 +64,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({
               </figure>
             )}
           {data.ghostPost.localFeatureImage &&
-            data.ghostPost.localFeatureImage.extension === "svg" && (
+            !data.ghostPost.localFeatureImage.childImageSharp && (
               <figure className="post-image">
                 <img
                   src={data.ghostPost.localFeatureImage.publicURL}

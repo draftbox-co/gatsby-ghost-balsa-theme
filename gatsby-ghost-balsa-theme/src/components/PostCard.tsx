@@ -42,15 +42,14 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
       <div className="h-full rounded shadow-md flex flex-col justify-between hover:shadow-2xl">
         <div>
           {post.localFeatureImage &&
-            post.localFeatureImage.childImageSharp &&
-            post.localFeatureImage.extension !== "svg" && (
+            post.localFeatureImage.childImageSharp  && (
               <Img
                 className="mb-4 h-52 lg:h-48 w-full object-cover rounded-t border-b"
                 fluid={post.localFeatureImage.childImageSharp.fluid}
               />
             )}
           {post.localFeatureImage &&
-            post.localFeatureImage.extension === "svg" && (
+            !post.localFeatureImage.childImageSharp && (
               <img
                 className="mb-4 h-52 lg:h-48 w-full object-cover rounded-t border-b"
                 src={post.localFeatureImage.publicURL}

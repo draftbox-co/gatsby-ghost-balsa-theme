@@ -144,11 +144,11 @@ module.exports = {
                 varName: "--serif-font",
                 value: `Lora`,
               },
-              { varName: "--serif-font-light", value: `300` },
+              { varName: "--serif-font-light", value: `400` },
               { varName: "--serif-font-normal", value: `400` },
               { varName: "--serif-font-semibold", value: `600` },
               { varName: "--serif-font-bold", value: `700` },
-              { varName: "--serif-font-extrabold", value: `800` },
+              { varName: "--serif-font-extrabold", value: `700` },
             ],
             fonts: [
               {
@@ -161,7 +161,7 @@ module.exports = {
               },
               {
                 family: "Lora",
-                variants: ["300", "400", "600", "700", "800"],
+                variants: [ "400", "500", "600", "700"],
                 //subsets: ['latin']
                 //text: 'Hello'
                 fontDisplay: "swap",
