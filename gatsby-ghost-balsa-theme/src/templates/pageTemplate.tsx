@@ -68,7 +68,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
       <section className="px-4 max-w-3xl mx-auto">
         <h1
           dangerouslySetInnerHTML={{ __html: ghostPage.title }}
-          className="text-4xl lg:text-5xl font-sansSemibold break-words leading-tight"
+          className="text-4xl lg:text-5xl font-sansBold break-words leading-tight"
         ></h1>
       </section>
       <div className="spacer my-8 lg:my-12"></div>
@@ -83,7 +83,7 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
           </section>
         )}
       {ghostPage.localFeatureImage &&
-        ghostPage.localFeatureImage.extension === "svg" && (
+        !ghostPage.localFeatureImage.childImageSharp && (
           <section className="px-4 container mx-auto max-w-4xl">
             <img
               style={{ maxHeight: "100%" }}
@@ -97,11 +97,11 @@ const PageTemplate: React.FC<IndexPageProps> = ({ data, location }) => {
       {ghostPage.childHtmlRehype && ghostPage.childHtmlRehype.html && (
         <div
           dangerouslySetInnerHTML={{ __html: ghostPage.childHtmlRehype.html }}
-          className="richtext max-w-3xl px-4 mx-auto font-serifNormal text-gray-800"
+          className="prose prose-lg lg:prose-xl max-w-3xl px-4 mx-auto font-serifNormal text-body"
         ></div>
       )}
 
-      <div className="flex items-center max-w-3xl mt-8 lg:mx-auto px-4">
+      <div className="flex items-center max-w-3xl mt-8 mx-auto px-4">
         <span className="mr-2 text-lg text-gray-700">Share:</span>
         <div className="social-icons">
           <ul className="flex">

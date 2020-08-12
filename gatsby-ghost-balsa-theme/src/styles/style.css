@@ -11,9 +11,21 @@
 /* ! purgecss start ignore */
 
 html {
-  @apply text-body;
-  font-family: var(--sans-font);
-  font-weight: var(--sans-font-normal);
+  overflow-x: hidden;
+  font-size: 16px;
+  @apply font-sans;
+  font-weight: var(--font-sansNormal);
+}
+
+body {
+  @apply m-0 p-0 relative text-body break-words;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, ::before, ::after { 
+  @apply border-gray-300;
 }
 
 .font-sansNormal {
@@ -46,9 +58,9 @@ html {
   font-weight: var(--serif-font-normal);
 }
 
-.font-serifMedium {
+.font-serifSemibold {
   font-family: var(--serif-font);
-  font-weight: var(--serif-font-medium);
+  font-weight: var(--serif-font-semibold);
 }
 
 .font-serifBold {
@@ -56,12 +68,16 @@ html {
   font-weight: var(--serif-font-bold);
 }
 
+.font-serifExtrabold {
+  font-family: var(--serif-font);
+  font-weight: var(--serif-font-extrabold);
+}
+
 .fb-comments iframe {
   width: 100% !important;
 }
 
 .prev-next-post {
-  height: 3rem;
   margin: 0 0 1rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;

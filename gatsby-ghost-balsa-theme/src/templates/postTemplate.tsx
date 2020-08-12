@@ -5,7 +5,7 @@ import {
   GhostPostDescription,
   GhostPost,
 } from "../models/post-description.model";
-import CtaMini from "../components/CtaMini";
+import CtaPost from "../components/CtaPost";
 import Img from "gatsby-image";
 import { MetaData } from "../components/meta";
 import Disqus from "../components/disqus";
@@ -80,7 +80,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       <section className="px-4 max-w-3xl mx-auto">
         <h1
           dangerouslySetInnerHTML={{ __html: ghostPost.title }}
-          className="text-4xl lg:text-5xl font-sansSemibold break-words leading-tight"
+          className="text-4xl lg:text-5xl font-sansBold break-words leading-tight"
         ></h1>
         <p className="text-gray-600 break-words my-2 text-sm lg:text-base px-1">
           {ghostPost.published_at}
@@ -112,7 +112,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         )}
 
       {ghostPost.localFeatureImage &&
-        ghostPost.localFeatureImage.extension === "svg" && (
+        !ghostPost.localFeatureImage.childImageSharp && (
           <section className="px-4 container mx-auto max-w-4xl">
             <img
               style={{ maxHeight: "100%" }}
@@ -126,20 +126,21 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
       {ghostPost.childHtmlRehype && ghostPost.childHtmlRehype.html && (
         <div
           dangerouslySetInnerHTML={{ __html: ghostPost.childHtmlRehype.html }}
-          className="richtext max-w-3xl px-4 mx-auto font-serifNormal text-gray-800"
+          className="prose prose-lg lg:prose-xl max-w-3xl px-4 mx-auto font-serifNormal text-body"
         ></div>
       )}
-
+      <CtaPost />
+      <div className="spacer my-8 lg:my-12"></div>
       {ghostPost.tags && ghostPost.tags.length > 0 && (
-        <div className="flex items-center max-w-3xl mt-8 mx-auto flex-wrap px-4">
+        <div className="flex items-center max-w-3xl mx-auto flex-wrap px-4">
           {ghostPost.tags.map((tag, index) => {
             return (
               <div
                 onClick={(e) => handleNavigation(e, `/tag/${tag.slug}`)}
-                className="px-3 py-1 rounded-full mr-3 text-gray-700 cursor-pointer hover:text-white hover:bg-primary bg-gray-300 mb-4"
+                className="px-3 py-1 rounded mr-3 text-gray-700 cursor-pointer hover:text-white hover:bg-primary bg-gray-300 mb-4"
                 key={index}
               >
-                #{tag.name}
+                {tag.name}
               </div>
             );
           })}
@@ -240,7 +241,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         )}
       </div>
       <div className="spacer my-8 lg:my-12"></div>
-      <CtaMini />
+      {/* <CtaMini /> */}
     </Layout>
   );
 };
@@ -254,15 +255,15 @@ export const postDataQuery = graphql`
       title
       excerpt
       slug
-      updated_at(formatString: "MMMM DD YYYY")
-      published_at(formatString: "MMMM DD YYYY")
+      updated_at(formatString: "DD MMMM YYYY")
+      published_at(formatString: "DD MMMM YYYY")
     }
     nextPost: ghostPost(slug: { eq: $next }) {
       title
       excerpt
       slug
-      updated_at(formatString: "MMMM DD YYYY")
-      published_at(formatString: "MMMM DD YYYY")
+      updated_at(formatString: "DD MMMM YYYY")
+      published_at(formatString: "DD MMMM YYYY")
     }
   }
 `;

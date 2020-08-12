@@ -151,6 +151,7 @@ module.exports = {
       "32": "8rem",
       "40": "10rem",
       "48": "12rem",
+      "52": "13rem",
       "56": "14rem",
       "64": "16rem",
     },
@@ -236,10 +237,10 @@ module.exports = {
     },
     fontFamily: {
       body:
-        '"Montserrat", Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-sans, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-      heading: "var(--sans-font)",
-      sans: "var(--sans-font)",
-      serif: "var(--serif-font)",
+        '"var(--sans-font)", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+      heading: '"var(--sans-font)", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+      sans: '"var(--sans-font)", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+      serif: '"var(--serif-font)", Georgia, Cambria, "Times New Roman", Times, serif',
       mono:
         'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
     },
@@ -271,8 +272,9 @@ module.exports = {
       sansBold: "var(--sans-font-bold)",
       serifLight: "var(--serif-font-light)",
       serifNormal: "var(--serif-font-normal)",
-      serifMedium: "var(--serif-font-medium)",
+      serifSemibold: "var(--serif-font-semibold)",
       serifBold: "var(--serif-font-bold)",
+      serifExtrabold: "var(--serif-font-extrabold)",
     },
     height: (theme) => ({
       auto: "auto",
@@ -493,5 +495,7 @@ module.exports = {
     zIndex: ["responsive"],
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };

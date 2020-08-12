@@ -10,7 +10,7 @@ type PaginationProps = {
 const Pagination: React.FC<PaginationProps> = ({ pageContext }) => {
   return (
     <div className="flex justify-center">
-      <ul className="my-8 overflow-hidden inline-flex mx-auto list-reset border border-grey-light rounded">
+      <ul className="my-8 overflow-hidden inline-flex mx-auto list-reset border border-primary rounded">
         {pageContext.previousPagePath && (
           <li>
             <Link

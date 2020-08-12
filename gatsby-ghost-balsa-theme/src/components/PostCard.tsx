@@ -25,7 +25,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
   return (
     <div
       onClick={(e) => handleNavigation(e, `/${post.slug}`)}
-      className="w-full lg:w-1/3 px-4 mb-8 cursor-pointer relative"
+      className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8 cursor-pointer relative"
     >
       {post.featured && (
         <span
@@ -42,24 +42,23 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
       <div className="h-full rounded shadow-md flex flex-col justify-between hover:shadow-2xl">
         <div>
           {post.localFeatureImage &&
-            post.localFeatureImage.childImageSharp &&
-            post.localFeatureImage.extension !== "svg" && (
+            post.localFeatureImage.childImageSharp  && (
               <Img
-                className="mb-4 h-48 w-full object-cover rounded-t"
+                className="mb-4 h-52 lg:h-48 w-full object-cover rounded-t border-b"
                 fluid={post.localFeatureImage.childImageSharp.fluid}
               />
             )}
           {post.localFeatureImage &&
-            post.localFeatureImage.extension === "svg" && (
+            !post.localFeatureImage.childImageSharp && (
               <img
-                className="mb-4 h-48 w-full object-cover rounded-t"
+                className="mb-4 h-52 lg:h-48 w-full object-cover rounded-t border-b"
                 src={post.localFeatureImage.publicURL}
                 alt={post.title}
               />
             )}
           {!post.feature_image && (
             <div
-              className="flex justify-center items-center bg-primary text-white font-sansBold mb-4 h-48 w-full object-cover rounded-t"
+              className="flex justify-center items-center bg-primary text-white font-sansBold mb-4 h-52 lg:h-48 w-full object-cover rounded-t border-b"
               style={{
                 fontSize: "6rem",
               }}
@@ -70,20 +69,24 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
           <div className="px-6">
             <div className="mb-4">
               <p className="text-sm text-gray-600 break-words">
-                {post.published_at}
                 {post.primary_tag && (
                   <>
-                    <span className="mx-2">•</span>
                     <span className="text-gray-600">
                       <a
                         onClick={(e) =>
                           handleNavigation(e, `/tag/${post.primary_tag.slug}`)
                         }
-                        className="no-underline hover:underline mr-2"
+                        className="no-underline hover:underline font-sansSemibold text-primary uppercase tracking-wider"
                       >
-                        #{post.primary_tag.name}
+                        {post.primary_tag.name}
                       </a>
                     </span>
+                    <span className="mx-2">•</span>
+                  </>
+                )}
+                {post.readingTime && (
+                  <>
+                    <span className="text-gray-600">{post.readingTime}</span>
                   </>
                 )}
               </p>
@@ -94,7 +97,7 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
                 dangerouslySetInnerHTML={{ __html: post.title }}
               ></Link></div>
               <p
-                className="text-gray-600 break-words font-serifLight"
+                className="break-words font-serifLight"
                 dangerouslySetInnerHTML={{ __html: excerpt }}
               ></p>
             </div>
@@ -105,13 +108,13 @@ const PostCard: React.FC<PostCardTypes> = ({ post }) => {
             onClick={(e) =>
               handleNavigation(e, `/author/${post.primary_author.slug}`)
             }
-            className="text-gray-600 no-underline hover:underline"
+            className="text-gray-600 no-underline hover:underline text-sm"
           >
-            <small>{post.primary_author.name}</small>
+            <span>{post.primary_author.name}</span>
           </a>
-          {post.readingTime && (
-            <small className="text-gray-600">{post.readingTime}</small>
-          )}
+          <span className="text-gray-600 text-sm">
+            {post.published_at}
+          </span>
         </div>
       </div>
     </div>

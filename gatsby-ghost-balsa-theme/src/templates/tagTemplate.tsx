@@ -7,6 +7,7 @@ import PostCard from "../components/PostCard";
 import Pagination from "../components/Pagination";
 import { MetaData } from "../components/meta";
 import classNames from "classnames";
+import url from "url";
 
 interface GhostTagDescription {
   description: string;
@@ -38,22 +39,22 @@ const TagTemplate: React.FC<TagTemplateProps> = ({
         className="text-center bg-cover bg-center"
         style={{
           backgroundImage: ghostTag.feature_image
-            ? ghostTag.feature_image
-            : "none",
+            ? `url(${ghostTag.feature_image})`
+            : pageContext.coverUrl ? `url(${url.resolve(pageContext.siteUrl, pageContext.coverUrl)})` : "none",
         }}
       >
         <div className="relative flex items-center py-32">
           <div
             className={classNames("absolute inset-0", {
-              "bg-black opacity-70": ghostTag.feature_image,
-              "bg-primaryActive": !ghostTag.feature_image,
+              "bg-black opacity-70": ghostTag.feature_image || pageContext.coverUrl,
+              "bg-primaryActive": !ghostTag.feature_image && !pageContext.coverUrl,
             })}
           />
           <div className="z-10 max-w-2xl mx-auto px-4">
             <span className="text-sm leading-tight font-sansNormal text-white opacity-70 uppercase">
               {ghostTag.postCount} {ghostTag.postCount > 1 ? "posts" : "post"}
             </span>
-            <h1 className="mb-4 mt-2 text-3xl leading-tight font-sansSemibold text-white break-words">
+            <h1 className="mb-4 mt-2 text-3xl leading-tight font-sansBold text-white break-words">
               {ghostTag.name}
             </h1>
             {ghostTag.description && (

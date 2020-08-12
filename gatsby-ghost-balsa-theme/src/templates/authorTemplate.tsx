@@ -7,6 +7,8 @@ import PostCard from "../components/PostCard";
 import Pagination from "../components/Pagination";
 import { AuthorDescription } from "../models/author-description.model";
 import userAvatar from "../images/female_avatar.svg";
+import classNames from "classnames";
+import url from "url";
 
 type AuthorTemplateProps = {
   data: {
@@ -27,10 +29,19 @@ const AuthorTemplate: React.FC<AuthorTemplateProps> = ({
     <Layout>
       <section
         className="text-center bg-cover bg-center"
-        style={{ backgroundColor: "pink" }}
+        style={{
+          backgroundImage: ghostAuthor.cover_image
+            ? `url(${ghostAuthor.cover_image})`
+            : pageContext.coverUrl ? `url(${url.resolve(pageContext.siteUrl, pageContext.coverUrl)})` : "none",
+        }}
       >
         <div className="relative flex items-center py-32">
-          <div className="absolute bg-primaryActive inset-0"></div>
+        <div
+            className={classNames("absolute inset-0", {
+              "bg-black opacity-70": ghostAuthor.cover_image || pageContext.coverUrl,
+              "bg-primaryActive": !ghostAuthor.cover_image && !pageContext.coverUrl,
+            })}
+          />
           <div className="z-10 max-w-2xl mx-auto px-4">
             <img
               className="w-16 mx-auto mb-4 rounded-full"
@@ -41,7 +52,7 @@ const AuthorTemplate: React.FC<AuthorTemplateProps> = ({
               }
               alt=""
             />
-            <h1 className="mb-4 text-3xl leading-tight font-sansSemibold text-white break-words">
+            <h1 className="mb-4 text-3xl leading-tight font-sansBold text-white break-words">
               {ghostAuthor.name}
             </h1>
             {/* <span className="text-lg font-semibold font-sans text-white">

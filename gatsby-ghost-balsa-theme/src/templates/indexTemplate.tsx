@@ -65,7 +65,7 @@ const IndexPage: React.FC<IndexPageProps> = ({
           <div className="z-10 max-w-2xl mx-auto px-4">
             <h1
               dangerouslySetInnerHTML={{ __html: siteTitle }}
-              className="mb-4 text-4xl leading-tight font-sansSemibold text-white break-words"
+              className="mb-4 text-5xl leading-tight font-sansBold text-white break-words"
             ></h1>
             <p
               dangerouslySetInnerHTML={{ __html: siteDescription }}
